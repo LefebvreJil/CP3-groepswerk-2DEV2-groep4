@@ -12,6 +12,14 @@ $routes = array(
     'register' => array(
         'controller' => 'Users',
         'action' => 'register'
+    ),
+    'projects' => array(
+        'controller' => 'Projects',
+        'action' => 'index'
+    ),
+    'whiteboard' => array(
+        'controller' => 'Projects',
+        'action' => 'whiteboard'
     )
 );
 
