@@ -9,7 +9,8 @@
 <body>
 	<?php echo $content; ?>
 	
-	<script src="js/jquery.min.js"></script>
-	<script src="js/script.dist.js"></script>
+	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/modernizr.min.js"></script>
+	<script src="js_dist/script.dist.js"></script>
 </body>
 </html>
