@@ -1,5 +1,5 @@
 <div class="navBar">
-	<a href="" class="backBtn">Ga terug</a>
+	<a href="" class="backBtn">Welkom (insert name here)</a>
 	<a href="" class="addBtn">Add</a>
 	<a href="" class="logoutBtn">Logout</a>
 </div>

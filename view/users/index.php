@@ -3,13 +3,13 @@
 			<h1>Whiteboard</h1>
 		</header>
 	<div class="homeWrap">
-		<section class="loginHome">
+		<section class="homeForm">
 			<header>
 				<h1>Login</h1>
 			</header>
 			<form class="loginForm" action="index.php" method="post">
-	            <input type="email" name="email" placeholder="Email" class="loginForm-item" />
-	            <input type="password" name="password" placeholder="Password" class="loginForm-item" />
+	            <input type="email" name="email" placeholder="Email" class="formItem" />
+	            <input type="password" name="password" placeholder="Password" class="formItem" />
 	            <input type="submit" value="Login" class="loginBtn" />
 	        </form>
 		</section>
