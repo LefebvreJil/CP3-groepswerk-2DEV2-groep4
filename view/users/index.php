@@ -1,6 +1,6 @@
 <section class="home">
 		<header class="titel">
-			<h1>Whiteboard</h1>
+			<h1><a href="index.php">Whiteboard</a></h1>
 		</header>
 	<div class="homeWrap">
 		<section class="homeForm">

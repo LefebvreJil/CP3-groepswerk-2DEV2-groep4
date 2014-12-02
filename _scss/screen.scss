@@ -2,6 +2,7 @@
 
 body{
 	background-color: $bgColor;
+	font-family: helveticaNeue, sans-serif;
 }
 
 .home{
@@ -11,16 +12,25 @@ body{
 	.titel{	
 		h1{
 			font-family: BigNoodleTitling, sans-serif;
-			color: $loginColor;
 			font-size: 5.8em;
 			text-align: center;
+			a{
+				&:link{
+					color: $loginColor;
+				}
+				&:hover{
+					color: #FFFFFF;
+			}
+				&:visited{
+					color: $loginColor;
+				}
+			}
 		}
 	}
 
 	.homeWrap{
 		background-color: $loginColor;
 		width: 300px;
-		height: 350px;
 		padding: 20px;
 		@include prefix(border-radius, 2px);
 		@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
@@ -38,14 +48,49 @@ body{
 		width: 250px;
 		height: 20px;
 		padding: 5px;
-		margin: 10px 0 5px 18px;
+		margin: 10px 0 7px 18px;
+		border: none;
+		background-color: $bgColor;
+		box-shadow: inset 0px 0px 11px 0px rgba(50,50,50,0.25);
+
+		//Werkt nog niet voor alle browsers
+		&::-webkit-input-placeholder{
+			color: #969696;
+		}
+		&:focus{
+			outline-color: $loginColor;
+			background-color: #FFFFFF;
+		}
 	}
-	.loginBtn{
+	.formInput{
+		margin: 10px 0 7px 18px;
+	}
+
+	//Kan de hoogte niet aanpassen
+	.loginBtn,
+	.registerBtn{
 		width: 100px;
 		height: 20px;
 		padding: 5px;
 		margin: 10px 0 5px 18px;
 		border-radius: 0px;
+		display: block;
+	}
+	.formTextarea{
+		resize: none;
+		padding: 5px;
+		margin: 10px 0 5px 18px;
+		border: none;
+		background-color: $bgColor;
+		box-shadow: inset 0px 0px 11px 0px rgba(50,50,50,0.25);
+		&::-webkit-input-placeholder{
+			color: #969696;
+		}
+	}
+	label{
+		color: $tussenTitelColor;
+		margin: 10px 0 5px 18px;
+		font-size: 0.8em;
 	}
 }
 
@@ -60,13 +105,18 @@ body{
 		display: block;
 		text-align: center;
 		width: 260px;
-		height: 50px;
+		height: 40px;
+		padding-top: 10px;
 		margin: 10px 0 5px 18px;
 		background-color: #FFFFFF;
 		border: none;
 		font-size: 1.8em;
 		font-family: BigNoodleTitling, sans-serif;
 		text-decoration: none;
+
+		&:visited{
+			color: $loginColor;
+		}
 	}
 }
 
