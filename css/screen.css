@@ -256,7 +256,10 @@ body {
   height: 10px;
   padding: 10px 0 10px 0;
 }
-.navBar a {
+.navBar p {
+  display: inline-block;
+}
+.navBar a, .navBar p {
   text-decoration: none;
   font-family: BigNoodleTitling, sans-serif;
   font-size: 1.4em;
@@ -265,7 +268,7 @@ body {
   margin-left: 40px;
 }
 .navBar .addBtn {
-  margin-left: 40%;
+  margin-left: 30%;
   text-align: center;
 }
 .navBar .logoutBtn {

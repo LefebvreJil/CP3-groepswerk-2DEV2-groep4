@@ -1,7 +1,7 @@
 <div class="navBar">
-	<a href="" class="backBtn">Welkom (insert name here)</a>
+	<p class="backBtn">Welkom (insert name here)</p>
 	<a href="" class="addBtn">Add</a>
-	<a href="" class="logoutBtn">Logout</a>
+	<a href="index.php?page=logout" class="logoutBtn">Logout</a>
 </div>
 <div class="wrapper">
 	<section class="projectPannel">
