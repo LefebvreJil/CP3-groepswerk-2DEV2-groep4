@@ -6,7 +6,7 @@
 	}
 
 	function users(){
-		console.log("[Users.js] Hello world");
+		console.log("[Users.js] Hello Gilliepielietje");
 
 		//submit knop selecteren
 		$('#knopje').on('click', submit_clickHandler);
@@ -25,9 +25,6 @@
 			'email': $('#registerEmail').val()
 		};
 
-			//hashen??
-			//'paswoord' => $hasher->hashPassword($_POST['registerPaswoord']),
-			//'password': $('#password').val(),
 
 			//foto toevoegen
 			var imageInput = document.querySelector("input[name=image]");
@@ -62,10 +59,6 @@
                                 }
                         }
                 });
-
-			//'pic': $('#pic_titel').val(),
-			//'extensie': 'jpg',
-		
 
 		//BIJ INDIENEN URL NOG JUIST ZETTEN
 		var saveUserAJAX = $.post('//localhost/CP3_groepswerk/index.php', inputData);
