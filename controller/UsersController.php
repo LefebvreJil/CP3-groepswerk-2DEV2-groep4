@@ -21,7 +21,6 @@ class UsersController extends Controller {
 
 	public function register() {
 		if(!empty($_POST)){
-			var_dump($_POST);
 			$this->_handleRegister();
 
 			//iets willen sturen naar JS (nog testen)

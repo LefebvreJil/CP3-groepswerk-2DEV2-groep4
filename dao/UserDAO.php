@@ -30,7 +30,7 @@ class UserDAO extends DAO {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
 			$sql = "INSERT INTO `w_users` (`vn`, `an`,`nickname`,`email`,`pic`, `extensie`,`kwaliteiten`,`beroep`,`password`) 
-			VALUES (:vn, :an, :nickname, :email, :pic, :extensie, :kwaliteiten, :beroep, :wachtwoord)";
+			VALUES (:vn, :an, :nickname, :email, :pic, :extensie, :kwaliteiten, :beroep, :paswoord)";
 
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':vn', $data['vn']);
@@ -41,7 +41,7 @@ class UserDAO extends DAO {
 			$stmt->bindValue(':extensie', $data['extensie']);
 			$stmt->bindValue(':kwaliteiten', $data['kwaliteiten']);
 			$stmt->bindValue(':beroep', $data['beroep']);
-			$stmt->bindValue(':wachtwoord', $data['wachtwoord']);
+			$stmt->bindValue(':paswoord', $data['paswoord']);
 
 			if($stmt->execute()) {
 				$insertedId = $this->pdo->lastInsertId();
@@ -59,7 +59,7 @@ class UserDAO extends DAO {
 		if(empty($data['email'])) { $errors['email'] = "Gelieve uw email in te vullen"; }
 		if(empty($data['kwaliteiten'])) { $errors['kwaliteiten'] = "Gelieve uw kwaliteiten in te vullen"; }
 		if(empty($data['beroep'])) { $errors['beroep'] = "Gelieve uw beroep in te vullen"; }
-		if(empty($data['wachtwoord'])) { $errors['wachtwoord'] = "Gelieve uw wachtwoord in te vullen"; }
+		if(empty($data['paswoord'])) { $errors['paswoord'] = "Gelieve uw wachtwoord in te vullen"; }
 		if(empty($data['pic'])) { $errors['pic'] = "Gelieve een foto up te loaden"; }
 		return $errors;
 	}
