@@ -43,18 +43,18 @@
 				<span class="error-message<?php if(empty($errors['qualities'])) echo ' hidden';?>" data-for="qualities"><?php
 	                if(!empty($errors['qualities'])) echo $errors['qualities'];
                 ?></span>
-	            <textarea name="qualities" cols="47" rows="5" placeholder="Beschrijf hier uw kwaliteiten." class=" <?php if(!empty($errors['qualities'])) echo ' has-error'; ?>" value="<?php if(!empty($_POST['qualities'])) echo $_POST['qualities'];?>"></textarea>
+	            <textarea name="qualities" cols="47" rows="5" placeholder="Beschrijf hier uw kwaliteiten." class="formTextarea <?php if(!empty($errors['qualities'])) echo ' has-error'; ?>" value="<?php if(!empty($_POST['qualities'])) echo $_POST['qualities'];?>"></textarea>
 	            
 				<span class="error-message<?php if(empty($errors['job'])) echo ' hidden';?>" data-for="job"><?php
 	                if(!empty($errors['job'])) echo $errors['job'];
                 ?></span>
 	            <input type="text" name="job" placeholder="Beroep/studierichting" class="formItem <?php if(!empty($errors['job'])) echo ' has-error'; ?>" value="<?php if(!empty($_POST['job'])) echo $_POST['job'];?>"/>
 	            
+	            <label for="image">Kies uw profielfoto</label>
 				<span class="error-message<?php if(empty($errors['image'])) echo ' hidden';?>" data-for="image"><?php
 	                if(!empty($errors['image'])) echo $errors['image'];
                 ?></span>
-	            <input type="file" name="image" class=" <?php if(!empty($errors['image'])) echo ' has-error'; ?>" />	       
-	            
+	            <input type="file" name="image" class="formItem <?php if(!empty($errors['image'])) echo ' has-error'; ?>" />
 
 	            <input type="submit" value="Registreer" class="registerBtn" />
 

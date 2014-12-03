@@ -3,14 +3,14 @@ require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
 
 class UserDAO extends DAO {
 	public function selectAll() {
-		$sql = "SELECT * FROM `wboard_users`";
+		$sql = "SELECT * FROM `w_users`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function selectById($id) {
-		$sql = "SELECT * FROM `wboard_users` WHERE `id` = :id";
+		$sql = "SELECT * FROM `w_users` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -18,7 +18,7 @@ class UserDAO extends DAO {
 	}
 
 	public function selectByEmail($email) {
-		$sql = "SELECT * FROM `wboard_users` WHERE `email` = :email";
+		$sql = "SELECT * FROM `w_users` WHERE `email` = :email";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':email', $email);
 		$stmt->execute();
@@ -29,7 +29,7 @@ class UserDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `wboard_users` (`vn`, `an`,`nickname`,`email`,`pic`, `extensie`,`kwaliteiten`,`beroep`,`password`) 
+			$sql = "INSERT INTO `w_users` (`vn`, `an`,`nickname`,`email`,`pic`, `extensie`,`kwaliteiten`,`beroep`,`password`) 
 			VALUES (:vn, :an, :nickname, :email, :pic, :extensie, :kwaliteiten, :beroep, :wachtwoord)";
 
 			$stmt = $this->pdo->prepare($sql);
