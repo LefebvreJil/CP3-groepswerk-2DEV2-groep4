@@ -6,7 +6,7 @@
 	}
 
 	function users(){
-		console.log("[Users.js] Hello Gilliepielietje");
+		console.log("[Users.js] Hello Jilipilletje");
 
 		//submit knop selecteren
 		$('#knopje').on('click', submit_clickHandler);
