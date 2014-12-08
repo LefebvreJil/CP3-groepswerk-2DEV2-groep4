@@ -1,16 +1,16 @@
 <?php
 require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
 
-class ProjectDAO extends DAO {
+class SessionDAO extends DAO {
 	public function selectAll() {
-		$sql = "SELECT * FROM `w_projects`";
+		$sql = "SELECT * FROM `w_sessions`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function selectById($id) {
-		$sql = "SELECT * FROM `w_projects` WHERE `id` = :id";
+		$sql = "SELECT * FROM `w_sessions` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
@@ -18,11 +18,11 @@ class ProjectDAO extends DAO {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO `w_projects` (`name`, `date_added`) 
-		VALUES (:name, :date_added)";
+		$sql = "INSERT INTO `w_sessions` (`project_id`, `date_added`) 
+		VALUES (:project_id, :date_added)";
 
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':name', $data['name']);
+		$stmt->bindValue(':project_id', $data['project_id']);
 		$stmt->bindValue(':date_added', date('Y-m-d H:i:s'));
 
 		if($stmt->execute()) {

@@ -193,7 +193,9 @@ body{
 		width: 280px;
 		height: 280px;
 		margin: 30px auto;
-		border: 2px solid #FFFFFF;
+		color: $bgColor;
+		text-decoration: none;
+		background-image: url('../assets/img/addProject.png');
 	}
 }
 
@@ -221,6 +223,14 @@ body{
 		height: 200px;
 		border: 1px solid #FFFFFF;
 		margin: 10px auto;
+	}
+	.addSession{
+		width: 20px;
+		height: 20px;
+		display: block;
+		background-image: url('../assets/img/addProject.png');
+		background-size: 20px 20px;
+		background-repeat: no-repeat;
 	}
 }
 

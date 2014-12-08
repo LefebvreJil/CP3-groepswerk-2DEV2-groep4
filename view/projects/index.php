@@ -29,7 +29,7 @@
 						Sessie 2
 						<a href="">Ga naar sessie</a>
 					</li>
-					<a href="" class="addSession">Add session</a>
+					<a href="index.php?page=addSession" class="addSession"></a>
 				</ul>
 			</section>
 		</li>
@@ -44,7 +44,7 @@
 						Sessie 1
 						<a href="">Ga naar sessie</a>
 					</li>
-					<a href="" class="addSession">Add session</a>
+					<a href="index.php?page=addSession" class="addSession"></a>
 				</ul>
 			</section>
 		</li>
