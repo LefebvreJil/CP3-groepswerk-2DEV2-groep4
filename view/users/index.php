@@ -2,6 +2,13 @@
 		<header class="titel">
 			<h1><a href="index.php">Whiteboard</a></h1>
 		</header>
+		<div id="session_messages">
+		    <?php if(!empty($_SESSION['info'])): ?><div class="success"><?php echo $_SESSION['info'];?></div><?php endif; ?>
+		    <?php if(!empty($_SESSION['error'])): ?><div class="error"><?php echo $_SESSION['error'];?></div><?php endif; ?>
+		<!--HIER EEN TRANSITIE PLAATSEN!-->
+
+		<div <?php if(empty($_SESSION['info'])): ?>class="hidden"<?php endif; ?>><?php if(!empty($_SESSION['info'])):?> <p class="succes"><?php echo $_SESSION['info'];  ?></p><?php endif; ?> </div>
+		</div>
 	<div class="homeWrap">
 		<section class="homeForm">
 			<header>

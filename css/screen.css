@@ -59,6 +59,23 @@ body {
   font-family: helveticaNeue, sans-serif;
 }
 
+#session_messages {
+  transition: 1s;
+}
+#session_messages div {
+  transition: 1s;
+}
+
+.succes, .error {
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  font-size: 0.9em;
+  padding: 4px;
+  width: 300px;
+  margin-left: 18px;
+  transition: 1s ease;
+}
+
 .home {
   width: 300px;
   margin: 50px auto 0;
@@ -142,6 +159,23 @@ body {
   color: #F1F1F1;
   margin: 10px 0 5px 18px;
   font-size: 0.8em;
+}
+.homeForm .error-message {
+  font-size: 0.7em;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  padding: 3px;
+  margin-right: 18px;
+  clear: both;
+  float: right;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.homeForm .hidden {
+  display: none;
 }
 
 .registerHome h1 {
