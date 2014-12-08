@@ -17,6 +17,10 @@ $routes = array(
         'controller' => 'Projects',
         'action' => 'index'
     ),
+    'addProject' => array(
+        'controller' => 'Projects',
+        'action' => 'addProject'
+    ),
     'whiteboard' => array(
         'controller' => 'Projects',
         'action' => 'whiteboard'
