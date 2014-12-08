@@ -1,0 +1,29 @@
+.navBar{
+	width: 100%;
+	height: 10px;
+	padding: 10px 0 10px 0;
+
+	p{
+		display: inline-block;
+	}
+
+	a,p{
+		text-decoration: none;
+		font-family: BigNoodleTitling, sans-serif;
+		font-size: 1.4em;
+	}
+
+	.backBtn{
+		margin-left: 40px;
+	}
+
+	.addBtn{
+		margin-left: 30%;
+		text-align: center;
+	}
+
+	.logoutBtn{
+		float: right;
+		margin-right: 40px;
+	}
+}

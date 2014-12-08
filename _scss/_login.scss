@@ -1,0 +1,101 @@
+.home{
+	width: 300px;
+	margin: 50px auto 0;
+
+	.titel{	
+		h1{
+			font-family: BigNoodleTitling, sans-serif;
+			font-size: 5.8em;
+			text-align: center;
+			a{
+				&:link{
+					color: $loginColor;
+				}
+				&:hover{
+					color: #FFFFFF;
+			}
+				&:visited{
+					color: $loginColor;
+				}
+			}
+		}
+	}
+
+	.homeWrap{
+		background-color: $loginColor;
+		width: 300px;
+		padding: 20px;
+		@include prefix(border-radius, 2px);
+		@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+	}
+}
+
+.homeForm{
+	h1{
+		color: $tussenTitelColor;
+		font-size: 2.2em;
+		font-family: BigNoodleTitling, sans-serif;
+		margin: 0 0 10px 0;
+	}
+	.formItem{
+		width: 250px;
+		height: 20px;
+		padding: 5px;
+		margin: 10px 0 7px 18px;
+		border: none;
+		background-color: $bgColor;
+		box-shadow: inset 0px 0px 11px 0px rgba(50,50,50,0.25);
+
+		//Werkt nog niet voor alle browsers
+		&::-webkit-input-placeholder{
+			color: #969696;
+		}
+		&:focus{
+			outline-color: $loginColor;
+			background-color: #FFFFFF;
+		}
+	}
+	.formInput{
+		margin: 10px 0 7px 18px;
+	}
+
+	//Kan de hoogte niet aanpassen
+	.loginBtn,
+	.registerBtn{
+		width: 100px;
+		height: 20px;
+		padding: 5px;
+		margin: 10px 0 5px 18px;
+		border-radius: 0px;
+		display: block;
+	}
+	.formTextarea{
+		resize: none;
+		padding: 5px;
+		margin: 10px 0 5px 18px;
+		border: none;
+		background-color: $bgColor;
+		box-shadow: inset 0px 0px 11px 0px rgba(50,50,50,0.25);
+		&::-webkit-input-placeholder{
+			color: #969696;
+		}
+	}
+	label{
+		color: $tussenTitelColor;
+		margin: 10px 0 5px 18px;
+		font-size: 0.8em;
+	}
+	.error-message{
+		font-size: 0.7em;
+		background: rgba(0,0,0,0.5);
+		color: #FFFFFF;
+		padding: 3px;
+		margin-right: 18px;
+		clear: both;
+		float: right;
+		@include prefix(border-radius, 2px);
+	}
+	.hidden{
+		display: none;
+	}
+}

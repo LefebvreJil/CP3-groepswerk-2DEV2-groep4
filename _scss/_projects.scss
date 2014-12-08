@@ -1,0 +1,81 @@
+.wrapper{
+	width: 95%;
+	margin: 20px auto;
+	overflow: auto;
+}
+
+.projectPannel{
+	width: 310px;
+	height: 660px;
+	padding: 20px;
+	margin-right: 10px;
+	background-color: $loginColor;
+	float: left;
+	@include prefix(border-radius, 2px);
+	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+
+	h1{
+		font-family: BigNoodleTitling, sans-serif;
+		color: #FFFFFF;
+		font-size: 3.3em;
+		margin: 10px 0 30px 0;
+		border-bottom: 1px solid #FFFFFF;
+		padding-bottom: 10px;
+
+		span{
+			font-size: 0.6em;
+		}
+	}
+
+	.intro{
+		font-family: helveticaNeue, sans-serif;
+		color: #FFFFFF;
+		font-weight: lighter;
+		font-size: 0.8em;
+	}
+
+	.addProject{
+		display: block;
+		width: 280px;
+		height: 280px;
+		margin: 30px auto;
+		color: $bgColor;
+		text-decoration: none;
+		background-image: url('../assets/img/addProject.png');
+	}
+}
+
+.projectItem{
+	width: 280px;
+	padding: 15px;
+	float: left;
+	margin: 0 10px 0 0;
+	background-color: $loginColor;
+	@include prefix(border-radius, 2px);
+	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+
+	h1{
+		color: $tussenTitelColor;
+		font-size: 2.2em;
+		font-family: BigNoodleTitling, sans-serif;
+		margin: 0 0 10px 0;
+	}
+	.tussenTitel{
+		font-family: helveticaNeue, sans-serif;
+		color: $tussenTitelColor;
+	}
+	.projectSession{
+		width: 250px;
+		height: 200px;
+		border: 1px solid #FFFFFF;
+		margin: 10px auto;
+	}
+	.addSession{
+		width: 20px;
+		height: 20px;
+		display: block;
+		background-image: url('../assets/img/addProject.png');
+		background-size: 20px 20px;
+		background-repeat: no-repeat;
+	}
+}
