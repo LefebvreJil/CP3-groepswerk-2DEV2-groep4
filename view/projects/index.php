@@ -13,40 +13,9 @@
 		</p>
 		<a href="index.php?page=addProject" class="addProject">Add project</a>
 	</section>
-	<ul class="projectList">
-		<li class="projectItem">
-			<section class="project">
-				<header>
-					<h1>Mooi zo.</h1>
-				</header>
-				<p class="tussenTitel">Sessie's:</p>
-				<ul class="sessionList">
-					<li class="projectSession">
-						Sessie 1
-						<a href="">Ga naar sessie</a>
-					</li>
-					<li class="projectSession">
-						Sessie 2
-						<a href="">Ga naar sessie</a>
-					</li>
-					<a href="index.php?page=addSession" class="addSession"></a>
-				</ul>
-			</section>
-		</li>
-		<li class="projectItem">
-			<section class="project">
-				<header>
-					<h1>Niet mooi zo.</h1>
-				</header>
-				<p class="tussenTitel">Sessie's:</p>
-				<ul class="sessionList">
-					<li class="projectSession">
-						Sessie 1
-						<a href="">Ga naar sessie</a>
-					</li>
-					<a href="index.php?page=addSession" class="addSession"></a>
-				</ul>
-			</section>
-		</li>
-	</ul>
+
+	<section>
+		<ul class="projectList">
+		</ul>
+	</section>
 </div>

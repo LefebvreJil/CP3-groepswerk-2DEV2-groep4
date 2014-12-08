@@ -1,39 +1,15 @@
 (function(){
 	
 	function init() {
-		console.log("[Users.js] Hello Jilipilletje");
-		registratieValidatie();
-		
-	}
+		console.log("[Script.js] Een goede en productieve dag gewenst aan Jil");
 
-	function registratieValidatie (){
-		//foto toevoegen
-		var imageInput = document.querySelector("input[name=image]");
-            var errorElement = imageInput.parentNode.querySelector(".error-message");
-            imageInput.addEventListener("change", function(e){
-                errorElement.style.display="none";
-                var img=imageInput.parentNode.querySelector("img");
-                if(img){ imageInput.parentNode.removeChild(img);}
-                if(imageInput.files.length>0){
-                    var file = imageInput.files['0'];
-                    var error = "";
-                    if(file.type.search("image") !==0){
-                            errorElement.innerText = "the selected file is not an image";
-                            errorElement.style.display = "block";
-                    }else{
-                        var reader = new FileReader();
-                        reader.onload = function(e){
-                            var img = document.createElement("img");
-                            img.onload=function(e){imageInput.parentNode.appendChild(img);};
-                            img.setAttribute("src", reader.result);
-                        };
-                        reader.readAsDataURL(file);
-                    }
-                }
-            });
+        //template selecteren
+        var tpl = Handlebars.compile($('#project-template').html());
+        var projectIndex = require('./classes/projectIndex.js');
+        new projectIndex(tpl);
 
-
-		//Fancy validatie
+        var validatie = require('./classes/validatie.js');
+        new validatie();
 		
 	}
 

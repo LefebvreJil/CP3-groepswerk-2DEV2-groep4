@@ -15,6 +15,13 @@ class ProjectsController extends Controller {
 	}
 
 	public function index() {
+	  	$projects = $this->projectDAO->selectAll();
+	    $this->set('projects', $projects);
+
+	    //stuur terug via json
+	    header('Content-Type: application/json');
+	    echo json_encode($projects);
+	    die();
 	
 	}
 
