@@ -16,7 +16,6 @@
 	</section>
 
 	<section>
-		<ul class="projectList">
-		</ul>
+		<ul class="projectList"></ul>
 	</section>
 </div>

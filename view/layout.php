@@ -10,19 +10,19 @@
 	<?php echo $content; ?>
 
 	<script type="text/template" id="project-template">
-		    {{#each .project}}
+		    {{#each .}}
 		    
 				<li class="projectItem">
 					<article class="project">
 		        		<header>
-				          <h1>{{titel}}</h1>
+				          <h1>{{name}}</h1>
 				        </header>
 			        	<h2 class="tussenTitel">Sessies:</h2>
 
 			        	<ul class="sessionList">
-			        		{{#each .sessie}}
+			        		{{#each .}}
 				        		<li class="projectSession">
-				        			<h1>{{titel}}</h1>
+				        			<h1>{{name}}</h1>
 				        			<a href={{"url"}}>Ga naar sessie</a>
 				        		</li>
 			        		{{/each}}
@@ -35,8 +35,9 @@
 		    {{/each}}
 	</script>
 	
-	<script src="js/vendor/handlebars.min.js"></script>
+	
 	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/handlebars.min.js"></script>
 	<script src="js/vendor/modernizr.min.js"></script>
 	<script src="js_dist/script.dist.js"></script>
 </body>
