@@ -65,9 +65,19 @@
 
 	}
 
+    function moveWhiteboardOnClick(){
+        $(document).ready(function(){
+            $('.addBtn').click(function(){
+                    event.preventDefault();
+                    $('.whiteboard').toggle('moveWBoard');
+                });
+                console.log('hallo');
+            });
+    }
+
         /*function addImageClickhandler () {
                 console.log("clicky");
         }*/
-
+    moveWhiteboardOnClick();
 	init();
 })();
