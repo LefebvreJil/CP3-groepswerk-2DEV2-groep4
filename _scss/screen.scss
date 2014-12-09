@@ -26,3 +26,12 @@ body{
 	margin-left: 18px;
 	transition: 1s ease;
 }
+
+.block{
+	width: 100px;
+	height: 100px;
+	background-color: #ff0000;
+	position: absolute;
+	border-radius: 50%;
+	box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+}
