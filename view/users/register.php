@@ -90,16 +90,12 @@
 				</div>
 
 				<div>
-					<span class="error-message<?php if(empty($errors['qualities'])) echo ' hidden';?>" 
-					data-for="qualities">
-					Gelieve je kwaliteiten in te vullen, we geloven in jou!</span>
-	            	
 	            	<textarea name="qualities" 
 	            	cols="47" 
 	            	rows="5" 
 	            	placeholder="Beschrijf hier uw kwaliteiten." 
 	            	tabindex="7" 
-	            	class="formTextarea <?php if(!empty($errors['qualities'])) echo ' has-error'; ?>" 
+	            	class="formTextarea" 
 	            	value="<?php if(!empty($_POST['qualities'])) echo $_POST['qualities'];?>">
 	            	</textarea>
 				</div>
