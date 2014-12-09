@@ -6,6 +6,7 @@
 	background-color: $loginColor;
 	@include prefix(border-radius, 3px);
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.10));
+	z-index: -1;
 
 
 	li{
