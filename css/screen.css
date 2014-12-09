@@ -179,27 +179,27 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #D64343;
 }
 
-.navBar, .wNav {
+.navBar {
   width: 100%;
   height: 10px;
   padding: 10px 0 10px 0;
 }
-.navBar p, .wNav p {
+.navBar p {
   display: inline-block;
 }
-.navBar a, .navBar p, .wNav a, .wNav p {
+.navBar a, .navBar p {
   text-decoration: none;
   font-family: BigNoodleTitling, sans-serif;
   font-size: 1.4em;
 }
-.navBar .backBtn, .wNav .backBtn {
+.navBar .backBtn {
   margin-left: 40px;
 }
-.navBar .addBtn, .wNav .addBtn {
+.navBar .addBtn {
   margin-left: 30%;
   text-align: center;
 }
-.navBar .logoutBtn, .wNav .logoutBtn {
+.navBar .logoutBtn {
   float: right;
   margin-right: 40px;
 }
@@ -207,7 +207,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .wrapper {
   width: 95%;
   margin: 20px auto;
-  overflow: auto;
 }
 
 .projectPannel {
@@ -301,25 +300,65 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .addObject {
-  width: 95%;
+  width: 780px;
   height: 50px;
   margin: 20px auto;
-  overflow: auto;
 }
 .addObject li {
+  margin-right: 120px;
   float: left;
+  justify-content: space-around;
+}
+.addObject li a {
+  text-decoration: none;
+}
+.addObject .lastLi {
+  margin-right: 0px;
 }
 
 .whiteboard {
-  width: 96%;
+  width: 1200px;
   margin: 0 auto;
   height: 800px;
-  background-color: #D64343;
+  background-color: white;
   -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+}
+
+.wNav {
+  width: 1200px;
+  height: 10px;
+  padding: 10px 0 10px 30px;
+  margin: 0 auto;
+}
+.wNav p {
+  display: inline-block;
+}
+.wNav a, .wNav h1 {
+  text-decoration: none;
+  font-family: BigNoodleTitling, sans-serif;
+  font-size: 1.4em;
+}
+.wNav li {
+  float: left;
+  margin-right: 309px;
+}
+.wNav .lastLi {
+  margin-right: 0px;
+}
+.wNav .backBtn {
+  margin-left: 40px;
+}
+.wNav .addBtn {
+  margin-left: 30%;
+  text-align: center;
+}
+.wNav .logoutBtn {
+  float: right;
+  margin-right: 40px;
 }
 
 body {
