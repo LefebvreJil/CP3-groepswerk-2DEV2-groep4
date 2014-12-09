@@ -24,11 +24,11 @@
                 }
 
                 //img class toevoegen
-                var img = require('./classes/img.js');
+                var Img = require('./classes/img.js');
                 document.getElementById('addImage').onclick = function(event) {
                         event.preventDefault();
                         console.log("click");
-                        new img();
+                        new Img();
                 };
 
                 //video class toevoegen
