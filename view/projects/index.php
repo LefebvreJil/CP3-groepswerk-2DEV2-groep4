@@ -1,6 +1,5 @@
 <div class="navBar">
 	<a href="" class="backBtn">Welkom <?php echo $_SESSION['user']['nickname']; ?></a>
-	<a href="" class="addBtn">Add</a>
 	<a href="index.php?page=logout" class="logoutBtn">Logout</a>
 </div>
 

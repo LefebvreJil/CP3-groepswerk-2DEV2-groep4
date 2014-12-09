@@ -300,6 +300,28 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-repeat: no-repeat;
 }
 
+.addObject {
+  width: 95%;
+  height: 50px;
+  margin: 20px auto;
+  overflow: auto;
+}
+.addObject li {
+  float: left;
+}
+
+.whiteboard {
+  width: 96%;
+  margin: 0 auto;
+  height: 800px;
+  background-color: #D64343;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+}
+
 body {
   background-color: #F1F1F1;
   font-family: helveticaNeue, sans-serif;
