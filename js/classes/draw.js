@@ -1,12 +1,12 @@
 module.exports = (function(){
 
-	function draw() {
-		console.log("[draw] Hello Jil");
+	function Draw() {
+		console.log("[Draw] Hello Jil");
 	}
 
-	/*draw.prototype.clickHandler = function(event){
+	/*Draw.prototype.clickHandler = function(event){
 		//event.preventDefault();
 	}*/
 
-	return draw;
+	return Draw;
 })();

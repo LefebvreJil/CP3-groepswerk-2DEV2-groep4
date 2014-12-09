@@ -48,19 +48,19 @@
                 };
 
                 //todo class toevoegen
-                var todo = require('./classes/todo.js');
+                var Todo = require('./classes/todo.js');
                 document.getElementById('addTodo').onclick = function(event) {
                         event.preventDefault();
                         console.log("click");
-                        new todo();
+                        new Todo();
                 };
 
                 //draw class toevoegen
-                var draw = require('./classes/draw.js');
+                var Draw = require('./classes/draw.js');
                 document.getElementById('draw').onclick = function(event) {
                         event.preventDefault();
                         console.log("click");
-                        new draw();
+                        new Draw();
                 };
 
 	}

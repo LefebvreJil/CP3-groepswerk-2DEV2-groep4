@@ -1,12 +1,12 @@
 module.exports = (function(){
 
-	function todo() {
-		console.log("[todo] Hello Jil");
+	function Todo() {
+		console.log("[Todo] Hello Jil");
 	}
 
-	/*todo.prototype.clickHandler = function(event){
+	/*Todo.prototype.clickHandler = function(event){
 		//event.preventDefault();
 	}*/
 
-	return todo;
+	return Todo;
 })();
