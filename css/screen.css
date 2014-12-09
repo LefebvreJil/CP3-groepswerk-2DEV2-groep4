@@ -191,6 +191,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-decoration: none;
   font-family: BigNoodleTitling, sans-serif;
   font-size: 1.4em;
+  color: black;
 }
 .navBar .backBtn {
   margin-left: 40px;
@@ -301,16 +302,32 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .addObject {
   width: 780px;
-  height: 50px;
+  height: 20px;
+  padding: 10px;
   margin: 20px auto;
+  background-color: #D64343;
+  -webkit-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
+  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
+  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
+  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
 }
 .addObject li {
   margin-right: 120px;
   float: left;
-  justify-content: space-around;
 }
 .addObject li a {
   text-decoration: none;
+  color: white;
+  transition: color 0.2s ease;
+}
+.addObject li a:hover {
+  color: black;
 }
 .addObject .lastLi {
   margin-right: 0px;
@@ -318,9 +335,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .whiteboard {
   width: 1200px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   height: 800px;
   background-color: white;
+  -webkit-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
   -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
@@ -341,6 +363,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-decoration: none;
   font-family: BigNoodleTitling, sans-serif;
   font-size: 1.4em;
+  color: black;
 }
 .wNav li {
   float: left;
@@ -359,6 +382,18 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .wNav .logoutBtn {
   float: right;
   margin-right: 40px;
+}
+
+.end {
+  width: 265px;
+  text-decoration: none;
+  margin: 0 auto;
+  display: block;
+  color: rgba(50, 50, 50, 0.5);
+  transition: color 0.2s ease;
+}
+.end:hover {
+  color: #323232;
 }
 
 body {
