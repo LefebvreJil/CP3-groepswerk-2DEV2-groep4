@@ -17,7 +17,7 @@
                 	new validatie(loginForm, registerForm);
                 }
 
-                if(loginForm){
+                if(loginForm){   
                 	console.log("Login page");
                 	registerForm = 0;
                 	new validatie(loginForm, registerForm);
