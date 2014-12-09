@@ -14,10 +14,10 @@
 			<header>
 				<h1>Login</h1>
 			</header>
-			<form class="loginForm" action="index.php" method="post">
-	            <input type="email" name="email" placeholder="Email" class="formItem" />
-	            <input type="password" name="password" placeholder="Password" class="formItem" />
-	            <input type="submit" value="Login" class="loginBtn" />
+			<form id="loginForm" class="loginForm" action="index.php" method="post">
+	            <input type="email" name="email" placeholder="Email" tabindex="1" class="formItem" />
+	            <input type="password" name="password" placeholder="Password" tabindex="2" class="formItem" />
+	            <input type="submit" value="Login" tabindex="3"  class="loginBtn" />
 	        </form>
 		</section>
 		<section class="registerHome">

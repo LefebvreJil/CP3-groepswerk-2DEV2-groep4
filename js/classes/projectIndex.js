@@ -1,9 +1,9 @@
 module.exports = (function(){
 
 	function projectIndex(tpl) {
-		console.log("[projectIndex]");
+		//console.log("[projectIndex]");
 
-		console.log(this);
+		//console.log(this);
 		
 
 		//$.get( "index.php?page=projects", function( projects ) {
