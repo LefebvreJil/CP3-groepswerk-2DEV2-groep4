@@ -4,10 +4,10 @@ module.exports = (function(){
 
 	function validatie(loginForm, registerForm){
         //console.log("[validatie]");
-        if(loginForm!=0){
+        if(loginForm!==0){
     		loginValidatie(loginForm);
         }
-        if(registerForm!=0){
+        if(registerForm!==0){
             
             registratieValidatie(registerForm);
         }
