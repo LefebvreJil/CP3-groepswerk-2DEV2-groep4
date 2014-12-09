@@ -419,11 +419,38 @@ body {
   transition: 1s ease;
 }
 
-.block {
+.img_vervangenDoorCirkel {
   width: 100px;
   height: 100px;
-  background-color: #ff0000;
+  background-color: #F39A00;
   position: absolute;
   border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.video_vervangenDoorCirkel {
+  width: 100px;
+  height: 100px;
+  background-color: #43BCE3;
+  position: absolute;
+  border-radius: 25%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.postIt_vervangenDoorCirkel {
+  width: 200px;
+  height: 150px;
+  background-color: #88B916;
+  position: absolute;
+  border-radius: 2%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todo_vervangenDoorCirkel {
+  width: 150px;
+  height: 250px;
+  background-color: #FF0080;
+  position: absolute;
+  border-radius: 2%;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }

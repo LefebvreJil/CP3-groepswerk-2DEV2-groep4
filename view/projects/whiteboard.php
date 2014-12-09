@@ -18,7 +18,7 @@
 			<li id="draw" class="lastLi"><a href="">Tekenen</a></li>
 		</ul>
 	</div>
-	<div class="whiteboard">
+	<div id="whiteboard" class="whiteboard">
 	</div>
 	<a href="index.php?page=projects" class="end">Keer terug naar het projectoverzicht</a>
 </div>
