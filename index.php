@@ -13,6 +13,10 @@ $routes = array(
         'controller' => 'Users',
         'action' => 'register'
     ),
+    'logout' => array(
+        'controller' => 'Users',
+        'action' => 'logout'
+    ),
     'projects' => array(
         'controller' => 'Projects',
         'action' => 'index'
@@ -32,6 +36,9 @@ $routes = array(
 );
 
 if(empty($_GET['page'])) {
+    $_GET['page'] = 'home';
+}
+if(empty($_SESSION['user'])) {
     $_GET['page'] = 'home';
 }
 if(empty($routes[$_GET['page']])) {
