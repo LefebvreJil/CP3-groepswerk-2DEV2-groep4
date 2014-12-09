@@ -1,12 +1,12 @@
 module.exports = (function(){
 
-	function Class() {
-		//console.log("[Class] Hello Jil");
+	function video() {
+		console.log("[video] Hello video Jil");
 	}
 
-	/*Class.prototype.clickHandler = function(event){
+	/*video.prototype.clickHandler = function(event){
 		//event.preventDefault();
 	}*/
 
-	return Class;
+	return video;
 })();

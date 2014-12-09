@@ -1,12 +1,12 @@
 module.exports = (function(){
 
-	function Class() {
-		//console.log("[Class] Hello Jil");
+	function stickyNote() {
+		console.log("[stickyNote] Hello sticky Jil");
 	}
 
-	/*Class.prototype.clickHandler = function(event){
+	/*stickyNote.prototype.clickHandler = function(event){
 		//event.preventDefault();
 	}*/
 
-	return Class;
+	return stickyNote;
 })();

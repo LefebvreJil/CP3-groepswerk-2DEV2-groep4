@@ -8,7 +8,6 @@ module.exports = (function(){
     		loginValidatie(loginForm);
         }
         if(registerForm!==0){
-            
             registratieValidatie(registerForm);
         }
 	}
@@ -16,6 +15,14 @@ module.exports = (function(){
     function loginValidatie(){
         console.log("[Login validatie]");
         login_form = this.loginForm;
+
+        var emailInput = login_form.querySelector('input[name=email]');
+        var passInput = login_form.querySelector('input[name=password]');
+
+        login_form.addEventListener('submit' , submitHandler);
+
+        emailInput.addEventListener('blur', blurhandler_login);
+        passInput.addEventListener('blur', blurhandler_login);
     }
 
 	function registratieValidatie (){
@@ -55,23 +62,24 @@ module.exports = (function(){
         var emailInput = register_form.querySelector('input[name=email]');
         var passInput = register_form.querySelector('input[name=password]');
         var pass2Input = register_form.querySelector('input[name=repassword]');
-        var qualitiesInput = register_form.querySelector('textarea');
         var jobInput = register_form.querySelector('input[name=job]');
 
         register_form.addEventListener('submit' , submitHandler);
 
-        voornaamInput.addEventListener('blur', blurhandler);
-        achternaamInput.addEventListener('blur', blurhandler);
-        nicknameInput.addEventListener('blur', blurhandler);
-        emailInput.addEventListener('blur', blurhandler);
-        passInput.addEventListener('blur', blurhandler);
-        pass2Input.addEventListener('blur', blurhandler);
-        qualitiesInput.addEventListener('blur', blurhandler);
-        jobInput.addEventListener('blur', blurhandler);
+        voornaamInput.addEventListener('blur', blurhandler_register);
+        achternaamInput.addEventListener('blur', blurhandler_register);
+        nicknameInput.addEventListener('blur', blurhandler_register);
+        emailInput.addEventListener('blur', blurhandler_register);
+        passInput.addEventListener('blur', blurhandler_register);
+        pass2Input.addEventListener('blur', blurhandler_register);
+        jobInput.addEventListener('blur', blurhandler_register);
 
     }
 
-    function blurhandler(event){
+    function blurhandler_login(event){
+        validateNotEmpty(login_form,this);
+    }
+    function blurhandler_register(event){
         validateNotEmpty(register_form,this);
     }
 
@@ -85,7 +93,6 @@ module.exports = (function(){
         allValid &=  validateNotEmpty(emailInput);
         allValid &=  validateNotEmpty(passInput);
         allValid &=  validateNotEmpty(pass2Input);
-        allValid &=  validateNotEmpty(qualitiesInput);
         allValid &=  validateNotEmpty(jobInput);
 
         if (!allValid) {
@@ -108,44 +115,6 @@ module.exports = (function(){
         }
 
     }
-
-
-
-
-/*
-        //login
-
-        var loginform = document.getElementById('loginform');
-
-        var emaillogInput = loginform.querySelector('input[name=email]');
-        var passlogInput = loginform.querySelector('input[name=passwoord]');
-
-
-        loginform.addEventListener('submit' , submitloginHandler);
-
-        emaillogInput.addEventListener('blur', blurloginhandler);
-        passlogInput.addEventListener('blur', blurloginhandler);
-
-
-        function blurloginhandler(event){
-            validateloginNotEmpty(this);
-        }
-
-
-        function submitloginHandler(event){
-
-            var allValid = true;
-
-            allValid &=  validateloginNotEmpty(passlogInput);
-            allValid &=  validateloginNotEmpty(emaillogInput);
-
-            if (!allValid) {
-                event.preventDefault();
-            };
-
-        }
-
-*/
 
 	return validatie;
 })();

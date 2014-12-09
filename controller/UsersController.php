@@ -73,7 +73,6 @@ class UsersController extends Controller {
 		if(empty($_POST['vn'])) { $errors['vn'] = 'Gelieve een voornaam in te vullen.';}
 		if(empty($_POST['an'])) { $errors['an'] = 'Gelieve een achternaam in te vullen.';}
 		if(empty($_POST['nickname'])) { $errors['nickname'] = 'Gelieve een nickname in te vullen.';}
-		if(empty($_POST['qualities'])) { $errors['qualities'] = 'Gelieve kwaliteiten in te vullen.';}
 		if(empty($_POST['job'])) {$errors['job'] = 'Gelieve je beroep of studierichting in te vullen.';}
 
 		//email
@@ -118,18 +117,23 @@ class UsersController extends Controller {
 			//TIJD OVER => veranderen
 			$extension = 'jpg';
 			
-			//array aanmaken	
-			$inserteduser = $this->userDAO->insert(array(
-				'vn' => $_POST['vn'],
-				'an' => $_POST['an'],
-				'nickname' => $_POST['nickname'],
-				'kwaliteiten' => $_POST['qualities'],
-				'beroep' => $_POST['job'],
-				'email' => $_POST['email'],
-				'paswoord' => $hasher->hashPassword($_POST['password']),
-				'pic' => $name, 
-				'extensie' => $extension
-			));
+			//array aanmaken
+			$inserteduser["vn"] = $_POST['vn'];
+			$inserteduser["an"] = $_POST['an'];
+			$inserteduser["nickname"] = $_POST['nickname'];
+			$inserteduser["beroep"] = $_POST['job'];
+			$inserteduser["email"] = $_POST['email'];
+			$inserteduser["paswoord"] = $hasher->hashPassword($_POST['password']);
+			$inserteduser["pic"] = $name;
+			$inserteduser["extensie"] = $extension;
+
+			if(!empty($_POST['qualities'])){
+				$inserteduser["kwaliteiten"] = $_POST['qualities'];
+			}else{
+				$inserteduser["kwaliteiten"] = "";
+			}
+
+			$this->userDAO->insert($inserteduser);
 
 			//aan Jil: is dit ok? Jil zei ok
 			$imageresize = new Eventviva\ImageResize($_FILES["image"]["tmp_name"]);

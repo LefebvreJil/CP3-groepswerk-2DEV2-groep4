@@ -57,7 +57,6 @@ class UserDAO extends DAO {
 		if(empty($data['an'])) { $errors['achternaam'] = "Gelieve uw achternaam in te vullen"; }
 		if(empty($data['nickname'])) { $errors['nickname'] = "Gelieve een nickname in te vullen"; }
 		if(empty($data['email'])) { $errors['email'] = "Gelieve uw email in te vullen"; }
-		if(empty($data['kwaliteiten'])) { $errors['kwaliteiten'] = "Gelieve uw kwaliteiten in te vullen"; }
 		if(empty($data['beroep'])) { $errors['beroep'] = "Gelieve uw beroep in te vullen"; }
 		if(empty($data['paswoord'])) { $errors['paswoord'] = "Gelieve uw wachtwoord in te vullen"; }
 		if(empty($data['pic'])) { $errors['pic'] = "Gelieve een foto up te loaden"; }

@@ -15,9 +15,39 @@
 				<h1>Login</h1>
 			</header>
 			<form id="loginForm" class="loginForm" action="index.php" method="post">
-	            <input type="email" name="email" placeholder="Email" tabindex="1" class="formItem" />
-	            <input type="password" name="password" placeholder="Password" tabindex="2" class="formItem" />
-	            <input type="submit" value="Login" tabindex="3"  class="loginBtn" />
+			<div>
+				<span class="error-message<?php if(empty($errors['email'])) echo ' hidden';?>" 
+				data-for="email"> 
+				Gelieve je email in te vullen</span>
+
+				<input type="email" 
+				name="email" 
+				placeholder="Email" 
+				tabindex="1" 
+				class="formItem <?php if(!empty($errors['email'])) echo ' has-error'; ?>" >
+			</div>
+
+			<div>
+				<span class="error-message<?php if(empty($errors['password'])) echo ' hidden';?>" 
+				data-for="password"> 
+				Gelieve je wachtwoord in te vullen</span>
+
+				<input type="password" 
+				name="password" 
+				placeholder="Password" 
+				tabindex="2" 
+				class="formItem <?php if(!empty($errors['password'])) echo ' has-error'; ?>" >
+			</div>
+
+			<div>
+				<input type="submit" 
+				value="Login" 
+				tabindex="3"  
+				class="loginBtn" />
+			</div>
+	            
+	            
+	            
 	        </form>
 		</section>
 		<section class="registerHome">
