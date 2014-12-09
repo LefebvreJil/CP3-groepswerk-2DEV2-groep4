@@ -19,9 +19,9 @@ class ProjectsController extends Controller {
 	    $this->set('projects', $projects);
 
 	    //stuur terug via json
-	    header('Content-Type: application/json');
-	    echo json_encode($projects);
-	    die();
+	    // header('Content-Type: application/json');
+	    // echo json_encode($projects);
+	    // die();
 	
 	}
 

@@ -42,6 +42,10 @@
 		color: $bgColor;
 		text-decoration: none;
 		background-image: url('../assets/img/addProject.png');
+
+		&:hover{
+			background-image: url('../assets/img/addProjectHover.png');
+		}
 	}
 }
 
