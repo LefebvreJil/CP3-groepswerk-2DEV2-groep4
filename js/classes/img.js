@@ -1,12 +1,13 @@
 module.exports = (function(){
 
-	function Class() {
-		//console.log("[Class] Hello Jil");
+	function img() {
+		console.log("[img] Hello Jil");
+		this.el.contentEditable = true;
 	}
 
-	/*Class.prototype.clickHandler = function(event){
+	img.prototype.clickHandler = function(event){
 		//event.preventDefault();
-	}*/
+	};
 
-	return Class;
+	return img;
 })();
