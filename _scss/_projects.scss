@@ -40,16 +40,17 @@
 		margin: 30px auto;
 		color: $bgColor;
 		text-decoration: none;
-		background-image: url('../assets/img/addProject.png');
+		background-image: url('../assets/img/addProjectHover.png');
+		transition: background-image 0.2s ease;
 
 		&:hover{
-			background-image: url('../assets/img/addProjectHover.png');
+			background-image: url('../assets/img/addProject.png');
 		}
 	}
 }
 
 .projectItem{
-	width: 280px;
+	width: 290px;
 	padding: 15px 15px 20px 15px;
 	float: left;
 	margin: 0 10px 10px 0;
@@ -80,5 +81,23 @@
 		background-image: url('../assets/img/addProject.png');
 		background-size: 20px 20px;
 		background-repeat: no-repeat;
+	}
+
+	.description{
+		color: $bgColor;
+		margin: 0 5px 10px 5px;
+	}
+
+	a{
+		text-decoration: none;
+		color: $bgColor;
+		transition: color 0.1s ease;
+
+		&:hover{
+			color: black;
+		}
+		img{
+			margin-right: 5px;
+		}
 	}
 }

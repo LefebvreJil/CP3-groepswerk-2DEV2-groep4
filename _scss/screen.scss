@@ -5,6 +5,8 @@
 @import '_projects';
 @import '_whiteboard';
 
+//PAS ALLE TRANSITIONS AAN MET PREFIX!!!!!!!!!!!!!!!!!!! -Jil moet dit doen
+
 body{
 	background-color: $bgColor;
 	font-family: helveticaNeue, sans-serif;
@@ -27,6 +29,7 @@ body{
 	transition: 1s ease;
 }
 
+//verplaats naar whiteboard.css
 .img_vervangenDoorCirkel{
 	width: 100px;
 	height: 100px;

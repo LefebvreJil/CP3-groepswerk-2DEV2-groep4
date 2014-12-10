@@ -252,14 +252,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   margin: 30px auto;
   color: #F1F1F1;
   text-decoration: none;
-  background-image: url("../assets/img/addProject.png");
+  background-image: url("../assets/img/addProjectHover.png");
+  transition: background-image 0.2s ease;
 }
 .projectPannel .addProject:hover {
-  background-image: url("../assets/img/addProjectHover.png");
+  background-image: url("../assets/img/addProject.png");
 }
 
 .projectItem {
-  width: 280px;
+  width: 290px;
   padding: 15px 15px 20px 15px;
   float: left;
   margin: 0 10px 10px 0;
@@ -298,6 +299,21 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-image: url("../assets/img/addProject.png");
   background-size: 20px 20px;
   background-repeat: no-repeat;
+}
+.projectItem .description {
+  color: #F1F1F1;
+  margin: 0 5px 10px 5px;
+}
+.projectItem a {
+  text-decoration: none;
+  color: #F1F1F1;
+  transition: color 0.1s ease;
+}
+.projectItem a:hover {
+  color: black;
+}
+.projectItem a img {
+  margin-right: 5px;
 }
 
 .addObject {
