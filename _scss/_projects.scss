@@ -31,6 +31,18 @@
 		color: #FFFFFF;
 		font-weight: lighter;
 		font-size: 0.8em;
+		span{
+			font-weight: bold;
+		}
+	}
+
+	.introLi{
+		font-family: helveticaNeue, sans-serif;
+		color: #FFFFFF;
+		font-weight: lighter;
+		font-size: 0.8em;
+		list-style-type: square;
+		margin: 5px 0 5px 20px;
 	}
 
 	.addProject{

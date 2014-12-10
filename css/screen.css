@@ -245,6 +245,17 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   font-weight: lighter;
   font-size: 0.8em;
 }
+.projectPannel .intro span {
+  font-weight: bold;
+}
+.projectPannel .introLi {
+  font-family: helveticaNeue, sans-serif;
+  color: #FFFFFF;
+  font-weight: lighter;
+  font-size: 0.8em;
+  list-style-type: square;
+  margin: 5px 0 5px 20px;
+}
 .projectPannel .addProject {
   display: block;
   width: 280px;
