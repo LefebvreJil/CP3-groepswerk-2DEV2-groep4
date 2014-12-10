@@ -1,7 +1,6 @@
 module.exports = (function(){
 
 	var projectIndex = require('./projectIndex.js');
-	var url = 'index.php?page=projects';
 
 	function Addproject() {
 		console.log("[Addproject] Hello Jil");
@@ -15,6 +14,7 @@ module.exports = (function(){
 	   	 if(data.result) {
 	   		//projectIndex();
 	   		//location.reload();
+	   		console.log(document.URL);
 	   		$('.projectList').load(document.URL +  ' .projectList');
 	   	 } else {
 	   	 	console.log("nee sorry");
