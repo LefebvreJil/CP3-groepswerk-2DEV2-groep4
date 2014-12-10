@@ -10,7 +10,7 @@
 		</header>
 		<p class="intro">
 			Brainstormers van Howest, welkom!
-			Leg de offline wereld aan de kant om te brainstormen, vanaf nu kan je het online doen!
+			Leg de offline wereld aan de kant om te brainstormen, vanaf nu kan je dit online doen!
 			<br/>
 			<br/>
 			Hier maak je je brainstorms aan door op de grote plus te klikken.
@@ -28,7 +28,7 @@
 			</ul>
 			<br/> Go nuts and let the brainstorm begin!
 		</p>
-		<a href="index.php?page=addProject" class="addProject">Add project</a>
+		<a href="index.php?page=addProject" class="addProject"></a>
 	</section>
 
 	<section>
