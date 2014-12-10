@@ -9,7 +9,24 @@
 			<h1>Whiteboard <span>projects</span></h1>
 		</header>
 		<p class="intro">
-			Hier komt tekst over wat de bedoeling van deze opdracht is en wat u met deze applicatie allemaal zou kunnen doen. Deze applicatie is bedoeld om brainstormsessies te houden met uw collega's. Wij bieden u een bord aan waar u post-its, foto's, filmpjes, tekeningen en nog meer kan op plakken. <br /><br />Verder zal ik hier nog een beetje zeveren om wat plaats te vullen want deze inhoude hebben we nog niet besproken. Anyway, dit lijkt genoeg te zijn denk ik. <br /><br /> Go nuts and let the brainstorm begin!
+			Brainstormers van Howest, welkom!
+			Leg de offline wereld aan de kant om te brainstormen, vanaf nu kan je het online doen!
+			<br/>
+			<br/>
+			Hier maak je je brainstorms aan door op de grote plus te klikken.
+			<ul>
+				<li>Dubbelklik op de titel van het project en de beschrijving om ze aan te passen.</li>
+				<li>Klik op het vlak om naar het whiteboard zelf te gaan.</li>
+				<li>Elementen die je kunt toevoegen op het whiteboard</li>
+					<ol>
+						<li>Motherf*ing post-its</li>
+						<li>Flipping foto's</li>
+						<li>Awesome filmpjes</li>
+						<li>Tekenen 'n shit</li>
+						<li>En zoveel meer!</li>
+					</ol>
+			</ul>
+			<br/> Go nuts and let the brainstorm begin!
 		</p>
 		<a href="index.php?page=addProject" class="addProject">Add project</a>
 	</section>
