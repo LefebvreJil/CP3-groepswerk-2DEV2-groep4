@@ -35,13 +35,12 @@
             
             }
             
-
-
         //img class toevoegen
             var Img = require('./classes/img.js');
             document.getElementById('addImage').onclick = function(event) {
                     event.preventDefault();
                     console.log("click");
+                    chooseImage();
                     new Img();
             };
 
@@ -50,6 +49,7 @@
             document.getElementById('addVideo').onclick = function(event) {
                     event.preventDefault();
                     console.log("click");
+                    chooseVideo();
                     new video();
             };
 
@@ -82,13 +82,21 @@
     function moveWhiteboardOnClick(){
         $(document).ready(function(){
             $('.addBtn').click(function(){
-                    event.preventDefault();
-                    $('.whiteboard').toggleClass("moveWBoard");
-                    console.log('move');
-                });
+                event.preventDefault();
+                $('.whiteboard').toggleClass("moveWBoard");
+                console.log('move');
             });
+        });
     }
-    
+
+    function chooseImage() {
+      $("#imageInput").click();
+    }
+
+    function chooseVideo() {
+      $("#videoInput").click();
+    }
+
 	init();
     moveWhiteboardOnClick();
 })();
