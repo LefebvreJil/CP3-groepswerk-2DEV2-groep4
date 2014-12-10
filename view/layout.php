@@ -17,18 +17,6 @@
 		        		<header>
 				          <h1>{{name}}</h1>
 				        </header>
-			        	<h2 class="tussenTitel">Sessies:</h2>
-
-			        	<ul class="sessionList">
-			        		{{#each .}}
-				        		<li class="projectSession">
-				        			<h1>{{name}}</h1>
-				        			<a href={{"url"}}>Ga naar sessie</a>
-				        		</li>
-			        		{{/each}}
-
-			        		<a href="index.php?page=addSession" class="addSession"></a>
-			        	</ul>
 			      	</article>
 		      	</li>
 

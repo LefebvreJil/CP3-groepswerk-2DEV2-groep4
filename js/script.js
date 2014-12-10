@@ -2,9 +2,10 @@
 	
 	function init() {
 		//console.log("[Script.js] Een goede en productieve dag gewenst aan Jil");
-
+                console.log("init");
                 //template selecteren
                 var tpl = Handlebars.compile($('#project-template').html());
+
                 var projectIndex = require('./classes/projectIndex.js');
                 new projectIndex(tpl);
 
@@ -75,9 +76,7 @@
             });
     }
 
-        /*function addImageClickhandler () {
-                console.log("clicky");
-        }*/
+
     moveWhiteboardOnClick();
 	init();
 })();

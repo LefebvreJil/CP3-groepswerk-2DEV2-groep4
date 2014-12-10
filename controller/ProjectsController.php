@@ -18,10 +18,17 @@ class ProjectsController extends Controller {
 	  	$projects = $this->projectDAO->selectAll();
 	    $this->set('projects', $projects);
 
+
+	    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+	
+			 header('Content-Type: application/json');
+	     	echo json_encode($projects);
+	    	die();
+		}
+
+
 	    //stuur terug via json
-	     //header('Content-Type: application/json');
-	     //echo json_encode($projects);
-	    // die();
+	    
 	
 	}
 

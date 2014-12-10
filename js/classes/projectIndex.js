@@ -5,12 +5,13 @@ module.exports = (function(){
 
 		//console.log(this);
 		
+		$.get( "index.php?page=projects", function( projects ) {
+		  console.log(projects);
+		  
+		  var html = tpl(projects);
 
-		//$.get( "index.php?page=projects", function( projects ) {
-		  //console.log(projects);
-		  //var html = tpl(projects);
-		  //$('.projectList').prepend(html);
-		//});
+		  $('.projectList').prepend(html);
+		});
 	}
 
 	return projectIndex;

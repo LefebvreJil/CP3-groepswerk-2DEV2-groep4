@@ -38,7 +38,7 @@ $routes = array(
 if(empty($_GET['page'])) {
     $_GET['page'] = 'home';
 }
-if(empty($_SESSION['user'])) {
+if(empty($_SESSION['user'])&& $_GET['page']!=='register') {
     $_GET['page'] = 'home';
 }
 if(empty($routes[$_GET['page']])) {
