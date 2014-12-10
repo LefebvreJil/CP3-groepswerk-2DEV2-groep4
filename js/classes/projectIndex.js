@@ -8,6 +8,7 @@ module.exports = (function(){
 		  var html = tpl(projects);
 		  $('.projectList').prepend(html);
 		});
+
 	}
 
 	return projectIndex;
