@@ -37,10 +37,6 @@ class ProjectsController extends Controller {
 		$this->_handleAddProject();
 	}
 
-	public function addSession(){
-		$this->_handleAddSession();
-	}
-
 	private function _handleAddProject() {
 		$errors = array();
 
