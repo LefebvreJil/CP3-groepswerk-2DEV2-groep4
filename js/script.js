@@ -29,7 +29,7 @@
             var addProject = require('./classes/Addproject.js');
             dikkePlus.onclick = function(e){
                 event.preventDefault();
-                new addProject();
+                new addProject(tpl);
             };
             
 
