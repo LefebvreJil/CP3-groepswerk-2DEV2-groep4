@@ -26,10 +26,7 @@ class ProjectsController extends Controller {
 	    	die();
 		}
 
-
 	    //stuur terug via json
-	    
-	
 	}
 
 	public function whiteboard(){
@@ -50,8 +47,8 @@ class ProjectsController extends Controller {
 		if(empty($errors)) {	
 			$insertedproject = $this->projectDAO->insert(array(
 				//$_POST NOG AANPASSEN!!
-				//Untitled moet een Post pop-up worden.
-				'name' => "Untitled"
+				//Untitled moet aangepast worden met dubbelklik
+				'name' => "Dubbelklik om aan te passen"
 			));
 
 			$_SESSION["info"] = "Je project is met succes toegevoegd.";
