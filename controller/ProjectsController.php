@@ -53,35 +53,23 @@ class ProjectsController extends Controller {
 		$_SESSION['error'] = 'De toevoeging van het project is mislukt.';
 		$this->set('errors', $errors);*/
 
-
-
 		$confirm = true;
-	  	$errors = array();
 	  	$data = $_POST;
-	  	$confirm = false;
 
 	  	if($data){
 		  	$insertedproject = $this->projectDAO->insert($data);
-		  	
-				if(!$insertedproject){
+		  	$projects = $this->projectDAO->selectAll();
+	    	$this->set('projects', $projects);
 
-					$errors = $this->projectDAO->getValidationErrors($data);
-			        header('Content-Type: application/json');
-			        echo json_encode(array('result' => false, 'errors' => $errors));
-			        die();
-
-				}else{
-
-			        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-						header('Content-Type: application/json');
-				        echo json_encode(array('result' => true));
-				        die();
-					}
-				}
+	        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				header('Content-Type: application/json');
+		        echo json_encode(array('result' => true, 'projects'=>$projects));
+		        die();
+			}
+				
 	  	}
 
 	  	$this->set("data", $data);
 	  	$this->set("confirm", $confirm);
-		$this->set("errors", $errors);
 	}
 }

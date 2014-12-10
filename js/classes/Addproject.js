@@ -1,5 +1,7 @@
 module.exports = (function(){
 
+	var projectIndex = require('./projectIndex.js');
+
 	function Addproject() {
 		console.log("[Addproject] Hello Jil");
 
@@ -8,23 +10,13 @@ module.exports = (function(){
 		})
 
 	   .done(function( data ) {
-	     //console.log(data);
+	     console.log(data);
 	   	 if(data.result) {
-	   		display();
+	   		projectIndex();
 	   	 } else {
-
+	   	 	console.log("nee sorry");
 	   	 }
 	   });
 	}
-
-	function display(tpl) {
-		$.get( "index.php?page=projects", function( projects ) {
-		  //console.log(projects);
-		  var html = tpl(projects);
-		  $('.projectList').prepend(html);
-		});
-	}
-
-
 	return Addproject;
 })();
