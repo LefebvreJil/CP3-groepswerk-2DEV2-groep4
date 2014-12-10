@@ -1,12 +1,13 @@
 module.exports = (function(){
 
-	function projectIndex(tpl) {
+	function projectIndex() {
 		//console.log("[projectIndex]");
 		
-		$.get( "index.php?page=projects", function( projects ) {
-		  //console.log(projects);
+		$.get( "index.php?page=projects", function(projects) {
+		  var tpl = Handlebars.compile($('#project-template').html());
 		  var html = tpl(projects);
-		  $('.projectList').prepend(html);
+		  console.log(projects);
+		  $('.projectList').append(html);
 		});
 
 	}

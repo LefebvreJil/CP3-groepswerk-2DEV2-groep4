@@ -20,18 +20,17 @@
             }
 
         //template
-            var tpl = Handlebars.compile($('#project-template').html());
             var projectIndex = require('./classes/projectIndex.js');
-            new projectIndex(tpl);
+            new projectIndex();
 
         //project toevoegen via ajax
             var dikkePlus = document.getElementById('dikkePlus');
             if(dikkePlus){
                 var addProject = require('./classes/Addproject.js');
                 dikkePlus.onclick = function(e){
-                event.preventDefault();
-                new addProject(tpl);
-            };
+                    event.preventDefault();
+                    new addProject();
+                };
             
             }
             

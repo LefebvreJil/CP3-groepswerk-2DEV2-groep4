@@ -9,6 +9,16 @@ class ProjectDAO extends DAO {
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
+	public function selectLast() {
+		$sql = "SELECT * FROM `w_projects`
+				ORDER BY `id` DESC
+				LIMIT 1";
+		//$sql = "SELECT * FROM `w_projects` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
 	public function selectById($id) {
 		$sql = "SELECT * FROM `w_projects` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
