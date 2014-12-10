@@ -61,25 +61,4 @@ class ProjectsController extends Controller {
 		$_SESSION['error'] = 'De toevoeging van het project is mislukt.';
 		$this->set('errors', $errors);
 	}
-
-	private function _handleAddSession() {
-		$errors = array();
-
-		if(empty($errors)) {	
-			$insertedsession = $this->sessionDAO->insert(array(
-				'project_id' => "1"
-			));
-
-			$_SESSION["info"] = "Je sessie is met succes toegevoegd.";
-
-			if(!empty($insertedsession)) {
-				$_SESSION['info'] = 'De toevoeging van het sessie was succesvol!';
-				$this->redirect('index.php?page=projects');
-			}
-		}
-		$_SESSION['error'] = 'De toevoeging van het sessie is mislukt.';
-		$this->set('errors', $errors);
-	}
-
-
 }

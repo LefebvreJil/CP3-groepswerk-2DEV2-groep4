@@ -3,10 +3,6 @@
 	function init() {
 		//console.log("[Script.js] Een goede en productieve dag gewenst aan Jil");
 
-        //template
-            var tpl = Handlebars.compile($('#project-template').html());
-            var projectIndex = require('./classes/projectIndex.js');
-            new projectIndex(tpl);
 
         //Registreren en inloggen
             var registerForm = document.getElementById('registerForm');
@@ -22,6 +18,22 @@
             	registerForm = 0;
             	new validatie(loginForm, registerForm);
             }
+
+        //template
+            var tpl = Handlebars.compile($('#project-template').html());
+            var projectIndex = require('./classes/projectIndex.js');
+            new projectIndex(tpl);
+
+        //project toevoegen via ajax
+            var dikkePlus = document.getElementById('dikkePlus');
+            console.log(dikkePlus);
+            var addProject = require('./classes/Addproject.js');
+            dikkePlus.onclick = function(e){
+                event.preventDefault();
+                new addProject();
+            };
+            
+
 
         //img class toevoegen
             var Img = require('./classes/img.js');

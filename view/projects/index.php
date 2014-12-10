@@ -28,7 +28,7 @@
 			</ul>
 			<br/> Go nuts and let the brainstorm begin!
 		</p>
-		<a href="index.php?page=addProject" class="addProject"></a>
+		<a href="index.php?page=addProject" class="addProject" id="dikkePlus"></a>
 	</section>
 
 	<section>
