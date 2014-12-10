@@ -400,7 +400,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 .wNav li {
   float: left;
-  margin-right: 305px;
+  width: 200px;
+  margin-right: 100px;
+  text-align: center;
 }
 .wNav .lastLi {
   margin-right: 0px;
