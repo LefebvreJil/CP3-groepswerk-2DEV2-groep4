@@ -9,25 +9,26 @@
 			<h1>Whiteboard <span>projects</span></h1>
 		</header>
 		<p class="intro">
-			Brainstormers van Howest, welkom!
+			<span>Brainstormers van Howest, welkom!</span>
 			Leg de offline wereld aan de kant om te brainstormen, vanaf nu kan je dit online doen!
 			<br/>
 			<br/>
 			Hier maak je je brainstorms aan door op de grote plus te klikken.
+			</p>
+			<p class="intro">
+				Dubbelklik op de titel van het project en de beschrijving om ze aan te passen.
+				Klik op het vlak om naar het whiteboard zelf te gaan.<br />
+				<span>Elementen die je kunt toevoegen op het whiteboard:</span>
+			</p>
 			<ul>
-				<li>Dubbelklik op de titel van het project en de beschrijving om ze aan te passen.</li>
-				<li>Klik op het vlak om naar het whiteboard zelf te gaan.</li>
-				<li>Elementen die je kunt toevoegen op het whiteboard</li>
-					<ol>
-						<li>Motherf*ing post-its</li>
-						<li>Flipping foto's</li>
-						<li>Awesome filmpjes</li>
-						<li>Tekenen 'n shit</li>
-						<li>En zoveel meer!</li>
-					</ol>
+				<li class="introLi">Motherf*ing post-its</li>
+				<li class="introLi">Flipping foto's</li>
+				<li class="introLi">Awesome filmpjes</li>
+				<li class="introLi">To-do lijstjes all the way</li>
+				<li class="introLi">Tekenen 'n shit</li>
+				<li class="introLi">En zoveel meer!</li>
 			</ul>
-			<br/> Go nuts and let the brainstorm begin!
-		</p>
+			<p class="intro">Go nuts and let the brainstorm begin!</p>
 		<a href="index.php?page=addProject" class="addProject" id="dikkePlus"></a>
 	</section>
 
