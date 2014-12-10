@@ -26,7 +26,6 @@
 
         //project toevoegen via ajax
             var dikkePlus = document.getElementById('dikkePlus');
-            console.log(dikkePlus);
             var addProject = require('./classes/Addproject.js');
             dikkePlus.onclick = function(e){
                 event.preventDefault();

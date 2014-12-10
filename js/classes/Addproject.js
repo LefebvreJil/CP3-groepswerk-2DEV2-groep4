@@ -1,21 +1,30 @@
 module.exports = (function(){
 
 	function Addproject() {
-		console.log("[Addproject] Codeer Jil");
+		console.log("[Addproject] Hello Jil");
 
-		$.post( "index.php?page=addpost", { 
-			nickname: 'consult',
-			subject: 'hello world',
-			message: 'dit is de message om te testen'
+		$.post( "index.php?page=addProject", { 
+			name: 'Dubbelklik om aan te passen'
 		})
+
 	   .done(function( data ) {
-	     console.log(data);
+	     //console.log(data);
 	   	 if(data.result) {
-	   		voorbeeldJSONGet();
+	   		display();
 	   	 } else {
 
 	   	 }
 	   });
 	}
+
+	function display(tpl) {
+		$.get( "index.php?page=projects", function( projects ) {
+		  //console.log(projects);
+		  var html = tpl(projects);
+		  $('.projectList').prepend(html);
+		});
+	}
+
+
 	return Addproject;
 })();

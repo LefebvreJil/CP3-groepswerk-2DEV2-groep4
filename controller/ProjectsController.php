@@ -18,15 +18,11 @@ class ProjectsController extends Controller {
 	  	$projects = $this->projectDAO->selectAll();
 	    $this->set('projects', $projects);
 
-
 	    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-	
-			 header('Content-Type: application/json');
+			header('Content-Type: application/json');
 	     	echo json_encode($projects);
 	    	die();
 		}
-
-	    //stuur terug via json
 	}
 
 	public function whiteboard(){
@@ -38,7 +34,7 @@ class ProjectsController extends Controller {
 	}
 
 	private function _handleAddProject() {
-		$errors = array();
+		/*$errors = array();
 
 		if(empty($errors)) {	
 			$insertedproject = $this->projectDAO->insert(array(
@@ -55,6 +51,37 @@ class ProjectsController extends Controller {
 			}
 		}
 		$_SESSION['error'] = 'De toevoeging van het project is mislukt.';
-		$this->set('errors', $errors);
+		$this->set('errors', $errors);*/
+
+
+
+		$confirm = true;
+	  	$errors = array();
+	  	$data = $_POST;
+	  	$confirm = false;
+
+	  	if($data){
+		  	$insertedproject = $this->projectDAO->insert($data);
+		  	
+				if(!$insertedproject){
+
+					$errors = $this->projectDAO->getValidationErrors($data);
+			        header('Content-Type: application/json');
+			        echo json_encode(array('result' => false, 'errors' => $errors));
+			        die();
+
+				}else{
+
+			        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+						header('Content-Type: application/json');
+				        echo json_encode(array('result' => true));
+				        die();
+					}
+				}
+	  	}
+
+	  	$this->set("data", $data);
+	  	$this->set("confirm", $confirm);
+		$this->set("errors", $errors);
 	}
 }
