@@ -29,11 +29,15 @@
 
 .whiteboard{
 	width: 1200px;
-	margin: 0 auto 20px;
-	height:800px;
+	margin: -60px auto 20px;
+	height: 800px;
 	background-color: white;
 	@include prefix(border-radius, 2px);
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+	transition: margin 0.2s ease;
+}
+.moveWBoard{
+	margin: 0 auto 20px;
 }
 
 .wNav{
@@ -54,7 +58,7 @@
 	}
 	li{
 		float: left;
-		margin-right: 309px;
+		margin-right: 305px;
 	}
 	.lastLi{
 		margin-right: 0px;
@@ -85,4 +89,7 @@
 	&:hover{
 		color: rgb(50,50,50);
 	}
+}
+.moveEnd{
+	top: 800px;
 }

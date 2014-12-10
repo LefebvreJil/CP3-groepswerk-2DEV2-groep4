@@ -69,9 +69,9 @@
         $(document).ready(function(){
             $('.addBtn').click(function(){
                     event.preventDefault();
-                    $('.whiteboard').toggle('moveWBoard');
+                    $('.whiteboard').toggleClass("moveWBoard");
+                    console.log('move');
                 });
-                console.log('hallo');
             });
     }
 

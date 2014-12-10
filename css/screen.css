@@ -336,7 +336,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .whiteboard {
   width: 1200px;
-  margin: 0 auto 20px;
+  margin: -60px auto 20px;
   height: 800px;
   background-color: white;
   -webkit-border-radius: 2px;
@@ -349,6 +349,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  transition: margin 0.2s ease;
+}
+
+.moveWBoard {
+  margin: 0 auto 20px;
 }
 
 .wNav {
@@ -368,7 +373,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 .wNav li {
   float: left;
-  margin-right: 309px;
+  margin-right: 305px;
 }
 .wNav .lastLi {
   margin-right: 0px;
@@ -395,6 +400,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 .end:hover {
   color: #323232;
+}
+
+.moveEnd {
+  top: 800px;
 }
 
 body {
