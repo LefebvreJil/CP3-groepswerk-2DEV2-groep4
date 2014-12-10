@@ -5,7 +5,7 @@
 			<li><header>
 				<h1>Title van project</h1>
 			</header></li>
-			<li><a href="" class="addBtn">Add</a></li>
+			<li><a href="" class="addBtn">Object toevoegen</a></li>
 			<li class="lastLi"><a href="index.php?page=logout" class="logoutBtn">Logout</a></li>
 		</ul>
 	</section>
