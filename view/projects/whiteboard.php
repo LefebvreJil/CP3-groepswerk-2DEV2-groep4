@@ -11,7 +11,13 @@
 	</section>
 	<div class="addObject">
 		<ul>
+			<div style="height:0px;overflow:hidden">
+   				<input type="file" id="imageInput" name="imageInput" />
+			</div>
 			<li id="addImage"><a href="">Afbeelding</a></li>
+			<div style="height:0px;overflow:hidden">
+   				<input type="file" id="videoInput" name="videoInput" />
+			</div>
 			<li id="addVideo"><a href="">Video</a></li>
 			<li id="addStickyNote"><a href="">Post-it</a></li>
 			<li id="addTodo"><a href="">Todo Lijst</a></li>
