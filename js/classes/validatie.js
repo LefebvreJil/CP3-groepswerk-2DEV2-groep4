@@ -28,6 +28,7 @@ module.exports = (function(){
 	function registratieValidatie (){
 		console.log("[Registratie validatie]");
 
+        if (window.File && window.FileReader && window.FileList && window.Blob){
 		//foto toevoegen
 		var imageInput = document.querySelector("input[name=image]");
             var errorElement = imageInput.parentNode.querySelector(".error-message");
@@ -53,6 +54,7 @@ module.exports = (function(){
                     }
                 }
             });
+        }
         
         register_form = this.registerForm;
 

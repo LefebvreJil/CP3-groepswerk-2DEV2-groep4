@@ -6,8 +6,8 @@ module.exports = (function(){
 		//console.log("[Img] Hello Jil");
 		//this.el.contentEditable = true;
 
-		this.el = document.createElement('div');
-		this.el.classList.add('img_vervangenDoorCirkel');
+		this.el = document.createElement('img');
+		//this.el.classList.add('img_vervangenDoorCirkel');
 
 		var whiteboard = document.getElementById('whiteboard');
 		whiteboard.appendChild(this.el);
