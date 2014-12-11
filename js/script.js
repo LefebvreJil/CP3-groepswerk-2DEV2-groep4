@@ -20,62 +20,71 @@
             }
 
         //template
-            var tpl = Handlebars.compile($('#project-template').html());
             var projectIndex = require('./classes/projectIndex.js');
-            new projectIndex(tpl);
+            new projectIndex();
 
         //project toevoegen via ajax
             var dikkePlus = document.getElementById('dikkePlus');
             if(dikkePlus){
                 var addProject = require('./classes/Addproject.js');
                 dikkePlus.onclick = function(e){
-                event.preventDefault();
-                new addProject(tpl);
-            };
+                    event.preventDefault();
+                    new addProject();
+                };
             
             }
             
         //img class toevoegen
             var Img = require('./classes/img.js');
-            document.getElementById('addImage').onclick = function(event) {
-                    event.preventDefault();
-                    console.log("click");
-                    chooseImage();
-                    new Img();
-            };
+            var addImage = document.getElementById('addImage');
+            if(addImage){
+                addImage.onclick = function(event) {
+                        event.preventDefault();
+                        chooseImage();
+                        new Img();
+                };
+            }
 
         //video class toevoegen
             var video = require('./classes/video.js');
-            document.getElementById('addVideo').onclick = function(event) {
-                    event.preventDefault();
-                    console.log("click");
-                    chooseVideo();
-                    new video();
-            };
+            var addVideo = document.getElementById('addVideo');
+            if(addVideo){
+                addVideo.onclick = function(event) {
+                        event.preventDefault();
+                        chooseVideo();
+                        new video();
+                };
+            }
 
         //stickyNote class toevoegen
             var stickyNote = require('./classes/stickyNote.js');
-            document.getElementById('addStickyNote').onclick = function(event) {
-                    event.preventDefault();
-                    console.log("click");
-                    new stickyNote();
-            };
+            var addStickyNote = document.getElementById('addStickyNote');
+            if(addStickyNote){
+                addStickyNote.onclick = function(event) {
+                        event.preventDefault();
+                        new stickyNote();
+                };
+            }
 
         //todo class toevoegen
             var Todo = require('./classes/todo.js');
-            document.getElementById('addTodo').onclick = function(event) {
-                    event.preventDefault();
-                    console.log("click");
-                    new Todo();
-            };
+            var addTodo = document.getElementById('addTodo');
+            if(addTodo){
+                addTodo.onclick = function(event) {
+                        event.preventDefault();
+                        new Todo();
+                };
+            }
 
         //draw class toevoegen
             var Draw = require('./classes/draw.js');
-            document.getElementById('draw').onclick = function(event) {
-                    event.preventDefault();
-                    console.log("click");
-                    new Draw();
-            };
+            var addDraw = document.getElementById('draw');
+            if(addDraw){
+                addDraw.onclick = function(event) {
+                        event.preventDefault();
+                        new Draw();
+                };
+            }
 
 	}
 
@@ -84,7 +93,6 @@
             $('.addBtn').click(function(){
                 event.preventDefault();
                 $('.whiteboard').toggleClass("moveWBoard");
-                console.log('move');
             });
         });
     }
