@@ -18,7 +18,7 @@
 				          <h1 class="title">{{name}}</h1>
 				        </header>
 				        <p class="description">Klik om de omschrijving aan te passen.</p>
-				        <a href=""><img src="assets/img/arrow.png" alt="arrow">Ga naar project</a>
+				        <a class="link" href="index.php?page=whiteboard&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Ga naar project</a>
 			      	</article>
 		      	</li>
 
