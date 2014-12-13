@@ -41,4 +41,19 @@ class ProjectDAO extends DAO {
 		}
 		return false;
 	}
+
+	
+
+	public function insertTitle($data) {
+
+		$sql = "UPDATE `w_projects` SET `name` =  :name WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':name', $data['name']);
+		$stmt->bindValue(':id', $data['id']);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById($insertedId);
+		}
+		return false;
+	}
 }

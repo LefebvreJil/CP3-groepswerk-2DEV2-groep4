@@ -27,6 +27,7 @@
 	
 	
 	<script src="js/vendor/jquery.min.js"></script>
+	<script src="js/vendor/bean.min.js"></script>
 	<script src="js/vendor/handlebars.min.js"></script>
 	<script src="js/vendor/modernizr.min.js"></script>
 	<script src="js_dist/script.dist.js"></script>
