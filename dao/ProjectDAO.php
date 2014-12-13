@@ -28,11 +28,12 @@ class ProjectDAO extends DAO {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO `w_projects` (`name`, `date_added`) 
-		VALUES (:name, :date_added)";
+		$sql = "INSERT INTO `w_projects` (`name`,`description`, `date_added`) 
+		VALUES (:name, :description, :date_added)";
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':name', $data['name']);
+		$stmt->bindValue(':description', $data['description']);
 		$stmt->bindValue(':date_added', date('Y-m-d H:i:s'));
 
 		if($stmt->execute()) {
@@ -49,6 +50,19 @@ class ProjectDAO extends DAO {
 		$sql = "UPDATE `w_projects` SET `name` =  :name WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':name', $data['name']);
+		$stmt->bindValue(':id', $data['id']);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById($insertedId);
+		}
+		return false;
+	}
+
+	public function insertDescription($data) {
+
+		$sql = "UPDATE `w_projects` SET `description` =  :description WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':description', $data['description']);
 		$stmt->bindValue(':id', $data['id']);
 		if($stmt->execute()) {
 			$insertedId = $this->pdo->lastInsertId();

@@ -2,7 +2,8 @@ module.exports = (function(){
 	function Addproject() {
 		//console.log("[Addproject] Hello Jil");
 		$.post( "index.php?page=addProject", { 
-			name: 'Klik om aan te passen'
+			name: 'Klik om aan te passen',
+			description: 'Klik om aan te passen, druk op enter ter bevestiging'
 		})
 
 	   .done(function(data) {

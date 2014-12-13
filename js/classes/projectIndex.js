@@ -23,49 +23,49 @@ module.exports = (function(){
 		  	titel.contentEditable = true;
 		  	beschrijving.contentEditable = true;
 
-	        aanpassenTitel(titel, link);
-		  	aanpassenBeschrijving(beschrijving, link);
+		  	var href_link = link.getAttribute("href");
+			var id_link = href_link.substring(29, 35);
+
+	        aanpassenTitel(titel, id_link);
+		  	aanpassenBeschrijving(beschrijving, id_link);
 		  }
 
 		});
 	}
 
-	function aanpassenTitel (titel, link){
-		var href_link = link.getAttribute("href");
-		var id_link = href_link.substring(29, 35);
+	function aanpassenTitel (titel, id_link){
 		
 		titel.addEventListener('keydown', function(e){
 			//als er op enter gedrukt wordt dan wordt het weggeschreven naar de DB
-				if(e.keyCode===13){
-					e.preventDefault();
-					var inhoudTitel = titel.innerText;
-					var id = id_link;
+			if(e.keyCode===13){
+				e.preventDefault();
+				var inhoudTitel = titel.innerText;
 
-					var input = {
-						name: inhoudTitel,
-						id: id
-					};
+				var input = {
+					name: inhoudTitel,
+					id: id_link
+				};
 
-					var SchrijfWeg = $.post("index.php?page=projects", input);
-
-					SchrijfWeg.done(function(data){
-						console.log(data);
-					});
-				}
-			});
+				var SchrijfWeg = $.post("index.php?page=projects", input);
+			}
+		});
 	}
 
-	function aanpassenBeschrijving (beschrijving, link){
+	function aanpassenBeschrijving (beschrijving, id_link){
 		//console.log(beschrijving);
 		beschrijving.addEventListener('keydown', function(e){
-				if(e.keyCode===13){
-					e.preventDefault();
-					console.log("ENTER");
-					/*$.post( "index.php?page=index", { 
-						name: beschrijving
-					});*/
-				}
-			});
+			if(e.keyCode===13){
+				e.preventDefault();
+				var inhoudBeschrijving = beschrijving.innerText;
+
+				var data = {
+					description: inhoudBeschrijving,
+					id: id_link
+				};
+
+				var Wegschrijven = $.post("index.php?page=projects", data);
+			}
+		});
 	}
 	return projectIndex;
 })();

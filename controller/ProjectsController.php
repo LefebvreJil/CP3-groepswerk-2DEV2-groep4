@@ -17,10 +17,16 @@ class ProjectsController extends Controller {
 	  	$projects = $this->projectDAO->selectAll();
 	    $this->set('projects', $projects);
 
-	    if(!empty($_POST)){
+	    if(!empty($_POST['name'])){
 
 			$data = $_POST;
 			$TitelToevoegen = $this->projectDAO->insertTitle($data);
+		}
+
+		if(!empty($_POST['description'])){
+
+			$data = $_POST;
+			$TitelToevoegen = $this->projectDAO->insertDescription($data);
 		}
 
 	    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
