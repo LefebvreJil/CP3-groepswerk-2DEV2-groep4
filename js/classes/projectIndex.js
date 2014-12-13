@@ -5,10 +5,18 @@ module.exports = (function(){
 
 	function projectIndex() {
 		//console.log("[projectIndex]");
-		$.get( "index.php?page=projects", function(projects) {
-		  var tpl = Handlebars.compile($('#project-template').html());
-		  var html = tpl(projects);
-		  $('.projectList').append(html);
+		$.get( "index.php?page=projects", function(data) {
+			var projects = data.projects;
+			//var usersOnProject = data.usersOnProject;
+
+		  	var tpl_projects = Handlebars.compile($('#project-template').html());
+		  	//var tpl_users = Handlebars.compile($('#users-template').html());
+
+		  	var html_projects = tpl_projects(projects);
+		  	//var html_users = tpl(usersOnProject);
+
+		  	$('.projectList').append(html_projects);
+		  	//$('.description').append(html_users);
 
 		  var projects_title = document.querySelectorAll('.title');
 		  var projects_link = document.querySelectorAll('.link');

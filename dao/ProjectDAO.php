@@ -13,7 +13,6 @@ class ProjectDAO extends DAO {
 		$sql = "SELECT * FROM `w_projects`
 				ORDER BY `id` DESC
 				LIMIT 1";
-		//$sql = "SELECT * FROM `w_projects` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
@@ -25,6 +24,19 @@ class ProjectDAO extends DAO {
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectAllUsers($id) {
+		$sql = "SELECT `w_users`.`nickname` 
+		FROM `w_users` 
+		LEFT JOIN `w_usersOnProjects` 
+		ON `w_users`.`id` = `w_usersOnProjects`.`user_id`
+		WHERE `w_usersOnProjects`.`project_id` = :id";
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function insert($data) {

@@ -1,21 +1,21 @@
 <?php
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
-require_once WWW_ROOT . 'dao' . DS . 'SessionDAO.php';
 
 class ProjectsController extends Controller {
 
 	private $projectDAO;
-	private $sessionDAO;
+	private $userDAO;
 
 	function __construct() {
 		$this->projectDAO = new ProjectDAO();
-		$this->sessionDAO = new SessionDAO();
 	}
 
 	public function index() {
 	  	$projects = $this->projectDAO->selectAll();
-	    $this->set('projects', $projects);
+
+	    $id = "25";
+	    $usersOnProject = $this->projectDAO->selectAllUsers($id);
 
 	    if(!empty($_POST['name'])){
 			$data = $_POST;
@@ -29,7 +29,7 @@ class ProjectsController extends Controller {
 
 	    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode($projects);
+	     	echo json_encode(array('projects' => $projects, 'usersOnProject'=> $usersOnProject));
 	    	die();
 		}
 	}
