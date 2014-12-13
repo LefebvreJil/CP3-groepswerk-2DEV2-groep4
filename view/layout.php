@@ -18,14 +18,16 @@
 				          <h1 class="title">{{name}}</h1>
 				        </header>
 				        <p class="description">{{description}}</p>
+				        <p>Gebruikers van dit project:</p>
+				        <p class="users">Jij {{users}}</p>
+				        <a class="addUser" href=""><img src="assets/img/arrow.png" alt="arrow">Voeg een user toe</a>
 				        <a class="link" href="index.php?page=whiteboard&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Ga naar project</a>
 			      	</article>
 		      	</li>
 
 		    {{/each}}
 	</script>
-	
-	
+
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/bean.min.js"></script>
 	<script src="js/vendor/handlebars.min.js"></script>

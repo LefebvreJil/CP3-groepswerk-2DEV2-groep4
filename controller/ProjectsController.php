@@ -18,13 +18,11 @@ class ProjectsController extends Controller {
 	    $this->set('projects', $projects);
 
 	    if(!empty($_POST['name'])){
-
 			$data = $_POST;
 			$TitelToevoegen = $this->projectDAO->insertTitle($data);
 		}
 
 		if(!empty($_POST['description'])){
-
 			$data = $_POST;
 			$TitelToevoegen = $this->projectDAO->insertDescription($data);
 		}
