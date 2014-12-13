@@ -21,11 +21,11 @@
 				<span>Elementen die je kunt toevoegen op het whiteboard:</span>
 			</p>
 			<ul>
-				<li class="introLi">Motherf*ing post-its</li>
-				<li class="introLi">Flipping foto's</li>
-				<li class="introLi">Awesome filmpjes</li>
+				<li class="introLi">Awesome post-its</li>
+				<li class="introLi">Je eigen foto's</li>
+				<li class="introLi">Zelf toegevoegde filmpjes</li>
 				<li class="introLi">To-do lijstjes all the way</li>
-				<li class="introLi">Tekenen 'n shit</li>
+				<li class="introLi">Tekenen om alles te linken</li>
 				<li class="introLi">En zoveel meer!</li>
 			</ul>
 			<p class="intro">Go nuts and let the brainstorm begin!</p>

@@ -15,7 +15,7 @@
 				<li class="projectItem">
 					<article class="project">
 		        		<header>
-				          <h1>{{name}}</h1>
+				          <h1 class="title">{{name}}</h1>
 				        </header>
 				        <p class="description">Klik om de omschrijving aan te passen.</p>
 				        <a href=""><img src="assets/img/arrow.png" alt="arrow">Ga naar project</a>
