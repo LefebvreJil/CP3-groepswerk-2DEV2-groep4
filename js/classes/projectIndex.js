@@ -39,7 +39,6 @@ module.exports = (function(){
 		  }
 		  
 	        $('.projectItem').each(function() {
-	            
 	            $(this).css( "background-color", get_random_color());
 	        });
 	    

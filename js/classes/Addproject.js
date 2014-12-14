@@ -17,8 +17,6 @@ module.exports = (function(){
 			});
 
 			var items = $('.projectItem');
-			//console.log(items.length-1);
-
 			$(items[items.length-1]).css( "background-color", get_random_color());
 	   	 }
 	   });
