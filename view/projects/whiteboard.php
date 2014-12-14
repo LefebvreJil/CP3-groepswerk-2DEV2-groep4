@@ -3,7 +3,7 @@
 		<ul>
 			<li><a href="index.php?page=projects">Terug</a></li>
 			<li><header>
-				<h1>Title van project</h1>
+				<h1><?php echo $project['name'] ?></h1>
 			</header></li>
 			<li><a href="" class="addBtn">Object toevoegen</a></li>
 			<li class="lastLi"><a href="index.php?page=logout" class="logoutBtn">Logout</a></li>

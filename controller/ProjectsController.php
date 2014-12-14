@@ -17,13 +17,6 @@ class ProjectsController extends Controller {
 	    $id = "25";
 	    $usersOnProject = $this->projectDAO->selectAllUsers($id);
 
-	    //$color = sprintf("#%06x",rand(0,16777215));
-
-	    // $rand = array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f');
-   		// $color = '#'.$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)].$rand[rand(0,15)];
-   		// $this->set("color", $color);
-   		// $_SESSION['color'] = $color;
-
 	    if(!empty($_POST['name'])){
 			$data = $_POST;
 			$TitelToevoegen = $this->projectDAO->insertTitle($data);
@@ -42,7 +35,9 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
-		
+		$project = $this->projectDAO->selectById($_GET['id']);
+
+		$this->set('project', $project);
 	}
 
 	public function addProject(){
