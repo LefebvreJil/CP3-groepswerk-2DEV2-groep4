@@ -41,6 +41,32 @@
                 addImage.onclick = function(event) {
                         event.preventDefault();
                         chooseImage();
+
+                        //Grote fout.
+                        // if (window.File && window.FileReader && window.FileList && window.Blob){
+                        // //foto toevoegen
+                        // var imageWboard = document.querySelector("input[name=imageWboard]");
+                        //     imageWboard.addEventListener("change", function(e){
+                        //         var imgBoard=imageWboard.parentNode.querySelector("imgBoard");
+                        //         if(imgBoard){ imageWboard.parentNode.removeChild(imgBoard);}
+                        //         if(imageWboard.files.length>0){
+                        //             var file = imageWboard.files['0'];
+                        //             if(file.type.search("image") !==0){
+                        //                     // errorElement.innerText = "the selected file is not an image";
+                        //                     // errorElement.style.display = "block";
+                        //             }else{
+                        //                 var reader = new FileReader();
+                        //                 reader.onload = function(e){
+                        //                     var imgBoard = document.createElement("imgBoard");
+                        //                     imgBoard.onload=function(e){imageWboard.parentNode.appendChild(imgBoard);};
+                        //                     imgBoard.setAttribute("src", reader.result);
+                        //                     imgBoard.setAttribute("width", "300");
+                        //                 };
+                        //                 reader.readAsDataURL(file);
+                        //             }
+                        //         }
+                        //     });
+                        // }
                         new Img();
                 };
             }
@@ -87,7 +113,7 @@
             }
 
         //random color/li.projectItem
-        //De selector is niet juist!------------
+        //De selector is niet juist!------------ ('.projectItem')
         $(document).ready(function() {
             $('.projectItem').each(function( index ) {
                 $(this).css( "background-color", get_random_color());
@@ -105,7 +131,7 @@
     }
 
     function chooseImage() {
-      $("#imageInput").click();
+      $("#imageWboard").click();
     }
 
     function chooseVideo() {

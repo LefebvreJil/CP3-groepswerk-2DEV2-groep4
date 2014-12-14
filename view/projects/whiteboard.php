@@ -11,9 +11,13 @@
 	</section>
 	<div class="addObject">
 		<ul>
-			<div style="height:0px;overflow:hidden">
-   				<input type="file" id="imageInput" name="imageInput" />
-			</div>
+			<li>
+			<form id="imageform" method="post" enctype="multipart/form-data" action='ajaximage.php'>
+				<input type="file" name="imageWboard" id="imageWboard" />
+				<input type="submit" value="Plaats" class="imageBtn" />
+			</form>
+			</li>
+
 			<li id="addImage"><a href="">Afbeelding</a></li>
 			<div style="height:0px;overflow:hidden">
    				<input type="file" id="videoInput" name="videoInput" />
