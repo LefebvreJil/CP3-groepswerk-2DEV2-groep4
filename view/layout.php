@@ -11,7 +11,6 @@
 
 	<script type="text/template" id="project-template">
 		    {{#each .}}
-		    
 				<li class="projectItem">
 					<article class="project">
 		        		<header>
