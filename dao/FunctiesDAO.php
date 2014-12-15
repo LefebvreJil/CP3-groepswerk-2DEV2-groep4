@@ -186,6 +186,15 @@ class FunctiesDAO extends DAO {
 		$stmt->execute();
 	}
 
+	public function selectLast_todo() {
+		$sql = "SELECT * FROM `w_todos`
+				ORDER BY `id` DESC
+				LIMIT 1";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
 	//TODOS item
 
 	public function selectAll_todoItem() {

@@ -1,9 +1,7 @@
 module.exports = (function(){
 
-	var numbOfClicks = 0;
-
 	function Todo() {
-		console.log("[Todo] Hello Jil");
+		//console.log("[Todo] Hello Jil");
 
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
@@ -16,7 +14,15 @@ module.exports = (function(){
 		var wegschrijvenNote = $.post("index.php?page=addTodo", input_todo);
 
 		wegschrijvenNote.done(function(data) {
-			console.log(data);
+			if(data.result) {
+	   	 	var todo_last = [data.todo_last];
+
+	   		$.get( "index.php?page=addTodo", function() {
+			  var tpl = Handlebars.compile($('#todo-template').html());
+			  var html_erbijVoegen = tpl(todo_last);
+			  $('.whiteboard').append(html_erbijVoegen);
+			});
+	   	 }
 		});
 	}
 

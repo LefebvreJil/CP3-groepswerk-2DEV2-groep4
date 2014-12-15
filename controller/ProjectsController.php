@@ -134,7 +134,14 @@ class ProjectsController extends Controller {
 			$data['project_id'] = $_POST['project_id'];
 			$data['user_id'] = $_SESSION['user']['id'];
 
-			$insertedNote = $this->functieDAO->insert_todo($data);
+			$insertedTodo = $this->functieDAO->insert_todo($data);
+			$todo_last = $this->functieDAO->selectLast_todo();
+
+			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				header('Content-Type: application/json');
+		        echo json_encode(array('result' => true, 'todo_last'=>$todo_last));
+		        die();
+			}
 		}
 	}
 }
