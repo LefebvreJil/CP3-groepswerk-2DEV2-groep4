@@ -38,15 +38,20 @@ class ProjectsController extends Controller {
 
 	public function whiteboard(){
 		$project_id = $_GET['id'];
+		$existing = $this->projectDAO->selectById($_GET['id']);
 
 		if($project_id){
-			//doorsturen naar js (this set moet er niet meer bij)
-			$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
-			$todos = $this->functieDAO->selectByProjectId_todo($project_id);
+			if(!empty($existing)){
+				//doorsturen naar js (this set moet er niet meer bij)
+				$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
+				$todos = $this->functieDAO->selectByProjectId_todo($project_id);
 
-			//doorsturen naar html (this set moet er nog bij)
-			$project = $this->projectDAO->selectById($project_id);
-			$this->set('project', $project);
+				//doorsturen naar html (this set moet er nog bij)
+				$project = $this->projectDAO->selectById($project_id);
+				$this->set('project', $project);
+			}else{
+				$this->redirect('index.php?page=projects');
+			}
 		}else{
 			$this->redirect('index.php?page=projects');
 		}
