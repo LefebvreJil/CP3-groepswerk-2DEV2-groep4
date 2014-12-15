@@ -1,4 +1,4 @@
-module.exports = (function(){
+/*module.exports = (function(){
 
 	function Draw() {
 		console.log("[Draw] Hello Jil");
@@ -64,3 +64,4 @@ module.exports = (function(){
 
 	return Draw;
 })();
+*/

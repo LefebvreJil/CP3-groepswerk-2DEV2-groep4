@@ -4,18 +4,22 @@ module.exports = (function(){
 
 	function stickyNote() {
 		//console.log("[stickyNote] Hello sticky Jil");
-
-		var input_stickyNote = {
-			color: "get_random_color()",
-			rotation: "5",
-			text: "Klik om de tekst aan te passen"
-		};
-
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
 		var id_link = id_link_arr[2];
 
-		$.post("index.php?page=whiteboard&id="+id_link, input_stickyNote);
+		var input_stickyNote = {
+			color: "get_random_color()",
+			rotation: "5",
+			text: "Klik om de tekst aan te passen",
+			id: id_link
+		};
+
+		var wegschrijvenNote = $.post("index.php?page=addNote", input_stickyNote);
+
+		wegschrijvenNote.done(function(data) {
+			console.log(data);
+		});
 
 		//stickyNote-template
 
