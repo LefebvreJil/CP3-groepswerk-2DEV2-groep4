@@ -61,6 +61,19 @@ class FunctiesDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function insertText_stickyNote($data) {
+
+		$sql = "UPDATE `w_sticky_notes` SET `text` =  :tekst WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':tekst', $data['text']);
+		$stmt->bindValue(':id', $data['id_stickynote']);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById_stickyNote($insertedId);
+		}
+		return false;
+	}
+
 
 	//IMG
 	public function selectAll_img() {

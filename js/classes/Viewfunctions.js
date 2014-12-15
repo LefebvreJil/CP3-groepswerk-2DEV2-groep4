@@ -30,17 +30,48 @@ module.exports = (function(){
 
 		  	$('.whiteboard').append(html_stickyNotes);
 
-		  	console.log($('.note'));
+		  	stickyNotes_change();
 		});
-		
-		stickynote_contents = document.querySelectorAll('.note');
-		stickyNotes_change();
 	}
 
 	function stickyNotes_change(){
+		var stickynotes_allContent = $('.stickyNote_content');
+		var stickynotes_allLinks = document.querySelectorAll('.deleteStickyNote');
+
+		for (var i = 0; i < stickynotes_allContent.length; i++) {
+		  	stickynote = stickynotes_allContent[i];
+		  	stickynote_link = stickynotes_allLinks[i];
+
+		  	var href_link = stickynote_link.getAttribute("href");
+			var id_link_arr = href_link.split( "=" );
+			var id_stickynote = id_link_arr[2];
+
+		  	stickynote.contentEditable = true;
+
+	        aanpassenTekst_stickyNote(stickynote, id_stickynote);
+		  }
+	}
+
+	function aanpassenTekst_stickyNote (stickynote, id_stickynote){
 		
-		//var stickynote_contents = alles.stickyNote_content;
-		//console.log(stickynote_contents);
+		stickynote.addEventListener('keydown', function(e){
+			if(e.keyCode===13){
+				e.preventDefault();
+				var inhoudStickynote = stickynote.innerText;
+
+				var input = {
+					text: inhoudStickynote,
+					id_stickynote: id_stickynote
+				};
+
+				$.post("index.php?page=UpdateFunctie", input)
+				.done(function(data){
+					console.log(data);
+				});
+
+
+			}
+		});
 	}	
 
 	function verwijderen (element, id_link){

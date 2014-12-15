@@ -36,6 +36,18 @@ class ProjectsController extends Controller {
 		}
 	}
 
+	public function UpdateFunctie(){
+		if(!empty($_POST['id_stickynote'])){
+			$data = $_POST;
+			$inhoudToevoegen = $this->functieDAO->insertText_stickyNote($data);
+		}
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+			header('Content-Type: application/json');
+	     	echo json_encode(array('data' => $_POST));
+	    	die();
+		}
+	}
+
 	public function whiteboard(){
 		$project_id = $_GET['id'];
 		$existing = $this->projectDAO->selectById($_GET['id']);
@@ -49,6 +61,8 @@ class ProjectsController extends Controller {
 				//doorsturen naar html (this set moet er nog bij)
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
+
+				
 			}else{
 				$this->redirect('index.php?page=projects');
 			}
