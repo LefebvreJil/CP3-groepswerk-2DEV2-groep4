@@ -60,6 +60,10 @@ class ProjectsController extends Controller {
 		$this->_handleAddStickyNote();
 	}
 
+	public function addTodo(){
+		$this->_handleAddTodo();
+	}
+
 	public function addProject(){
 		$this->_handleAddProject();
 	}
@@ -98,6 +102,16 @@ class ProjectsController extends Controller {
 			$data['text'] = $_POST['text'];
 
 			$insertedNote = $this->functieDAO->insert_stickyNote($data);
+		}
+	}
+
+	private function _handleAddTodo(){
+
+		if(!empty($_POST)){
+			$data['project_id'] = $_POST['project_id'];
+			$data['user_id'] = $_SESSION['user']['id'];
+
+			$insertedNote = $this->functieDAO->insert_todo($data);
 		}
 	}
 }

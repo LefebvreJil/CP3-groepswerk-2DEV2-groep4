@@ -29,6 +29,10 @@ $routes = array(
         'controller' => 'Projects',
         'action' => 'addNote'
     ),
+    'addTodo' => array(
+        'controller' => 'Projects',
+        'action' => 'addTodo'
+    ),
     'whiteboard' => array(
         'controller' => 'Projects',
         'action' => 'whiteboard'

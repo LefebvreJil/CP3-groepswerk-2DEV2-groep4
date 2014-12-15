@@ -1,7 +1,7 @@
 module.exports = (function(){
 
 	function Viewfunctions() {
-		console.log("[Class] Hello Phinodel");
+		//console.log("[Class] Hello Phinodel");
 
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
@@ -9,9 +9,10 @@ module.exports = (function(){
 
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
 			var stickyNotes = data.stickyNotes;
-			console.log(stickyNotes);
+
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
+		  	console.log(html_stickyNotes);
 
 		  	$('.whiteboard').append(html_stickyNotes);
 		});

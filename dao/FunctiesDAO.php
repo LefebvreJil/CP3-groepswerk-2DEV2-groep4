@@ -115,5 +115,42 @@ class FunctiesDAO extends DAO {
 	}
 
 	//TODOS
-	//`w_todos` 
+
+	public function selectAll_todo() {
+		$sql = "SELECT * FROM `w_todos`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function selectById_todo($id) {
+		$sql = "SELECT * FROM `w_todos` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectByProjectId_todo($project_id) {
+		$sql = "SELECT * FROM `w_todos` WHERE `project_id` = :project_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':project_id', $project_id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function insert_todo($data) {
+		$sql = "INSERT INTO `w_todos` (`project_id`,`user_id`) 
+		VALUES (:project_id, :user_id)";
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':project_id', $data['project_id']);
+		$stmt->bindValue(':user_id', $data['user_id']);
+
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById_todo($insertedId);
+		}
+		return false;
+	}
 }
