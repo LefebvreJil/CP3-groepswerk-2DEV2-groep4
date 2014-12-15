@@ -2,11 +2,16 @@ module.exports = (function(){
 
 	var numbOfClicks = 0;
 
-	function stickyNotes_wijzigen() {
+	function stickyNotes_wijzigen(whiteboard) {
 		//console.log("[stickyNote] Hello sticky Jil wijzigen");
+
+		console.log(whiteboard);
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
 		var id_link = id_link_arr[2];
+
+		var stickynotes_all = whiteboard.querySelectorAll('notes');
+		console.log(stickynotes_all);
 
 		//var stickynote_contents = document.querySelectorAll('.title');
 		//var stickynote_contents = alles.stickyNote_content;

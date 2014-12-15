@@ -72,10 +72,13 @@
             }
 
         //alle functies op whiteboard tonen
+        //stickyNotes kunnen wijzigen
             var whiteboard = document.getElementById('whiteboard');
+            var stickyNotes_wijzigen = require('./classes/stickyNotes_wijzigen.js');
             if(whiteboard){
                 var viewFunctions = require('./classes/Viewfunctions.js');
                 new viewFunctions();
+                new stickyNotes_wijzigen(whiteboard);
             }
 
         //video class toevoegen
@@ -97,11 +100,6 @@
                         event.preventDefault();
                         new stickyNote();
                 };
-            }
-
-            var stickyNotes_wijzigen = require('./classes/stickyNotes_wijzigen.js');
-            if(stickyNotes_wijzigen){
-                new stickyNotes_wijzigen();
             }
 
         //todo class toevoegen
