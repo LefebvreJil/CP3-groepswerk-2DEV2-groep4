@@ -3,19 +3,34 @@ module.exports = (function(){
 	var numbOfClicks = 0;
 
 	function stickyNotes_wijzigen() {
-		//console.log("[stickyNote] Hello sticky Jil");
+		//console.log("[stickyNote] Hello sticky Jil wijzigen");
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
 		var id_link = id_link_arr[2];
 
-		var input_stickyNote = {
-			color: get_random_color(),
-			rotation: "5",
-			text: "Klik om de tekst aan te passen",
-			id: id_link
-		};
+		//var stickynote_contents = document.querySelectorAll('.title');
+		//var stickynote_contents = alles.stickyNote_content;
+		//console.log(alles);
+		
 
-		var wegschrijvenNote = $.post("index.php?page=addNote", input_stickyNote);
+		//for (var i = 0; i < stickynotes.length; i++) {
+		  	//content = stickynotes[i];
+		  	//console.log(content);
+
+		  	/*titel.contentEditable = true;
+		  	beschrijving.contentEditable = true;
+
+		  	var href_link = link.getAttribute("href");
+			var id_link_arr = href_link.split( "=" );
+			var id_link = id_link_arr[2];
+
+	        aanpassenTitel(titel, id_link);
+		  	aanpassenBeschrijving(beschrijving, id_link);
+		  	verwijderenProject(dikkeMin, id_link);*/
+
+		  //}
+
+		
 
 		/*this._mouseDownHandler = this.mouseDownHandler.bind(this);
 		this._mouseMoveHandler = this.mouseMoveHandler.bind(this);
@@ -42,15 +57,6 @@ module.exports = (function(){
 		window.removeEventListener('mousemove', this._mouseMoveHandler);
 		window.removeEventListener('mouseup', this._mouseUpHandler);
 	};*/
-
-	function get_random_color() {
-        var letters = '0123456789ABCDEF'.split('');
-        var color = '#';
-        for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.round(Math.random() * 15)];
-        }
-        return color;
-    }
 
 	return stickyNotes_wijzigen;
 })();

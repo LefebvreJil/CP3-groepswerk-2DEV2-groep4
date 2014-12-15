@@ -99,6 +99,11 @@
                 };
             }
 
+            var stickyNotes_wijzigen = require('./classes/stickyNotes_wijzigen.js');
+            if(stickyNotes_wijzigen){
+                new stickyNotes_wijzigen();
+            }
+
         //todo class toevoegen
             var Todo = require('./classes/todo.js');
             var addTodo = document.getElementById('addTodo');

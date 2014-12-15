@@ -8,7 +8,7 @@ module.exports = (function(){
 	function projectIndex() {
 		//console.log("[projectIndex]");
 		$.get( "index.php?page=projects", function(data) {
-			console.log(data);
+			//console.log(data);
 			var projects = data.projects;
 			//var usersOnProject = data.usersOnProject;
 
