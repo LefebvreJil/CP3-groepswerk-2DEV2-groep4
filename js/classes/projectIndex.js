@@ -8,6 +8,7 @@ module.exports = (function(){
 	function projectIndex() {
 		//console.log("[projectIndex]");
 		$.get( "index.php?page=projects", function(data) {
+			console.log(data);
 			var projects = data.projects;
 			//var usersOnProject = data.usersOnProject;
 
@@ -101,16 +102,18 @@ module.exports = (function(){
 	function verwijderenProject (dikkeMin, id_link){
 		dikkeMin.addEventListener('click', function(e){
 			e.preventDefault();
-			console.log(id_link);
 			var input = {
 				action : 'delete',
-				id : id_link
-			}
+				id_project : id_link
+			};
 
-			var deleteWegSchrijvenAJAX = $.post("index.php?page=projects", input);
+			var deleteWegSchrijvenAJAX = $.post("index.php?page=deleteProject", input);
 
 		   deleteWegSchrijvenAJAX.done(function(data) {
-		   	 	console.log('Verwijderen van project');
+		   	 	//console.log(data);
+		   	 	var elementen = document.getElementById("projectList");
+		   	 	console.log(elementen[0]);
+		   	 	elementen.removeChild(elementen.childNodes[0]);
 		   });
 		});
 	}

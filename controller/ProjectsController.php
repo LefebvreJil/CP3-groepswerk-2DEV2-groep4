@@ -16,8 +16,8 @@ class ProjectsController extends Controller {
 	public function index() {
 	  	$projects = $this->projectDAO->selectAll();
 
-	    $id = "25";
-	    $usersOnProject = $this->projectDAO->selectAllUsers($id);
+	    // $id = "25";
+	    // $usersOnProject = $this->projectDAO->selectAllUsers($id);
 
 	    if(!empty($_POST['name'])){
 			$data = $_POST;
@@ -31,7 +31,7 @@ class ProjectsController extends Controller {
 
 	    if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode(array('projects' => $projects, 'usersOnProject'=> $usersOnProject));
+	     	echo json_encode(array('projects' => $projects));
 	    	die();
 		}
 	}
@@ -67,6 +67,19 @@ class ProjectsController extends Controller {
 
 	public function addProject(){
 		$this->_handleAddProject();
+	}
+
+	public function deleteProject(){
+		print_r($_POST);
+		if($_POST['action'] = 'delete'){
+			$ProjectId_verwijderd = $this->projectDAO->selectById($_POST['id_project']);
+			$ProjectVerwijderen = $this->projectDAO->deleteById($_POST['id_project']);
+			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				header('Content-Type: application/json');
+		     	echo json_encode(array('Verwijderde_project' => $ProjectId_verwijderd));
+		    	die();
+			}
+		}
 	}
 
 	private function _handleAddProject() {
