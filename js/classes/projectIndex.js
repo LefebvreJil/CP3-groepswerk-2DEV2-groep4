@@ -101,23 +101,16 @@ module.exports = (function(){
 	function verwijderenProject (dikkeMin, id_link){
 		dikkeMin.addEventListener('click', function(e){
 			e.preventDefault();
-			$.post( "index.php?page=projects", { 
-				action: 'delete'
-			})
+			console.log(id_link);
+			var input = {
+				action : 'delete',
+				id : id_link
+			}
 
-		   .done(function(data) {
-		   	 if(data.result) {
-		   	 	var projects_last = [data.projects_last];
+			var deleteWegSchrijvenAJAX = $.post("index.php?page=projects", input);
 
-		   		$.get( "index.php?page=addProject", function() {
-				  var tpl = Handlebars.compile($('#project-template').html());
-				  var html_erbijVoegen = tpl(projects_last);
-				  $('.projectList').append(html_erbijVoegen);
-				});
-
-				var items = $('.projectItem');
-				$(items[items.length-1]).css( "background-color", get_random_color());
-		   	 }
+		   deleteWegSchrijvenAJAX.done(function(data) {
+		   	 	console.log('Verwijderen van project');
 		   });
 		});
 	}
