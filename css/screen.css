@@ -328,8 +328,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .addObject {
-  width: 780px;
-  height: 20px;
+  width: 1000px;
+  height: 35px;
   padding: 10px;
   margin: 20px auto;
   background-color: #D64343;
@@ -345,25 +345,45 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
   z-index: -1;
 }
-.addObject li {
-  margin-right: 120px;
+.addObject ul {
+  float: left;
+  margin-right: 20px;
+}
+.addObject ul li {
   float: left;
 }
-.addObject li a {
+.addObject ul li .underLi {
+  float: none;
+}
+.addObject ul li a {
   text-decoration: none;
   color: white;
   transition: color 0.2s ease;
 }
-.addObject li a:hover {
+.addObject ul li a:hover {
   color: black;
+}
+.addObject .addItem {
+  margin: 10px 150px 0 0;
 }
 .addObject .lastLi {
   margin-right: 0px;
 }
+.addObject .firstLi {
+  margin-left: 100px;
+}
+.addObject .formAdd {
+  margin-left: 10px;
+}
+.addObject .formAdd label {
+  width: 80px;
+  display: inline-block;
+  color: #FFF;
+}
 
 .whiteboard {
   width: 1200px;
-  margin: -60px auto 20px;
+  margin: -75px auto 20px;
   height: 800px;
   background-color: white;
   -webkit-border-radius: 2px;

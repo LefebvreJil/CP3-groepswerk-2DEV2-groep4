@@ -2,9 +2,11 @@
 	<section class="wNav">
 		<ul>
 			<li><a href="index.php?page=projects">Terug</a></li>
-			<li><header>
-				<h1><?php echo $project['name'] ?></h1>
-			</header></li>
+			<li>
+				<header>
+					<h1><?php echo $project['name'] ?></h1>
+				</header>
+			</li>
 			<li><a href="" class="addBtn">Object toevoegen</a></li>
 			<li class="lastLi"><a href="index.php?page=logout" class="logoutBtn">Logout</a></li>
 		</ul>
@@ -12,20 +14,30 @@
 	<div class="addObject">
 		<ul>
 			<li>
-			<form id="imageform" method="post" enctype="multipart/form-data" action='ajaximage.php'>
-				<input type="file" name="imageWboard" id="imageWboard" />
-				<input type="submit" value="Plaats" class="imageBtn" />
-			</form>
+				<ul>
+					<li class="underLi">
+						<form id="imageform" method="post" enctype="multipart/form-data" action='index.php?page=whiteboard' class="formAdd">
+							<label for="imageWboard" id="addImage">Afbeelding</label>
+							<input type="file" name="imageWboard" id="imageWboard" />
+							<input type="submit" value="Plaats" class="imageBtn" />
+						</form>
+					</li>
+					<li class="underLi">
+						<form id="videoform" method="post" enctype="multipart/form-data" action='index.php?page=whiteboard' class="formAdd">
+							<label for="videoWboard" id="addVideo">Video</label>
+							<input type="file" name="videoWboard" id="videoWboard" />
+							<input type="submit" value="Plaats" class="videoBtn" />
+						</form>
+					</li>
+				</ul>
 			</li>
-
-			<li id="addImage"><a href="">Afbeelding</a></li>
-			<div style="height:0px;overflow:hidden">
-   				<input type="file" id="videoInput" name="videoInput" />
-			</div>
-			<li id="addVideo"><a href="">Video</a></li>
-			<li id="addStickyNote"><a href="">Post-it</a></li>
-			<li id="addTodo"><a href="">Todo Lijst</a></li>
-			<li id="draw" class="lastLi"><a href="">Tekenen</a></li>
+			<li>
+				<ul>
+					<li id="addStickyNote" class=" firstLi addItem"><a href="">Post-it</a></li>
+					<li id="addTodo" class="addItem"><a href="">Todo Lijst</a></li>
+					<li id="draw" class="lastLi addItem"><a href="">Tekenen</a></li>
+				</ul>
+			</li>
 		</ul>
 	</div>
 	<div id="whiteboard" class="whiteboard">

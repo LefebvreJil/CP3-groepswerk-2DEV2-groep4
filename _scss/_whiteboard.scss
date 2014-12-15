@@ -1,6 +1,6 @@
 .addObject{
-	width: 780px;
-	height: 20px;
+	width: 1000px;
+	height: 35px;
 	padding: 10px;
 	margin: 20px auto;
 	background-color: $loginColor;
@@ -8,28 +8,52 @@
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.10));
 	z-index: -1;
 
+	ul{
+		float: left;
+		margin-right: 20px;
+		li{
+			//margin-right: 120px;
+			float: left; 
+			.underLi{
+				float: none;
+			}
 
-	li{
-		margin-right: 120px;
-		float: left; 
-
-		a{
-			text-decoration: none;
-			color: white;
-			transition: color 0.2s ease;
-			&:hover{
-				color: black;
+			a{
+				text-decoration: none;
+				color: white;
+				transition: color 0.2s ease;
+				&:hover{
+					color: black;
+				}
 			}
 		}
 	}
+	
+	.addItem{
+		margin: 10px 150px 0 0;
+	}
+
 	.lastLi{
 		margin-right: 0px;
+	}
+
+	.firstLi{
+		margin-left: 100px;
+	}
+
+	.formAdd{
+		margin-left: 10px;
+		label{
+			width: 80px;
+			display: inline-block;
+			color: #FFF;
+		}
 	}
 }
 
 .whiteboard{
 	width: 1200px;
-	margin: -60px auto 20px;
+	margin: -75px auto 20px;
 	height: 800px;
 	background-color: white;
 	@include prefix(border-radius, 2px);
