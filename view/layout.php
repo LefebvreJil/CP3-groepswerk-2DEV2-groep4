@@ -17,7 +17,7 @@
 				          <h1 class="title">{{name}}</h1>
 				        </header>
 				        <p class="description">{{description}}</p>
-				        <a class="deleteProject" href="" id="dikkeMin"><img src="assets/img/arrow.png" alt="arrow">Verwijder project</a>
+				        <a class="deleteProject" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder project</a>
 				        <a class="link" href="index.php?page=whiteboard&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Ga naar project</a>
 			      	</article>
 		      	</li>
