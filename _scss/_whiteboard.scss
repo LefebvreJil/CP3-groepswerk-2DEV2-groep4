@@ -133,9 +133,38 @@
 
 .note{
 	padding: 10px;
-	background-color: #A3CBCD;
+	background-color: #B3DEFF;
+	width: 270px;
+	margin: 5px;
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+	p{
+		width: 250px;
+		margin: 10px auto;
+	}
+	a{
+		text-decoration: none;
+		color: white;
+	}
 }
+
+/*-----------TODO------------*/
+
+.todo{
+	width: 300px;
+	padding: 10px;
+	background-color: #8EFF97;
+	margin: 5px;
+	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+	li{
+		width: 280px;
+		margin: 10px auto;
+	}
+	a{
+		text-decoration: none;
+		color: white;
+	}
+}
+
 
 
 
