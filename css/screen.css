@@ -462,6 +462,49 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   top: 800px;
 }
 
+/*-----------OBJECTEN------------*/
+/*-----------NOTE------------*/
+.note {
+  padding: 10px;
+  background-color: #B3DEFF;
+  width: 270px;
+  margin: 5px;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+}
+.note p {
+  width: 250px;
+  margin: 10px auto;
+}
+.note a {
+  text-decoration: none;
+  color: white;
+}
+
+/*-----------TODO------------*/
+.todo {
+  width: 300px;
+  padding: 10px;
+  background-color: #8EFF97;
+  margin: 5px;
+  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+}
+.todo li {
+  width: 280px;
+  margin: 10px auto;
+}
+.todo a {
+  text-decoration: none;
+  color: white;
+}
+
 body {
   background-color: #F1F1F1;
   font-family: helveticaNeue, sans-serif;

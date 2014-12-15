@@ -114,6 +114,16 @@ module.exports = (function(){
 		   	 	// var elementen = document.getElementById("projectList");
 		   	 	// console.log(elementen[0]);
 		   	 	// elementen.removeChild(elementen.childNodes[0]);
+		   	 	var projectList = document.querySelector('.projectList');
+				var projectItems = [];
+				var projectItemElement = projectList.querySelectorAll('.projectItem');
+				[].forEach.call(projectItemElement, function(projectItemEl){
+					// var cartItem = new ShoppingCartItem(projectItemEl);
+					// bean.on(cartItem, "delete", this.deleteItemHandler.bind(this));
+					// bean.on(cartItem, "change", this.cartItemChangeHandler.bind(this));
+					// this.cartItems.push(cartItem);
+					console.log(projectItemEl);
+				});
 		   });
 		});
 	}
