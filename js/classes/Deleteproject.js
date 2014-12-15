@@ -1,12 +1,12 @@
 module.exports = (function(){
 
-	function Class() {
-		//console.log("[Class] Hello Jil");
+	function Deleteproject() {
+		console.log("[Class] Hello Phinodel");
 	}
 
 	/*Class.prototype.clickHandler = function(event){
 		//event.preventDefault();
 	}*/
 
-	return Class;
+	return Deleteproject;
 })();
