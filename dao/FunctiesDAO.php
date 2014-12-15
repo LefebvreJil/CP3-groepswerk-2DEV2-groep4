@@ -28,18 +28,14 @@ class FunctiesDAO extends DAO {
 	}
 
 	public function insert_stickyNote($data) {
-		$sql = "INSERT INTO `w_sticky_notes` (`project_id`,`user_id`, `xPos`, `yPos`,`width`, `height`, `color`,`rotation`, `text`) 
-		VALUES (:project_id, :user_id, :xPos, :yPos, :width, :height, :color, :rotation, :tekst)";
+		$sql = "INSERT INTO `w_sticky_notes` (`project_id`,`user_id`, `xPos`, `yPos`, `text`) 
+		VALUES (:project_id, :user_id, :xPos, :yPos, :tekst)";
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':project_id', $data['project_id']);
 		$stmt->bindValue(':user_id', $data['user_id']);
 		$stmt->bindValue(':xPos', $data['xPos']);
 		$stmt->bindValue(':yPos', $data['yPos']);
-		$stmt->bindValue(':width', $data['width']);
-		$stmt->bindValue(':height', $data['height']);
-		$stmt->bindValue(':color', $data['color']);
-		$stmt->bindValue(':rotation', $data['rotation']);
 		$stmt->bindValue(':tekst', $data['text']);
 
 		if($stmt->execute()) {
@@ -54,6 +50,15 @@ class FunctiesDAO extends DAO {
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
+	}
+
+	public function selectLast_stickyNote() {
+		$sql = "SELECT * FROM `w_sticky_notes`
+				ORDER BY `id` DESC
+				LIMIT 1";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
 

@@ -28,7 +28,7 @@
 	<script type="text/template" id="stickyNote-template">
 		{{#each .}}
 			<div class="note">
-				<p class="content">{{text}}</p>
+				<p class="stickyNote_content">{{text}}</p>
 				<a class="deleteStickyNote" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder post-it</a>
 			</div>
 		{{/each}}

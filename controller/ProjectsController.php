@@ -110,13 +110,16 @@ class ProjectsController extends Controller {
 			$data['user_id'] = $_SESSION['user']['id'];
 			$data['xPos'] = '0';
 			$data['yPos'] = '0';
-			$data['width'] = '150';
-			$data['height'] = '200';
-			$data['color'] = $_POST['color'];
-			$data['rotation'] = $_POST['rotation'];
 			$data['text'] = $_POST['text'];
 
 			$insertedNote = $this->functieDAO->insert_stickyNote($data);
+			$stickyNote_last = $this->functieDAO->selectLast_stickyNote();
+
+			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+				header('Content-Type: application/json');
+		        echo json_encode(array('result' => true, 'stickyNote_last'=>$stickyNote_last));
+		        die();
+			}
 		}
 	}
 
