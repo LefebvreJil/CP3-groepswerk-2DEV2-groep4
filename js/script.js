@@ -33,18 +33,6 @@
                 };
             
             }
-
-        //project deleten via ajax
-            var dikkeMin = $('#dikkeMin');
-            if(dikkeMin){
-                var deleteProject = require('./classes/Deleteproject.js');
-                console.log(dikkeMin);
-                dikkeMin.onclick = function(e){
-                    event.preventDefault();
-                    new deleteProject();
-                };
-            
-            }
             
         //img class toevoegen
             var Img = require('./classes/img.js');
@@ -81,6 +69,13 @@
                         // }
                         new Img();
                 };
+            }
+
+        //alle functies op whiteboard tonen
+            var whiteboard = document.getElementById('whiteboard');
+            if(whiteboard){
+                var viewFunctions = require('./classes/Viewfunctions.js');
+                new viewFunctions();
             }
 
         //video class toevoegen
