@@ -49,6 +49,13 @@ class FunctiesDAO extends DAO {
 		return false;
 	}
 
+	public function deleteById_stickyNote($id){
+		$sql = "DELETE FROM `w_sticky_notes` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+	}
+
 
 	//IMG
 	public function selectAll_img() {
@@ -80,6 +87,13 @@ class FunctiesDAO extends DAO {
 			return $this->selectById($insertedId);
 		}
 		return false;
+	}
+
+	public function deleteById_img($id){
+		$sql = "DELETE FROM `w_images` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
 	}
 
 	//VIDEO
@@ -114,8 +128,14 @@ class FunctiesDAO extends DAO {
 		return false;
 	}
 
-	//TODOS
+	public function deleteById_video($id){
+		$sql = "DELETE FROM `w_videos` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+	}
 
+	//TODOS ALGEMEEN
 	public function selectAll_todo() {
 		$sql = "SELECT * FROM `w_todos`";
 		$stmt = $this->pdo->prepare($sql);
@@ -152,5 +172,73 @@ class FunctiesDAO extends DAO {
 			return $this->selectById_todo($insertedId);
 		}
 		return false;
+	}
+
+	public function deleteById_todo($id){
+		$sql = "DELETE FROM `w_todos` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+	}
+
+	//TODOS item
+
+	public function selectAll_todoItem() {
+		$sql = "SELECT * FROM `w_todoItems`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
+	public function selectById_todoItem($id) {
+		$sql = "SELECT * FROM `w_todoItems` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function selectByTodoId_todoItem($todo_id) {
+		$sql = "SELECT * FROM `w_todoItems` WHERE `todo_id` = :todo_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':todo_id', $todo_id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function insert_todoItem($data) {
+		$sql = "INSERT INTO `w_todoItems` (`todo_id`,`title`, `done`) 
+		VALUES (:todo_id, :title, :done)";
+
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':todo_id', $data['todo_id']);
+		$stmt->bindValue(':title', $data['title']);
+		$stmt->bindValue(':done', $data['done']);
+
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById_todo($insertedId);
+		}
+		return false;
+	}
+
+	public function update_todoItem($data) {
+
+		$sql = "UPDATE `w_todoItems` SET `done` =  :done WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':done', $data['done']);
+		$stmt->bindValue(':id', $data['id']);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById($insertedId);
+		}
+		return false;
+	}
+
+	public function deleteById_todoItem($id){
+		$sql = "DELETE FROM `w_todoItems` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
 	}
 }

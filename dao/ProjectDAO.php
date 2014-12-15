@@ -62,8 +62,6 @@ class ProjectDAO extends DAO {
 		return false;
 	}
 
-	
-
 	public function insertTitle($data) {
 
 		$sql = "UPDATE `w_projects` SET `name` =  :name WHERE `id` = :id";
