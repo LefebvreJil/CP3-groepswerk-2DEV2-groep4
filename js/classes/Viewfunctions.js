@@ -27,9 +27,21 @@ module.exports = (function(){
 			var stickyNotes = data.stickyNotes;
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
+
 		  	$('.whiteboard').append(html_stickyNotes);
+
+		  	console.log($('.note'));
 		});
+		
+		stickynote_contents = document.querySelectorAll('.note');
+		stickyNotes_change();
 	}
+
+	function stickyNotes_change(){
+		
+		//var stickynote_contents = alles.stickyNote_content;
+		//console.log(stickynote_contents);
+	}	
 
 	function verwijderen (element, id_link){
 		element.addEventListener('click', function(e){

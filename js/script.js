@@ -78,7 +78,7 @@
             if(whiteboard){
                 var viewFunctions = require('./classes/Viewfunctions.js');
                 new viewFunctions();
-                new stickyNotes_wijzigen(whiteboard);
+                new stickyNotes_wijzigen();
             }
 
         //video class toevoegen
