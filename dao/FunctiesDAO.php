@@ -24,7 +24,7 @@ class FunctiesDAO extends DAO {
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':project_id', $project_id);
 		$stmt->execute();
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function insert_stickyNote($data) {
@@ -156,7 +156,7 @@ class FunctiesDAO extends DAO {
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':project_id', $project_id);
 		$stmt->execute();
-		return $stmt->fetch(PDO::FETCH_ASSOC);
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function insert_todo($data) {
