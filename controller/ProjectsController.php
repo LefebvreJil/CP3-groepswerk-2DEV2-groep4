@@ -42,6 +42,7 @@ class ProjectsController extends Controller {
 		if($project_id){
 			//doorsturen naar js (this set moet er niet meer bij)
 			$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
+			$todos = $this->functieDAO->selectByProjectId_todo($project_id);
 
 			//doorsturen naar html (this set moet er nog bij)
 			$project = $this->projectDAO->selectById($project_id);
@@ -52,7 +53,7 @@ class ProjectsController extends Controller {
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode(array('stickyNotes' => $stickyNotes));
+	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos));
 	    	die();
 		}
 	}
