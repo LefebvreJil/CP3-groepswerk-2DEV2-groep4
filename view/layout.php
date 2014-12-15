@@ -25,6 +25,14 @@
 		    {{/each}}
 	</script>
 
+	<script type="text/template" id="stickyNote-template">
+		{{#each .}}
+			<div class="note">
+				<p>{{text}}</p>
+			</div>
+		{{/each}}
+	</script>
+
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/bean.min.js"></script>
 	<script src="js/vendor/handlebars.min.js"></script>

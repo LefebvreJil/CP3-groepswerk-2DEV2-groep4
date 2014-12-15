@@ -36,8 +36,14 @@ class ProjectsController extends Controller {
 
 	public function whiteboard(){
 		$project = $this->projectDAO->selectById($_GET['id']);
-
 		$this->set('project', $project);
+
+		$_POST['ok'] = 'ok';
+		var_dump($_POST);
+		$this->_handleAddStickyNote();
+
+
+
 	}
 
 	public function addProject(){
@@ -62,5 +68,20 @@ class ProjectsController extends Controller {
 		        die();
 			}
 	  	}
+	}
+
+	private function _handleAddStickyNote(){
+
+		if(!empty($_POST)){
+			$data['project_id'] = '';
+			$data['user_id'] = '';
+			$data['xPos'] = '';
+			$data['yPos'] = '';
+			$data['width'] = '';
+			$data['height'] = '';
+			$data['color'] = '';
+			$data['rotation'] = '';
+			$data['text'] = '';
+		}
 	}
 }

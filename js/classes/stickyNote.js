@@ -3,7 +3,19 @@ module.exports = (function(){
 	var numbOfClicks = 0;
 
 	function stickyNote() {
-		console.log("[stickyNote] Hello sticky Jil");
+		//console.log("[stickyNote] Hello sticky Jil");
+
+		/*var input_stickyNote = {
+			color: "get_random_color()",
+			rotation: "5",
+			text: "Klik om de tekst aan te passen"
+		};*/
+
+		var input_stickyNote = {stuff : "okJS"};
+
+		$.post("index.php?page=whiteboard", input_stickyNote);
+
+		//stickyNote-template
 
 		this.el = document.createElement('div');
 		this.el.classList.add('postIt_vervangenDoorCirkel');
@@ -36,6 +48,15 @@ module.exports = (function(){
 		window.removeEventListener('mousemove', this._mouseMoveHandler);
 		window.removeEventListener('mouseup', this._mouseUpHandler);
 	};
+
+	function get_random_color() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++ ) {
+            color += letters[Math.round(Math.random() * 15)];
+        }
+        return color;
+    }
 
 	return stickyNote;
 })();
