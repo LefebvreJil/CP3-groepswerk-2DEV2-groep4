@@ -9,7 +9,7 @@ module.exports = (function(){
 		var id_link = id_link_arr[2];
 
 		var input_stickyNote = {
-			color: "get_random_color()",
+			color: get_random_color(),
 			rotation: "5",
 			text: "Klik om de tekst aan te passen",
 			id: id_link
@@ -22,7 +22,6 @@ module.exports = (function(){
 		});
 
 		//stickyNote-template
-
 		this.el = document.createElement('div');
 		this.el.classList.add('postIt_vervangenDoorCirkel');
 

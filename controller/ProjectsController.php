@@ -42,7 +42,7 @@ class ProjectsController extends Controller {
 	public function addNote(){
 		$_POST['ok'] = 'ok';
 		var_dump($_POST);
-		//$this->_handleAddStickyNote();
+		$this->_handleAddStickyNote();
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
