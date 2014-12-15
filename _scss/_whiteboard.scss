@@ -11,6 +11,8 @@
 	ul{
 		float: left;
 		margin-right: 20px;
+		transition: opacity 0.3s ease;
+
 		li{
 			//margin-right: 120px;
 			float: left; 
@@ -62,6 +64,12 @@
 }
 .moveWBoard{
 	margin: 0 auto 20px;
+}
+
+.hide{
+	height: 0;
+ 	overflow: hidden;
+ 	opacity: 0;
 }
 
 .wNav{
