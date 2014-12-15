@@ -1,14 +1,16 @@
 <?php
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'FunctiesDAO.php';
 
 class ProjectsController extends Controller {
 
 	private $projectDAO;
-	private $userDAO;
+	private $functieDAO;
 
 	function __construct() {
 		$this->projectDAO = new ProjectDAO();
+		$this->functieDAO = new FunctiesDAO();
 	}
 
 	public function index() {
@@ -38,16 +40,18 @@ class ProjectsController extends Controller {
 		if(!empty($_GET['id'])){
 			$project = $this->projectDAO->selectById($_GET['id']);
 			$this->set('project', $project);
-
-			$_POST['ok'] = 'ok';
-			var_dump($_POST);
-			$this->_handleAddStickyNote();
 		}else{
 			$this->redirect('index.php?page=projects');
 		}
 	}
 
+	public function addNote(){
+		$this->_handleAddStickyNote();
+	}
+
 	public function addProject(){
+		
+
 		$this->_handleAddProject();
 	}
 
@@ -74,15 +78,17 @@ class ProjectsController extends Controller {
 	private function _handleAddStickyNote(){
 
 		if(!empty($_POST)){
-			$data['project_id'] = '';
-			$data['user_id'] = '';
-			$data['xPos'] = '';
-			$data['yPos'] = '';
-			$data['width'] = '';
-			$data['height'] = '';
-			$data['color'] = '';
-			$data['rotation'] = '';
-			$data['text'] = '';
+			$data['project_id'] = $_POST['id'];
+			$data['user_id'] = $_SESSION['user']['id'];
+			$data['xPos'] = '0';
+			$data['yPos'] = '0';
+			$data['width'] = '150';
+			$data['height'] = '200';
+			$data['color'] = $_POST['color'];
+			$data['rotation'] = $_POST['rotation'];
+			$data['text'] = $_POST['text'];
+
+			$insertedNote = $this->functieDAO->insert($data);
 		}
 	}
 }
