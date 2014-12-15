@@ -29,6 +29,7 @@
 		</ul>
 	</div>
 	<div id="whiteboard" class="whiteboard">
+		<!--<canvas id="cnvs" width="1200" height="800"></canvas>-->
 	</div>
 	<a href="index.php?page=projects" class="end">Keer terug naar het projectoverzicht</a>
 </div>
