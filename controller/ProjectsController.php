@@ -35,19 +35,15 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
-		$project = $this->projectDAO->selectById($_GET['id']);
-		$this->set('project', $project);
-	}
+		if(!empty($_GET['id'])){
+			$project = $this->projectDAO->selectById($_GET['id']);
+			$this->set('project', $project);
 
-	public function addNote(){
-		$_POST['ok'] = 'ok';
-		var_dump($_POST);
-		$this->_handleAddStickyNote();
-
-		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-			header('Content-Type: application/json');
-	     	echo json_encode($_POST);
-	    	die();
+			$_POST['ok'] = 'ok';
+			var_dump($_POST);
+			$this->_handleAddStickyNote();
+		}else{
+			$this->redirect('index.php?page=projects');
 		}
 	}
 
@@ -59,7 +55,7 @@ class ProjectsController extends Controller {
 		$confirm = true;
 	  	$data = $_POST;
 
-	  	if(!empty($data['name'] && $data['description'])){
+	  	if($data){
 		  	$insertedproject = $this->projectDAO->insert($data);
 		  	$projects_last = $this->projectDAO->selectLast();
 
