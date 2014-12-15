@@ -383,9 +383,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 .whiteboard {
-  width: 1200px;
+  width: 1180px;
   margin: -75px auto 20px;
-  height: 800px;
+  height: 780px;
+  padding: 10px;
   background-color: white;
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -488,7 +489,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .todo {
   width: 300px;
   padding: 10px;
-  background-color: #8EFF97;
+  background-color: #92D1B4;
   margin: 5px;
   -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);

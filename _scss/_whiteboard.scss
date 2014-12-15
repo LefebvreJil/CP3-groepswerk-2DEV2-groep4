@@ -54,9 +54,10 @@
 }
 
 .whiteboard{
-	width: 1200px;
+	width: 1180px;
 	margin: -75px auto 20px;
-	height: 800px;
+	height: 780px;
+	padding: 10px;
 	background-color: white;
 	@include prefix(border-radius, 2px);
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
@@ -152,7 +153,7 @@
 .todo{
 	width: 300px;
 	padding: 10px;
-	background-color: #8EFF97;
+	background-color: #92D1B4;
 	margin: 5px;
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
 	li{
