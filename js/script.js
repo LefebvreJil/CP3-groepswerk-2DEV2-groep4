@@ -71,6 +71,13 @@
                 };
             }
 
+        //alle functies op whiteboard tonen
+            var whiteboard = document.getElementById('whiteboard');
+            if(whiteboard){
+                var viewFunctions = require('./classes/Viewfunctions.js');
+                new viewFunctions();
+            }
+
         //video class toevoegen
             var video = require('./classes/video.js');
             var addVideo = document.getElementById('addVideo');

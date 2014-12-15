@@ -37,11 +37,22 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
-		if(!empty($_GET['id'])){
-			$project = $this->projectDAO->selectById($_GET['id']);
+		$project_id = $_GET['id'];
+
+		if($project_id){
+			$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
+			$this->set('stickyNotes', $stickyNotes);
+
+			$project = $this->projectDAO->selectById($project_id);
 			$this->set('project', $project);
 		}else{
 			$this->redirect('index.php?page=projects');
+		}
+
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+			header('Content-Type: application/json');
+	     	echo json_encode(array('stickyNotes' => $stickyNotes));
+	    	die();
 		}
 	}
 
@@ -50,8 +61,6 @@ class ProjectsController extends Controller {
 	}
 
 	public function addProject(){
-		
-
 		$this->_handleAddProject();
 	}
 

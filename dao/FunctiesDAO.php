@@ -19,6 +19,14 @@ class FunctiesDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function selectByProjectId_stickyNote($project_id) {
+		$sql = "SELECT * FROM `w_sticky_notes` WHERE `project_id` = :project_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':project_id', $project_id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
 	public function insert_stickyNote($data) {
 		$sql = "INSERT INTO `w_sticky_notes` (`project_id`,`user_id`, `xPos`, `yPos`,`width`, `height`, `color`,`rotation`, `text`) 
 		VALUES (:project_id, :user_id, :xPos, :yPos, :width, :height, :color, :rotation, :tekst)";

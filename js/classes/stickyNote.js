@@ -21,21 +21,14 @@ module.exports = (function(){
 			console.log(data);
 		});
 
-		//stickyNote-template
-		this.el = document.createElement('div');
-		this.el.classList.add('postIt_vervangenDoorCirkel');
-
-		var whiteboard = document.getElementById('whiteboard');
-		whiteboard.appendChild(this.el);
-
-		this._mouseDownHandler = this.mouseDownHandler.bind(this);
+		/*this._mouseDownHandler = this.mouseDownHandler.bind(this);
 		this._mouseMoveHandler = this.mouseMoveHandler.bind(this);
 		this._mouseUpHandler = this.mouseUpHandler.bind(this);
 
-		this.el.addEventListener('mousedown', this._mouseDownHandler);
+		this.el.addEventListener('mousedown', this._mouseDownHandler);*/
 	}
 
-	stickyNote.prototype.mouseDownHandler = function (event) {
+	/*stickyNote.prototype.mouseDownHandler = function (event) {
 		this.offsetX = event.offsetX;
 		this.offsetY = event.offsetY;
 		window.addEventListener('mousemove', this._mouseMoveHandler);
@@ -52,7 +45,7 @@ module.exports = (function(){
 	stickyNote.prototype.mouseUpHandler = function (event) {
 		window.removeEventListener('mousemove', this._mouseMoveHandler);
 		window.removeEventListener('mouseup', this._mouseUpHandler);
-	};
+	};*/
 
 	function get_random_color() {
         var letters = '0123456789ABCDEF'.split('');
