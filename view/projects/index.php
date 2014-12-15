@@ -33,6 +33,6 @@
 	</section>
 
 	<section>
-		<ul class="projectList"></ul>
+		<ul id="projectList" class="projectList"></ul>
 	</section>
 </div>
