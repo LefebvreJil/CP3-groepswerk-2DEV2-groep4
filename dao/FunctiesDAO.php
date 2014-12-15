@@ -2,45 +2,64 @@
 require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
 
 class FunctiesDAO extends DAO {
-	public function selectAll() {
-		$sql = "SELECT * FROM `w_projects`";
+
+	//STICKY NOTE
+	public function selectAll_stickyNote() {
+		$sql = "SELECT * FROM `w_sticky_notes`";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function selectLast() {
-		$sql = "SELECT * FROM `w_projects`
-				ORDER BY `id` DESC
-				LIMIT 1";
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->execute();
-		return $stmt->fetch(PDO::FETCH_ASSOC);
-	}
-
-	public function selectById($id) {
-		$sql = "SELECT * FROM `w_projects` WHERE `id` = :id";
+	public function selectById_stickyNote($id) {
+		$sql = "SELECT * FROM `w_sticky_notes` WHERE `id` = :id";
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function selectAllUsers($id) {
-		$sql = "SELECT `w_users`.`nickname` 
-		FROM `w_users` 
-		LEFT JOIN `w_usersOnProjects` 
-		ON `w_users`.`id` = `w_usersOnProjects`.`user_id`
-		WHERE `w_usersOnProjects`.`project_id` = :id";
+	public function insert_stickyNote($data) {
+		$sql = "INSERT INTO `w_sticky_notes` (`project_id`,`user_id`, `xPos`, `yPos`,`width`, `height`, `color`,`rotation`, `text`) 
+		VALUES (:project_id, :user_id, :xPos, :yPos, :width, :height, :color, :rotation, :tekst)";
 
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':id', $id);
+		$stmt->bindValue(':project_id', $data['project_id']);
+		$stmt->bindValue(':user_id', $data['user_id']);
+		$stmt->bindValue(':xPos', $data['xPos']);
+		$stmt->bindValue(':yPos', $data['yPos']);
+		$stmt->bindValue(':width', $data['width']);
+		$stmt->bindValue(':height', $data['height']);
+		$stmt->bindValue(':color', $data['color']);
+		$stmt->bindValue(':rotation', $data['rotation']);
+		$stmt->bindValue(':tekst', $data['text']);
+
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById_stickyNote($insertedId);
+		}
+		return false;
+	}
+
+
+	//IMG
+	public function selectAll_img() {
+		$sql = "SELECT * FROM `w_images`";
+		$stmt = $this->pdo->prepare($sql);
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
-	public function insert($data) {
-		$sql = "INSERT INTO `w_projects` (`name`,`description`, `date_added`) 
+	public function selectById_img($id) {
+		$sql = "SELECT * FROM `w_images` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
+
+	public function insert_img($data) {
+		$sql = "INSERT INTO `w_images` (`name`,`description`, `date_added`) 
 		VALUES (:name, :description, :date_added)";
 
 		$stmt = $this->pdo->prepare($sql);
@@ -55,31 +74,38 @@ class FunctiesDAO extends DAO {
 		return false;
 	}
 
-	
+	//VIDEO
+	public function selectAll_video() {
+		$sql = "SELECT * FROM `w_videos`";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
 
-	public function insertTitle($data) {
+	public function selectById_video($id) {
+		$sql = "SELECT * FROM `w_videos` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+		return $stmt->fetch(PDO::FETCH_ASSOC);
+	}
 
-		$sql = "UPDATE `w_projects` SET `name` =  :name WHERE `id` = :id";
+	public function insert_video($data) {
+		$sql = "INSERT INTO `w_videos` (`name`,`description`, `date_added`) 
+		VALUES (:name, :description, :date_added)";
+
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':name', $data['name']);
-		$stmt->bindValue(':id', $data['id']);
-		if($stmt->execute()) {
-			$insertedId = $this->pdo->lastInsertId();
-			return $this->selectById($insertedId);
-		}
-		return false;
-	}
-
-	public function insertDescription($data) {
-
-		$sql = "UPDATE `w_projects` SET `description` =  :description WHERE `id` = :id";
-		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':description', $data['description']);
-		$stmt->bindValue(':id', $data['id']);
+		$stmt->bindValue(':date_added', date('Y-m-d H:i:s'));
+
 		if($stmt->execute()) {
 			$insertedId = $this->pdo->lastInsertId();
 			return $this->selectById($insertedId);
 		}
 		return false;
 	}
+
+	//TODOS
+	//`w_todos` 
 }
