@@ -9,12 +9,28 @@ module.exports = (function(){
 
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
 			var stickyNotes = data.stickyNotes;
+			console.log(data);
+
+			//var stickyNotes_perId = data.stickyNotes.id;
+			//console.log(stickyNotes_perId);
 
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
-		  	console.log(html_stickyNotes);
+		  	//console.log(html_stickyNotes);
 
 		  	$('.whiteboard').append(html_stickyNotes);
+		});
+	}
+
+	function verwijderen (element, id_link){
+		element.addEventListener('click', function(e){
+			e.preventDefault();
+			var input = {
+				action : 'delete',
+				id : id_link
+			};
+
+			var deleteWegSchrijven = $.post("index.php?page=whiteboard", input);
 		});
 	}
 
