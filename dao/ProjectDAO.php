@@ -26,6 +26,13 @@ class ProjectDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function deleteById($id){
+		$sql = "DELETE FROM `w_projects` WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':id', $id);
+		$stmt->execute();
+	}
+
 	public function selectAllUsers($id) {
 		$sql = "SELECT `w_users`.`nickname` 
 		FROM `w_users` 
