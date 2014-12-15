@@ -40,9 +40,10 @@ class ProjectsController extends Controller {
 		$project_id = $_GET['id'];
 
 		if($project_id){
+			//doorsturen naar js (this set moet er niet meer bij)
 			$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
-			$this->set('stickyNotes', $stickyNotes);
 
+			//doorsturen naar html (this set moet er nog bij)
 			$project = $this->projectDAO->selectById($project_id);
 			$this->set('project', $project);
 		}else{

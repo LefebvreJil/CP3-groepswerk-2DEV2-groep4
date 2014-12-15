@@ -29,6 +29,7 @@
 		{{#each .}}
 			<div class="note">
 				<p>{{text}}</p>
+				<a class="deleteStickyNote" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder post-it</a>
 			</div>
 		{{/each}}
 	</script>
