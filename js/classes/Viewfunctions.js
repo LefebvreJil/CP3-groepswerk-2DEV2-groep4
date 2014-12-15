@@ -3,8 +3,17 @@ module.exports = (function(){
 	function Viewfunctions() {
 		console.log("[Class] Hello Phinodel");
 
+		var url = document.URL;
+		var id_link_arr = url.split( "=" );
+		var id_link = id_link_arr[2];
+
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
-			console.log(data);
+			var stickyNotes = data.stickyNotes;
+			console.log(stickyNotes);
+			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
+		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
+
+		  	$('.whiteboard').append(html_stickyNotes);
 		});
 	}
 
@@ -12,5 +21,5 @@ module.exports = (function(){
 		//event.preventDefault();
 	}*/
 
-	return Deleteproject;
+	return Viewfunctions;
 })();

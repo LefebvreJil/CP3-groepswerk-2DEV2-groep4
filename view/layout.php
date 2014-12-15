@@ -28,7 +28,7 @@
 	<script type="text/template" id="stickyNote-template">
 		{{#each .}}
 			<div class="note">
-				<p>{{text}}</p>
+				<p>{{color}}</p>
 			</div>
 		{{/each}}
 	</script>
