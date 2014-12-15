@@ -111,9 +111,9 @@ module.exports = (function(){
 
 		   deleteWegSchrijvenAJAX.done(function(data) {
 		   	 	//console.log(data);
-		   	 	var elementen = document.getElementById("projectList");
-		   	 	console.log(elementen[0]);
-		   	 	elementen.removeChild(elementen.childNodes[0]);
+		   	 	// var elementen = document.getElementById("projectList");
+		   	 	// console.log(elementen[0]);
+		   	 	// elementen.removeChild(elementen.childNodes[0]);
 		   });
 		});
 	}
