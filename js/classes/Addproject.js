@@ -23,10 +23,10 @@ module.exports = (function(){
 	}
 
 	function get_random_color() {
-        var letters = '0123456789ABCDEF'.split('');
+        var letters = '0123456789ABCD'.split('');
         var color = '#';
         for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.round(Math.random() * 15)];
+            color += letters[Math.round(Math.random() * 13)];
         }
         return color;
     }

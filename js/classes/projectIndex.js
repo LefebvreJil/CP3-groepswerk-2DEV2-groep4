@@ -3,6 +3,8 @@ module.exports = (function(){
 	var beschrijving;
 	var link;
 
+	var dikkeMin;
+
 	function projectIndex() {
 		//console.log("[projectIndex]");
 		$.get( "index.php?page=projects", function(data) {
@@ -22,11 +24,14 @@ module.exports = (function(){
 		  var projects_link = document.querySelectorAll('.link');
 		  var projects_description = document.querySelectorAll('.description');
 
+		  var alleDikkeMinnen = document.querySelectorAll('#dikkeMin');
+
 		  //titel selecteren
 		  for (var i = 0; i < projects_title.length; i++) {
 		  	titel = projects_title[i];
 		  	link = projects_link[i];
 		  	beschrijving = projects_description[i];
+		  	dikkeMin = alleDikkeMinnen[i];
 
 		  	titel.contentEditable = true;
 		  	beschrijving.contentEditable = true;
@@ -37,6 +42,8 @@ module.exports = (function(){
 
 	        aanpassenTitel(titel, id_link);
 		  	aanpassenBeschrijving(beschrijving, id_link);
+		  	//verwijderenProject(dikkeMin, id_link);
+
 		  }
 		  
 	        $('.projectItem').each(function() {
@@ -48,10 +55,10 @@ module.exports = (function(){
 	}
 
 	function get_random_color() {
-        var letters = '0123456789ABCDEF'.split('');
+        var letters = '0123456789ABCD'.split('');
         var color = '#';
         for (var i = 0; i < 6; i++ ) {
-            color += letters[Math.round(Math.random() * 15)];
+            color += letters[Math.round(Math.random() * 13)];
         }
         return color;
     }
@@ -90,5 +97,14 @@ module.exports = (function(){
 			}
 		});
 	}
+
+	// function verwijderenProject (dikkeMin, id_link){
+	// 	console.log(dikkeMin);
+	// 	dikkeMin.addEventListener('click', function(e){
+	// 		e.preventDefault();
+	// 		console.log('hallo pol');
+	// 	});
+	// }
+
 	return projectIndex;
 })();
