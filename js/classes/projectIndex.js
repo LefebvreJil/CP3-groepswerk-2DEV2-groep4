@@ -32,7 +32,8 @@ module.exports = (function(){
 		  	beschrijving.contentEditable = true;
 
 		  	var href_link = link.getAttribute("href");
-			var id_link = href_link.substring(29, 35);
+			var id_link_arr = href_link.split( "=" );
+			var id_link = id_link_arr[2];
 
 	        aanpassenTitel(titel, id_link);
 		  	aanpassenBeschrijving(beschrijving, id_link);
