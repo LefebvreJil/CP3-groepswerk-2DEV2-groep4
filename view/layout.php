@@ -28,8 +28,16 @@
 	<script type="text/template" id="stickyNote-template">
 		{{#each .}}
 			<div class="note">
-				<p>{{text}}</p>
+				<p class="content">{{text}}</p>
 				<a class="deleteStickyNote" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder post-it</a>
+			</div>
+		{{/each}}
+	</script>
+
+	<script type="text/template" id="todo-template">
+		{{#each .}}
+			<div class="todo">
+				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
 			</div>
 		{{/each}}
 	</script>

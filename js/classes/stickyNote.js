@@ -17,9 +17,8 @@ module.exports = (function(){
 
 		var wegschrijvenNote = $.post("index.php?page=addNote", input_stickyNote);
 
-		wegschrijvenNote.done(function(data) {
-			console.log(data);
-		});
+		
+		var stickyNote_content = document.querySelectorAll('.content');
 
 		/*this._mouseDownHandler = this.mouseDownHandler.bind(this);
 		this._mouseMoveHandler = this.mouseMoveHandler.bind(this);

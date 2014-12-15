@@ -1,23 +1,32 @@
 module.exports = (function(){
 
+	var id_link;
+
 	function Viewfunctions() {
 		//console.log("[Class] Hello Phinodel");
 
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
-		var id_link = id_link_arr[2];
+		id_link = id_link_arr[2];
 
+		todo_view();
+		stickyNotes_view();
+	}
+
+	function todo_view(){
+		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
+			var todos = data.todos;
+		  	var tpl_todos = Handlebars.compile($('#todo-template').html());
+		  	var html_todos = tpl_todos(todos);
+		  	$('.whiteboard').append(html_todos);
+		});
+	}
+
+	function stickyNotes_view(){
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
 			var stickyNotes = data.stickyNotes;
-			console.log(data);
-
-			//var stickyNotes_perId = data.stickyNotes.id;
-			//console.log(stickyNotes_perId);
-
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
-		  	//console.log(html_stickyNotes);
-
 		  	$('.whiteboard').append(html_stickyNotes);
 		});
 	}
