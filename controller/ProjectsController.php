@@ -88,7 +88,7 @@ class ProjectsController extends Controller {
 			$data['rotation'] = $_POST['rotation'];
 			$data['text'] = $_POST['text'];
 
-			$insertedNote = $this->functieDAO->insert($data);
+			$insertedNote = $this->functieDAO->insert_stickyNote($data);
 		}
 	}
 }
