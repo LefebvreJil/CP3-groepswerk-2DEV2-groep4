@@ -348,6 +348,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .addObject ul {
   float: left;
   margin-right: 20px;
+  transition: opacity 0.3s ease;
 }
 .addObject ul li {
   float: left;
@@ -401,6 +402,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 .moveWBoard {
   margin: 0 auto 20px;
+}
+
+.hide {
+  height: 0;
+  overflow: hidden;
+  opacity: 0;
 }
 
 .wNav {

@@ -12,7 +12,7 @@
 		</ul>
 	</section>
 	<div class="addObject">
-		<ul>
+		<ul class="addObjectUl hide">
 			<li>
 				<ul>
 					<li class="underLi">

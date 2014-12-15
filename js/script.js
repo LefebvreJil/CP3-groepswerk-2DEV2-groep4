@@ -118,6 +118,8 @@
             $('.addBtn').click(function(){
                 event.preventDefault();
                 $('.whiteboard').toggleClass("moveWBoard");
+                $('.addObjectUl').toggleClass("hide");
+
             });
         });
     }
