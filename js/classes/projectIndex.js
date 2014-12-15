@@ -24,7 +24,7 @@ module.exports = (function(){
 		  var projects_link = document.querySelectorAll('.link');
 		  var projects_description = document.querySelectorAll('.description');
 
-		  var alleDikkeMinnen = document.querySelectorAll('#dikkeMin');
+		  var alleDikkeMinnen = document.querySelectorAll('.deleteProject');
 
 		  //titel selecteren
 		  for (var i = 0; i < projects_title.length; i++) {
@@ -42,7 +42,7 @@ module.exports = (function(){
 
 	        aanpassenTitel(titel, id_link);
 		  	aanpassenBeschrijving(beschrijving, id_link);
-		  	//verwijderenProject(dikkeMin, id_link);
+		  	verwijderenProject(dikkeMin, id_link);
 
 		  }
 		  
@@ -98,13 +98,29 @@ module.exports = (function(){
 		});
 	}
 
-	// function verwijderenProject (dikkeMin, id_link){
-	// 	console.log(dikkeMin);
-	// 	dikkeMin.addEventListener('click', function(e){
-	// 		e.preventDefault();
-	// 		console.log('hallo pol');
-	// 	});
-	// }
+	function verwijderenProject (dikkeMin, id_link){
+		dikkeMin.addEventListener('click', function(e){
+			e.preventDefault();
+			$.post( "index.php?page=projects", { 
+				action: 'delete'
+			})
+
+		   .done(function(data) {
+		   	 if(data.result) {
+		   	 	var projects_last = [data.projects_last];
+
+		   		$.get( "index.php?page=addProject", function() {
+				  var tpl = Handlebars.compile($('#project-template').html());
+				  var html_erbijVoegen = tpl(projects_last);
+				  $('.projectList').append(html_erbijVoegen);
+				});
+
+				var items = $('.projectItem');
+				$(items[items.length-1]).css( "background-color", get_random_color());
+		   	 }
+		   });
+		});
+	}
 
 	return projectIndex;
 })();
