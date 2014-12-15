@@ -35,15 +35,16 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
-		$project = $this->projectDAO->selectById($_GET['id']);
-		$this->set('project', $project);
+		if(!empty($_GET['id'])){
+			$project = $this->projectDAO->selectById($_GET['id']);
+			$this->set('project', $project);
 
-		$_POST['ok'] = 'ok';
-		var_dump($_POST);
-		$this->_handleAddStickyNote();
-
-
-
+			$_POST['ok'] = 'ok';
+			var_dump($_POST);
+			$this->_handleAddStickyNote();
+		}else{
+			$this->redirect('index.php?page=projects');
+		}
 	}
 
 	public function addProject(){
