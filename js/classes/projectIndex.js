@@ -117,16 +117,44 @@ module.exports = (function(){
 		   	 	var projectList = document.querySelector('.projectList');
 				var projectItems = [];
 				var projectItemElement = projectList.querySelectorAll('.projectItem');
-				[].forEach.call(projectItemElement, function(projectItemEl){
+				//[].forEach.call(projectItemElement, function(projectItemEl){
 					// var cartItem = new ShoppingCartItem(projectItemEl);
 					// bean.on(cartItem, "delete", this.deleteItemHandler.bind(this));
 					// bean.on(cartItem, "change", this.cartItemChangeHandler.bind(this));
 					// this.cartItems.push(cartItem);
-					console.log(projectItemEl);
-				});
+				// 	console.log(projectItemEl);
+				// });
+		  //  		for(var i = 0; i < projectItemElement.length; i++){
+				// 	projectItemElement[i].addEventListener('click', function(e){
+				// 		e.preventDefault();
+				// 		console.log('hallo jongeman');
+				// 		getContent(e.currentTarget.getAttribute('href'));
+				// 	});
+				// }
 		   });
 		});
 	}
+
+	// function getContent(url){
+
+	// 	//Past de urls live aan
+	// 	if(window.history.pushState){
+	// 		window.history.pushState('','', url);
+	// 	}
+
+	// 	//.get haalt de html op
+	// 	//.done = "als de functie gelukt is, doe dit (...)"
+	// 	$.get(url).done(replaceContent);
+
+	// }
+
+	// function replaceContent(data){
+
+	// 	var $content = $(data);
+	// 	//get(0) selecteerd nu alleen de section ipv alles
+	// 	//replace  vervangt de content met hetgeen dat tussen de haakjes staat
+	// 	$('#projectList').replaceWith($content.get(0));
+	// }
 
 	return projectIndex;
 })();
