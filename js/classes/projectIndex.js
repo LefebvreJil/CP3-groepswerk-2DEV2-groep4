@@ -20,7 +20,7 @@ module.exports = (function(){
 	}
 
 	function linken(){
-		var projects_title = document.querySelectorAll('.title');
+		  var projects_title = document.querySelectorAll('.title');
 		  var projects_link = document.querySelectorAll('.link');
 		  var projects_description = document.querySelectorAll('.description');
 

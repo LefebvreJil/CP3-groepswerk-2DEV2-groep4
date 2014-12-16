@@ -35,7 +35,23 @@ module.exports = (function(){
 		  	var tpl_video = Handlebars.compile($('#video-template').html());
 		  	var html_videos = tpl_video(data.videos);
 		  	$('.whiteboard').append(html_videos);
+
+		  	ElementenSelecteren();
 		});
+	}
+
+	function ElementenSelecteren(){
+		var alleImageDivs = document.querySelectorAll('.img-object');
+
+		for (var i = 0; i < alleImageDivs.length; i++) {
+		  	imgDiv = alleImageDivs[i];
+
+		  	console.log(imgDiv);
+
+	        //aanpassenTitel(titel, id_link);
+
+		  }
+
 	}
 
 	function stickyNotes_change(){
