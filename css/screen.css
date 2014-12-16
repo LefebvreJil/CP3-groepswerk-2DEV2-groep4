@@ -64,16 +64,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-align: center;
 }
 .home .titel h1 a:link {
-  color: #D64343;
+  color: #3B3B3B;
 }
 .home .titel h1 a:hover {
   color: #FFFFFF;
 }
 .home .titel h1 a:visited {
-  color: #D64343;
+  color: #3B3B3B;
 }
 .home .homeWrap {
-  background-color: #D64343;
+  background-color: #545454;
   width: 300px;
   padding: 20px;
   -webkit-border-radius: 2px;
@@ -107,7 +107,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   color: #969696;
 }
 .homeForm .formItem:focus {
-  outline-color: #D64343;
+  outline-color: #545454;
   background-color: #FFFFFF;
 }
 .homeForm .formInput {
@@ -176,7 +176,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   text-decoration: none;
 }
 .registerHome .registerBtn:visited {
-  color: #D64343;
+  color: #545454;
 }
 
 .navBar {
@@ -215,7 +215,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 660px;
   padding: 20px;
   margin-right: 10px;
-  background-color: #D64343;
+  background-color: #545454;
   float: left;
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
@@ -275,7 +275,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   padding: 15px 15px 20px 15px;
   float: left;
   margin: 0 10px 10px 0;
-  background-color: #D64343;
+  background-color: #545454;
   -webkit-border-radius: 2px;
   -ms-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -332,7 +332,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   height: 35px;
   padding: 10px;
   margin: 20px auto;
-  background-color: #D64343;
+  background-color: #545454;
   -webkit-border-radius: 3px;
   -ms-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -504,6 +504,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 .todo a {
   text-decoration: none;
   color: white;
+}
+
+.video-object, .img-object {
+  position: absolute;
 }
 
 body {

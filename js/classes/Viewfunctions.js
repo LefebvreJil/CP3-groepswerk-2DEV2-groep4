@@ -1,6 +1,9 @@
 module.exports = (function(){
 
 	var id_link;
+    var numbOfClicks = 0;
+    var images, videos;
+
 
 	function Viewfunctions() {
 		//console.log("[Class] Hello Phinodel");
@@ -26,12 +29,12 @@ module.exports = (function(){
 		  	$('.whiteboard').append(html_stickyNotes);
 		  	stickyNotes_change();
 
-		  	var images = data.imges;
+		  	images = data.imges;
 		  	var tpl_img = Handlebars.compile($('#img-template').html());
 		  	var html_images = tpl_img(data.imges);
 		  	$('.whiteboard').append(html_images);
 
-		  	var videos = data.videos;
+		  	videos = data.videos;
 		  	var tpl_video = Handlebars.compile($('#video-template').html());
 		  	var html_videos = tpl_video(data.videos);
 		  	$('.whiteboard').append(html_videos);
@@ -42,17 +45,72 @@ module.exports = (function(){
 
 	function ElementenSelecteren(){
 		var alleImageDivs = document.querySelectorAll('.img-object');
+		var img_xPossen;
+		var img_yPossen;
 
 		for (var i = 0; i < alleImageDivs.length; i++) {
-		  	imgDiv = alleImageDivs[i];
+		  	img_xPossen = images[i]['xPos'];
+		  	img_yPossen = images[i]['yPos'];
+		 }
 
-		  	console.log(imgDiv);
+		dragNdrop(alleImageDivs, img_xPossen, img_yPossen);
 
-	        //aanpassenTitel(titel, id_link);
+		var alleVideoDivs = document.querySelectorAll('.video-object');
+		var video_xPossen;
+		var video_yPossen;
+		for (var i = 0; i < alleImageDivs.length; i++) {
+		  	video_xPossen = videos[i]['xPos'];
+		  	video_yPossen = videos[i]['yPos'];
+		 }
+		dragNdrop(alleVideoDivs, video_xPossen, video_yPossen);
 
-		  }
+		
 
 	}
+
+	function dragNdrop(elementen, xPossen, yPossen){
+
+		for (var i = 0; i < elementen.length; i++) {
+		  	element = elementen[i];
+		  	var xPos = xPossen[i];
+		  	var yPos = yPossen[i];
+		  	element.style.top = xPos+'px';
+			element.style.left = yPos+'px';
+
+			element.addEventListener('mousedown', mouseDownHandler);
+		 }
+	}
+
+	mouseDownHandler = function (event) {
+		element.offsetX = event.offsetX;
+		element.offsetY = event.offsetY;
+
+		window.addEventListener('mousemove', mouseMoveHandler);
+		window.addEventListener('mouseup', mouseUpHandler);
+
+		numbOfClicks++;
+		element.style.zIndex = numbOfClicks;
+	}
+
+	mouseMoveHandler = function (event) {
+		element.style.left = (event.x - element.offsetX) + 'px';
+		element.style.top = (event.y - element.offsetY )+ 'px';
+
+		console.log(element.className);
+
+		if(element.className===video-object){
+			$.post("index.php?page=projects", input);
+		}
+
+		//var SchrijfWeg = $.post("index.php?page=projects", input);
+	}
+
+	mouseUpHandler = function (event) {
+		window.removeEventListener('mousemove', mouseMoveHandler);
+		window.removeEventListener('mouseup', mouseUpHandler);
+	}
+
+
 
 	function stickyNotes_change(){
 		var stickynotes_allContent = $('.stickyNote_content');
