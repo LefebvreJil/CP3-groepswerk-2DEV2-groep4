@@ -92,14 +92,18 @@ class ProjectsController extends Controller {
 						$this->_handleAddVideo();
 					}
 				}
-				if(!empty($_POST['className'])){
-					if($_POST['className']="video-object"){
+				if(!empty($_POST['extension'])){
+					if($_POST['extension']="mp4"){
 						$data = $_POST;
 						$positieWijzigen = $this->videoDAO->updatePosition($data);
 					}
-					if($_POST['className']="img-object"){
+					if($_POST['extension']="jpg"){
 						$data = $_POST;
 						$positieWijzigen = $this->imgDAO->updatePosition($data);
+					}
+					if($_POST['extension']="sticky"){
+						$data = $_POST;
+						$positieWijzigen = $this->stickyNoteDAO->updatePosition($data);
 					}
 				}
 
@@ -132,11 +136,10 @@ class ProjectsController extends Controller {
 	public function deleteProject(){
 		print_r($_POST);
 		if($_POST['action'] = 'delete'){
-			$ProjectId_verwijderd = $this->projectDAO->selectById($_POST['id_project']);
 			$ProjectVerwijderen = $this->projectDAO->deleteById($_POST['id_project']);
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				header('Content-Type: application/json');
-		     	echo json_encode(array('Verwijderde_project' => $ProjectId_verwijderd));
+		     	echo json_encode(array('ok' => "ok"));
 		    	die();
 			}
 		}
@@ -148,15 +151,12 @@ class ProjectsController extends Controller {
 
 	  	if($data){
 		  	$insertedproject = $this->projectDAO->insert($data);
-		  	$projects_last = $this->projectDAO->selectLast();
-
-	    	$this->set('projects_last', $projects_last);
 	    	$this->set("data", $data);
 	  		$this->set("confirm", $confirm);
 
 	        if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				header('Content-Type: application/json');
-		        echo json_encode(array('result' => true, 'projects_last'=>$projects_last));
+		        echo json_encode(array('result' => true));
 		        die();
 			}
 	  	}
@@ -253,11 +253,10 @@ class ProjectsController extends Controller {
 			$data['text'] = $_POST['text'];
 
 			$insertedNote = $this->stickyNoteDAO->insert($data);
-			$stickyNote_last = $this->stickyNoteDAO->selectLast();
 
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				header('Content-Type: application/json');
-		        echo json_encode(array('result' => true, 'stickyNote_last'=>$stickyNote_last));
+		        echo json_encode(array('result' => true));
 		        die();
 			}
 		}

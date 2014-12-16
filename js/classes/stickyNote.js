@@ -1,4 +1,5 @@
 module.exports = (function(){
+	var Viewfunctions = require('./Viewfunctions');
 
 	function stickyNote() {
 		//console.log("[stickyNote] Hello sticky Jil");
@@ -15,13 +16,8 @@ module.exports = (function(){
 
 		wegschrijvenNote.done(function(data) {
 	   	 if(data.result) {
-	   	 	var stickyNote_last = [data.stickyNote_last];
-
-	   		$.get( "index.php?page=addNote", function() {
-			  var tpl = Handlebars.compile($('#stickyNote-template').html());
-			  var html_erbijVoegen = tpl(stickyNote_last);
-			  $('.whiteboard').append(html_erbijVoegen);
-			});
+			$('.whiteboard').empty();
+			Viewfunctions();
 	   	 }
 	   });
 	}

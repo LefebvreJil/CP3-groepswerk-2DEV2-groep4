@@ -2,9 +2,10 @@ module.exports = (function(){
 
 	var id_link;
     var numbOfClicks = 0;
-    var images, videos;
+    var images, videos, stickyNotes;
     var id_element;
     var TodoApplication = require('./TodoApplication');
+    var dragNdrop = require('./dragNdrop');
 
 
 	function Viewfunctions() {
@@ -13,19 +14,13 @@ module.exports = (function(){
 		var url = document.URL;
 		var id_link_arr = url.split( "=" );
 		id_link = id_link_arr[2];
-
 		view();
 	}
 
 	function view(){
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
 
-			// var todos = data.todos;
-		 //  	var tpl_todos = Handlebars.compile($('#todo-template').html());
-		 //  	var html_todos = tpl_todos(todos);
-		 //  	$('.whiteboard').append(html_todos);
-
-		  	var stickyNotes = data.stickyNotes;
+		  	stickyNotes = data.stickyNotes;
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
 		  	$('.whiteboard').append(html_stickyNotes);
@@ -54,65 +49,36 @@ module.exports = (function(){
 
 		//VIDs
 		var alleVideoDivs = document.querySelectorAll('.video-object');
-		dragNdrop(alleVideoDivs);
+		for (var i = 0; i < alleVideoDivs.length; i++) {
+			var extensionVid = videos[i].extension;
+			var xVid = videos[i].xPos;
+			var yVid = videos[i].yPos;
+			var idVid = videos[i].id;
+			new dragNdrop(alleVideoDivs[i],extensionVid,xVid,yVid,idVid,id_link);
+		 }
 
 		//IMGs
 		var alleImageDivs = document.querySelectorAll('.img-object');
-		dragNdrop(alleImageDivs);
-
 		
+		for (var k = 0; k < alleImageDivs.length; k++) {
+			var extensionImg = images[k].extension;
+			var xImg = images[k].xPos;
+			var yImg = images[k].yPos;
+			var idImg = images[k].id;
+			new dragNdrop(alleImageDivs[k],extensionImg,xImg,yImg,idImg,id_link);
+		 }
 
-	}
-
-	function dragNdrop(elementen){
-
-		for (var i = 0; i < elementen.length; i++) {
-		  	element = elementen[i];
-		  	id_element = element.getAttribute('id');
-
-		  	_mouseDownHandler = mouseDownHandler.bind(element);
-			_mouseMoveHandler = mouseMoveHandler.bind(element);
-			_mouseUpHandler = mouseUpHandler.bind(element);
-
-			element.addEventListener('mousedown', _mouseDownHandler);
+		 //STICKYNOTES
+		var alleStickyDivs = document.querySelectorAll('.note');
+		
+		for (var l = 0; l < alleStickyDivs.length; l++) {
+			var extensionSticky = "sticky";
+			var xSticky = stickyNotes[l].xPos;
+			var ySticky = stickyNotes[l].yPos;
+			var idSticky = stickyNotes[l].id;
+			new dragNdrop(alleStickyDivs[l],extensionSticky,xSticky,ySticky,idSticky,id_link);
 		 }
 	}
-
-	mouseDownHandler = function (event) {
-		console.log(element);
-		element.offsetX = event.offsetX;
-		element.offsetY = event.offsetY;
-
-		window.addEventListener('mousemove', _mouseMoveHandler);
-		window.addEventListener('mouseup', _mouseUpHandler);
-
-		numbOfClicks++;
-		element.style.zIndex = numbOfClicks;
-	};
-
-	mouseMoveHandler = function (event) {
-		element.style.left = (event.x - element.offsetX) + 'px';
-		element.style.top = (event.y - element.offsetY )+ 'px';
-	};
-
-	mouseUpHandler = function (event) {
-			var doorsturen = {
-					className: element.className,
-					xPos: event.x - element.offsetX,
-					yPos: event.y - element.offsetY,
-					id: id_element
-				};
-			$.post("index.php?page=whiteboard&id="+id_link, doorsturen)
-			.done(function(data){
-				console.log(data.dataPost);
-			});
-		
-
-		window.removeEventListener('mousemove', _mouseMoveHandler);
-		window.removeEventListener('mouseup', _mouseUpHandler);
-	};
-
-
 
 	function stickyNotes_change(){
 		var stickynotes_allContent = $('.stickyNote_content');
@@ -121,13 +87,8 @@ module.exports = (function(){
 		for (var i = 0; i < stickynotes_allContent.length; i++) {
 		  	stickynote = stickynotes_allContent[i];
 		  	stickynote_link = stickynotes_allLinks[i];
-
-		  	var href_link = stickynote_link.getAttribute("href");
-			var id_link_arr = href_link.split( "=" );
-			var id_stickynote = id_link_arr[2];
-
+		  	var id_stickynote = stickyNotes[i].id;
 		  	stickynote.contentEditable = true;
-
 	        aanpassenTekst_stickyNote(stickynote, id_stickynote);
 		  }
 	}

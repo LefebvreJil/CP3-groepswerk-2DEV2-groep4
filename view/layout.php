@@ -7,7 +7,8 @@
 	<link rel="stylesheet" href="css/screen.css">
 </head>
 <body>
-	<?php echo $content; ?>
+	<div id="content"><?php echo $content; ?></div>
+	
 
 	<script type="text/template" id="project-template">
 		    {{#each .}}
@@ -27,9 +28,8 @@
 
 	<script type="text/template" id="stickyNote-template">
 		{{#each .}}
-			<div class="note">
+			<div class="note" id="{{id}}">
 				<p class="stickyNote_content">{{text}}</p>
-				<a class="deleteStickyNote" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder post-it</a>
 			</div>
 		{{/each}}
 	</script>
@@ -54,7 +54,7 @@
 
 	<script type="text/template" id="video-template">
 		{{#each .}}
-			<div class="video-object" id="{{id}}" style="top:{{xPos}}px; left:{{yPos}}px;">
+			<div class="video-object" id="{{id}}">
 				<video controls src="./uploads/{{file}}.{{extension}}" alt="{{file}}" width="250"/>
 			</div>
 		{{/each}}

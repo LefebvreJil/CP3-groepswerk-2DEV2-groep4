@@ -46,22 +46,6 @@
                 var viewFunctions = require('./classes/Viewfunctions.js');
                 new viewFunctions();
 
-
-                //img class toevoegen
-                 var Img = require('./classes/img.js');
-                 new Img();
-
-                //video class toevoegen
-                var video = require('./classes/video.js');
-                var addVideo = document.getElementById('videoSubmit');
-                if(addVideo){
-                    addVideo.onclick = function(event) {
-                            if (window.File && window.FileReader && window.FileList && window.Blob){
-                                new video();
-                            }
-                    };
-                }
-
                 //stickyNote class toevoegen
                 var stickyNote = require('./classes/stickyNote.js');
                 var addStickyNote = document.getElementById('addStickyNote');

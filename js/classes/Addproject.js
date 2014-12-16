@@ -10,19 +10,9 @@ module.exports = (function(){
 
 	   .done(function(data) {
 	   	 if(data.result) {
-	   	 	var projects_last = [data.projects_last];
-
-	   		$.get( "index.php?page=addProject", function() {
-			  var tpl = Handlebars.compile($('#project-template').html());
-			  var html_erbijVoegen = tpl(projects_last);
-			  $('.projectList').append(html_erbijVoegen);
-			});
-
-			var items = $('.projectItem');
-			$(items[items.length-1]).css( "background-color", get_random_color());
+			$('.projectList').empty();
+			projectIndex();
 	   	 }
-	   	 
-
 	   });
 	}
 
