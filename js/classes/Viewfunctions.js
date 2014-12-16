@@ -72,23 +72,7 @@ module.exports = (function(){
 
 			}
 		});
-	}	
-
-	function verwijderen (element, id_link){
-		element.addEventListener('click', function(e){
-			e.preventDefault();
-			var input = {
-				action : 'delete',
-				id : id_link
-			};
-
-			var deleteWegSchrijven = $.post("index.php?page=whiteboard", input);
-		});
 	}
-
-	/*Class.prototype.clickHandler = function(event){
-		//event.preventDefault();
-	}*/
 
 	return Viewfunctions;
 })();
