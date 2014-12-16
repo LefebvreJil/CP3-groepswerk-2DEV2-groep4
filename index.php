@@ -33,10 +33,6 @@ $routes = array(
         'controller' => 'Projects',
         'action' => 'deleteProject'
     ),
-    'addImage' => array(
-        'controller' => 'Projects',
-        'action' => 'addImage'
-    ),
     'addNote' => array(
         'controller' => 'Projects',
         'action' => 'addNote'

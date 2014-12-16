@@ -61,8 +61,12 @@ class ProjectsController extends Controller {
 
 				$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
 				$this->set('stickyNotes', $stickyNotes);
+
 				$todos = $this->functieDAO->selectByProjectId_todo($project_id);
 				$this->set('todos', $todos);
+
+				$imges = $this->functieDAO->selectByProjectId_img($project_id);
+				$this->set('imges', $imges);
 
 
 				$project = $this->projectDAO->selectById($project_id);
@@ -83,12 +87,9 @@ class ProjectsController extends Controller {
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos));
+	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos, 'imges' => $imges));
 	    	die();
 		}
-	}
-
-	public function addImage(){
 	}
 
 	public function addNote(){
@@ -161,6 +162,7 @@ class ProjectsController extends Controller {
 			$extension = 'jpg';
 
 			$insertImage['user_id'] = $_SESSION['user']['id'];
+			$insertImage['project_id'] = $_GET['id'];
 			$insertImage['xPos'] = "0";
 			$insertImage['yPos'] = "0";
 			$insertImage['file'] = $name;
@@ -171,7 +173,7 @@ class ProjectsController extends Controller {
 			$imageresize->resizeToHeight(200);
 			$imageresize->save(WWW_ROOT."uploads".DS.$name."_th.".$extension);
 
-			$this->imageDAO->insert($insertImage);
+			$this->functieDAO->insert_img($insertImage);
 
 			if(!empty($insertImage)) {
 				$_SESSION['info'] = 'De upload was succesvol!';

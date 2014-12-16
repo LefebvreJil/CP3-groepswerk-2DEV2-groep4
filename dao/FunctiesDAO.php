@@ -91,20 +91,12 @@ class FunctiesDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
-	public function insert_img($data) {
-		$sql = "INSERT INTO `w_images` (`name`,`description`, `date_added`) 
-		VALUES (:name, :description, :date_added)";
-
+	public function selectByProjectId_img($project_id) {
+		$sql = "SELECT * FROM `w_images` WHERE `project_id` = :project_id";
 		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':name', $data['name']);
-		$stmt->bindValue(':description', $data['description']);
-		$stmt->bindValue(':date_added', date('Y-m-d H:i:s'));
-
-		if($stmt->execute()) {
-			$insertedId = $this->pdo->lastInsertId();
-			return $this->selectById($insertedId);
-		}
-		return false;
+		$stmt->bindValue(':project_id', $project_id);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
 	}
 
 	public function deleteById_img($id){
@@ -112,6 +104,27 @@ class FunctiesDAO extends DAO {
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':id', $id);
 		$stmt->execute();
+	}
+
+	public function insert_img($data) {
+		if(empty($errors)) {
+			$sql = "INSERT INTO `w_images` (`project_id`, `user_id`, `xPos`,`yPos`, `file`,`extension`) 
+			VALUES (:project_id, :user_id, :xPos, :yPos, :file, :extension)";
+
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindValue(':project_id', $data['project_id']);
+			$stmt->bindValue(':user_id', $data['user_id']);
+			$stmt->bindValue(':xPos', $data['xPos']);
+			$stmt->bindValue(':yPos', $data['yPos']);
+			$stmt->bindValue(':file', $data['file']);
+			$stmt->bindValue(':extension', $data['extension']);
+
+			if($stmt->execute()) {
+				$insertedId = $this->pdo->lastInsertId();
+				return $this->selectById_img($insertedId);
+			}
+		}
+		return false;
 	}
 
 	//VIDEO

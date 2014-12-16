@@ -14,6 +14,7 @@ module.exports = (function(){
 
 	function view(){
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
+
 			var todos = data.todos;
 		  	var tpl_todos = Handlebars.compile($('#todo-template').html());
 		  	var html_todos = tpl_todos(todos);
@@ -24,6 +25,13 @@ module.exports = (function(){
 		  	var html_stickyNotes = tpl_stickyNotes(stickyNotes);
 		  	$('.whiteboard').append(html_stickyNotes);
 		  	stickyNotes_change();
+
+		  	var images = data.imges;
+		  	var tpl_img = Handlebars.compile($('#img-template').html());
+		  	var html_images = tpl_img(data.imges);
+		  	$('.whiteboard').append(html_images);
+
+
 		});
 	}
 

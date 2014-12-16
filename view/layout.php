@@ -52,6 +52,15 @@
 		{{/each}}
 	</script>
 
+	<script type="text/template" id="img-template">
+		{{#each .}}
+			<div class="img-object">
+				<img src="./uploads/{{file}}_th.{{extension}}" alt="{{file}}"/>
+				<a class="deleteImg" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder afbeelding</a>
+			</div>
+		{{/each}}
+	</script>
+
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/bean.min.js"></script>
 	<script src="js/vendor/handlebars.min.js"></script>
