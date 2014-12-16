@@ -87,16 +87,16 @@ class UsersController extends Controller {
 		if($_POST['repassword'] != $_POST['password']) {$errors['repassword'] = 'De wachtwoorden zijn niet gelijk.';}
 
 		//kijken of de image ok is
-		if(!empty($_FILES["image"])){
-			if(!empty($_FILES["image"]["error"])){ $errors["image"] = "De foto kon niet geüpload worden."; }
+		if(!empty($_FILES["image_register"])){
+			if(!empty($_FILES["image_register"]["error"])){ $errors["image"] = "De foto kon niet geüpload worden."; }
 
 			if(empty($errors["image"])){
-				$size = getimagesize($_FILES["image"]["tmp_name"]);
+				$size = getimagesize($_FILES["image_register"]["tmp_name"]);
 				if(empty($size)){ $errors["image"] = "upload een foto"; }
 			}
 
 			if(empty($errors["image"])){
-				if($_FILES["image"]["size"] >=2097152){ 
+				if($_FILES["image_register"]["size"] >=2097152){ 
 					$errors["image"] = "De bestandsgrootte is te groot.";
 				}
 			}
@@ -106,7 +106,7 @@ class UsersController extends Controller {
 		//YAY geen errors meer
 		if(empty($errors)) {
 			$hasher = new \Phpass\Hash;
-			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["image"]["name"]);
+			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["image_register"]["name"]);
 
 
 			//TIJD OVER => veranderen
@@ -131,7 +131,7 @@ class UsersController extends Controller {
 			$this->userDAO->insert($inserteduser);
 
 			//aan Jil: is dit ok? Jil zei ok
-			$imageresize = new Eventviva\ImageResize($_FILES["image"]["tmp_name"]);
+			$imageresize = new Eventviva\ImageResize($_FILES["image_register"]["tmp_name"]);
 			$imageresize->save(WWW_ROOT."uploads".DS.$name.".".$extension);
 			$imageresize->resizeToHeight(200);
 			$imageresize->save(WWW_ROOT."uploads".DS.$name."_th.".$extension);

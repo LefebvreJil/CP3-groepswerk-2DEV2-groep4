@@ -34,14 +34,11 @@
 			<li>
 				<ul>
 					<li id="addStickyNote" class=" firstLi addItem"><a href="">Post-it</a></li>
-					<li id="addTodo" class="addItem"><a href="">Todo Lijst</a></li>
-					<li id="draw" class="lastLi addItem"><a href="">Tekenen</a></li>
 				</ul>
 			</li>
 		</ul>
 	</div>
 	<div id="whiteboard" class="whiteboard">
-		<!--<canvas id="cnvs" width="1200" height="800"></canvas>-->
 		<div class="todo">
 			<header>
 				<h1>Nog te doen</h1>

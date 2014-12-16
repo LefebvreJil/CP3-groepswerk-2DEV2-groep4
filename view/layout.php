@@ -34,7 +34,7 @@
 		{{/each}}
 	</script>
 
-	<script id="todo-template" type="text/template">
+	<script type="text/template" id="todo-template">
 		<li class="todo-item">
 	  		<label class="todo-item-label">
 				<input type="checkbox" class="todo-item-checkbox">

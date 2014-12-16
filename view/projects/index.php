@@ -17,7 +17,7 @@
 			</p>
 			<p class="intro">
 				Klik op de titel van het project en de beschrijving om ze aan te passen.
-				Klik op de grote plus om een nieuw project aan te maken.<br />
+				Klik op de grote plus om een nieuw project aan te maken. BAM je kan beginnen!<br />
 				<span>Elementen die je kunt toevoegen op het whiteboard:</span>
 			</p>
 			<ul>
@@ -25,7 +25,6 @@
 				<li class="introLi">Je eigen foto's</li>
 				<li class="introLi">Zelf toegevoegde filmpjes</li>
 				<li class="introLi">To-do lijstjes all the way</li>
-				<li class="introLi">En zoveel meer!</li>
 			</ul>
 			<p class="intro">Go nuts and let the brainstorm begin!</p>
 		<a href="index.php?page=addProject" class="addProject" id="dikkePlus"></a>
