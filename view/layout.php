@@ -53,7 +53,7 @@
 				<label class="todo-item-label">
 					<input type="checkbox" class="todo-item-checkbox">
 					<span class="todo-item-text">{{.}}</span>
-					<button class="btn btn-delete">Delete</button>
+					<button class="btn-delete">Delete</button>
 				</label>
 				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
 			</div>
