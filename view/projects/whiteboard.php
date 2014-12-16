@@ -16,14 +16,14 @@
 			<li>
 				<ul>
 					<li class="underLi">
-						<form id="imageform" method="post" action="index.php?page=whiteboard&id=<?php echo $_GET['id'];?>" class="formAdd" enctype="multipart/form-data">
+						<form id="imageform" method="post" action="index.php?page=addImage" class="formAdd" enctype="multipart/form-data">
 							<label for="imageWboard" id="addImage">Afbeelding</label>
 							<input type="file" name="imageWboard" id="imageWboard" />
-							<input type="submit" value="Plaats" class="imageBtn" />
+							<input type="submit" value="Plaats" class="imageBtn" id="imageSubmit" />
 						</form>
 					</li>
 					<li class="underLi">
-						<form id="videoform" method="post" enctype="multipart/form-data" action='index.php?page=whiteboard' class="formAdd">
+						<form id="videoform" method="post" enctype="multipart/form-data" action='index.php?page=addImage' class="formAdd">
 							<label for="videoWboard" id="addVideo">Video</label>
 							<input type="file" name="videoWboard" id="videoWboard" />
 							<input type="submit" value="Plaats" class="videoBtn" />

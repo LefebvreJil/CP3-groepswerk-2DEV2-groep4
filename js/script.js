@@ -35,12 +35,14 @@
             }
             
         //img class toevoegen
-            // var Img = require('./classes/img.js');
-            // var addImage = document.getElementById('addImage');
-            // if(addImage){
-            //     addImage.onclick = function(event) {
-            //             event.preventDefault();
-            //             chooseImage();
+             var Img = require('./classes/img.js');
+             var addImage = document.getElementById('imageSubmit');
+             if(addImage){
+                 addImage.onclick = function(event) {
+                         event.preventDefault();
+                         new Img();
+                 }
+             }
 
             //             //Grote fout.
             //             // if (window.File && window.FileReader && window.FileList && window.Blob){

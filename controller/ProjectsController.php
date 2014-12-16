@@ -50,8 +50,6 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
-		print_r($_POST);
-		print_r('ik kom hier in');
 		$project_id = $_GET['id'];
 		$existing = $this->projectDAO->selectById($_GET['id']);
 
@@ -81,9 +79,13 @@ class ProjectsController extends Controller {
 	}
 
 	public function addImage(){
-		$_SESSION['ok'] = "ok";
 		if(!empty($_POST)){
 			$this->_handleAddImage();
+		}
+		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+			header('Content-Type: application/json');
+	     	echo json_encode(array('post' => $_POST));
+	    	die();
 		}
 	}
 

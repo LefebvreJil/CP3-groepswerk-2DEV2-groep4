@@ -3,40 +3,36 @@ module.exports = (function(){
 	var numbOfClicks = 0;
 
 	function Img() {
-		//console.log("[Img] Hello Jil");
-		//this.el.contentEditable = true;
+		console.log("[Img] Hello Jil");
 
-		this.el = document.createElement('img');
-		//this.el.classList.add('img_vervangenDoorCirkel');
+		$.post('index.php?page=addImage',{actie: 'add_img'})
 
-		var whiteboard = document.getElementById('whiteboard');
-		whiteboard.appendChild(this.el);
-
-		this._mouseDownHandler = this.mouseDownHandler.bind(this);
-		this._mouseMoveHandler = this.mouseMoveHandler.bind(this);
-		this._mouseUpHandler = this.mouseUpHandler.bind(this);
-
-		this.el.addEventListener('mousedown', this._mouseDownHandler);
+		.done(function(data){
+			console.log(data);
+		});
 	}
 
-	Img.prototype.mouseDownHandler = function (event) {
-		this.offsetX = event.offsetX;
-		this.offsetY = event.offsetY;
-		window.addEventListener('mousemove', this._mouseMoveHandler);
-		window.addEventListener('mouseup', this._mouseUpHandler);
-		numbOfClicks++;
-		this.el.style.zIndex = numbOfClicks;
-	};
+	function stuff(){
+		$.post( "index.php?page=addProject", { 
+			name: 'Klik om aan te passen',
+			description: 'Klik om aan te passen, druk op enter ter bevestiging'
+		})
 
-	Img.prototype.mouseMoveHandler = function (event) {
-		this.el.style.left = (event.x - this.offsetX) + 'px';
-		this.el.style.top = (event.y - this.offsetY )+ 'px';
-	};
+	   .done(function(data) {
+	   	 if(data.result) {
+	   	 	var projects_last = [data.projects_last];
 
-	Img.prototype.mouseUpHandler = function (event) {
-		window.removeEventListener('mousemove', this._mouseMoveHandler);
-		window.removeEventListener('mouseup', this._mouseUpHandler);
-	};
+	   		$.get( "index.php?page=addProject", function() {
+			  var tpl = Handlebars.compile($('#project-template').html());
+			  var html_erbijVoegen = tpl(projects_last);
+			  $('.projectList').append(html_erbijVoegen);
+			});
+
+			var items = $('.projectItem');
+			$(items[items.length-1]).css( "background-color", get_random_color());
+	   	 }
+	   });
+	}
 
 	return Img;
 })();
