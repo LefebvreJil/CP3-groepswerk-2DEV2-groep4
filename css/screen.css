@@ -492,7 +492,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   padding: 10px;
   background-color: #92D1B4;
   margin: 5px;
-  position: absolute;
   float: right;
   -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);

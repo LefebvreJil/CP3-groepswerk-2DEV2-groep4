@@ -46,7 +46,11 @@ module.exports = (function(){
 	}
 
 	function ElementenSelecteren(){
-		
+		//TODO
+		var todoApps = document.querySelectorAll('.todo');
+		for(var j = 0; j < todoApps.length; j++){
+			new TodoApplication(todoApps[j]);
+		}
 
 		//VIDs
 		var alleVideoDivs = document.querySelectorAll('.video-object');
