@@ -201,28 +201,25 @@ class ProjectsController extends Controller {
 		if(!empty($_FILES["video"])){
 			if(!empty($_FILES["video"]["error"])){ $errors["video"] = "De video kon niet geüpload worden."; }
 
-			if(empty($errors["video"])){
-				$size = getimagesize($_FILES["video"]["tmp_name"]);
-				if(empty($size)){ $errors["video"] = "Upload een video"; }
-			}
-
-			if(empty($errors["video"])){
-				if($_FILES["video"]["size"] >=2097152){ 
-					$errors["video"] = "De bestandsgrootte is te groot.";
-				}
-			}
+			// if(empty($errors["video"])){
+			// 	$size = getimagesize($_FILES["video"]["tmp_name"]);
+			// 	if(empty($size)){ $errors["video"] = "Upload een video"; }
+			// }
 		}
 
 		if(empty($errors)) {
-
 			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["video"]["name"]);
 			$extension = 'mp4';
 
-			$insertVideo['user_id'] = $_SESSION['user']['id'];
 			$insertVideo['project_id'] = $_GET['id'];
+			$insertVideo['user_id'] = $_SESSION['user']['id'];
 			$insertVideo['file'] = $name;
 			$insertVideo['extension'] = $extension;
 
+			$target_file = WWW_ROOT."uploads".DS.basename($_FILES["video"]["name"]);
+
+			//$insertVideo->save(WWW_ROOT."uploads".DS.$_FILES['file']['name'].".mp4");
+			move_uploaded_file($_FILES["video"]["tmp_name"], $target_file);
 
 			$this->videoDAO->insert($insertVideo);
 
