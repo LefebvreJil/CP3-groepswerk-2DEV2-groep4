@@ -18,73 +18,81 @@
             	registerForm = 0;
             	new validatie(loginForm, registerForm);
             }
+            
 
-        //template
-            var projectIndex = require('./classes/projectIndex.js');
-            new projectIndex();
-
-        //project toevoegen via ajax
+        //alles van project
             var dikkePlus = document.getElementById('dikkePlus');
             if(dikkePlus){
+
+                //project toevoegen
                 var addProject = require('./classes/Addproject.js');
                 dikkePlus.onclick = function(e){
                     event.preventDefault();
                     new addProject();
                 };
-            
+
+                //projecten tonen
+                var projectIndex = require('./classes/projectIndex.js');
+                new projectIndex();
             }
             
-        //img class toevoegen
-             var Img = require('./classes/img.js');
-             var addImage = document.getElementById('imageSubmit');
-             if(addImage){
-                 addImage.onclick = function(event) {
-                         if (window.File && window.FileReader && window.FileList && window.Blob){
-                            new Img();
-                        }
-                 };
-             }
-
-         //video class toevoegen
-            var video = require('./classes/video.js');
-            var addVideo = document.getElementById('videoSubmit');
-            if(addVideo){
-                addVideo.onclick = function(event) {
-                        if (window.File && window.FileReader && window.FileList && window.Blob){
-                            new video();
-                        }
-                };
-            }
-
-        //alle functies op whiteboard tonen + stickynotes wijzigen + delete functie (?)
-            var whiteboard = document.getElementById('whiteboard');
-            if(whiteboard){
-                var viewFunctions = require('./classes/Viewfunctions.js');
-                new viewFunctions();
-            }
-
         
 
-        //stickyNote class toevoegen
-            var stickyNote = require('./classes/stickyNote.js');
-            var addStickyNote = document.getElementById('addStickyNote');
-            if(addStickyNote){
-                addStickyNote.onclick = function(event) {
-                        event.preventDefault();
-                        new stickyNote();
-                };
-            }
+        //alles van whiteboard
+            var whiteboard = document.getElementById('whiteboard');
+            if(whiteboard){
 
-        //todo class toevoegen
-            var Todo = require('./classes/todo.js');
-            var addTodo = document.getElementById('addTodo');
-            if(addTodo){
-                addTodo.onclick = function(event) {
-                        //event.preventDefault();
-                        new Todo();
-                };
-            }
+                //elementen erop laten tonen
+                var viewFunctions = require('./classes/Viewfunctions.js');
+                new viewFunctions();
 
+                //drag n drop
+                var dragNdrop = require('./classes/dragNdrop.js');
+                new dragNdrop();
+
+
+                //img class toevoegen
+                 var Img = require('./classes/img.js');
+                 var addImage = document.getElementById('imageSubmit');
+                 if(addImage){
+                     addImage.onclick = function(event) {
+                             if (window.File && window.FileReader && window.FileList && window.Blob){
+                                new Img();
+                            }
+                     };
+                 }
+
+                //video class toevoegen
+                var video = require('./classes/video.js');
+                var addVideo = document.getElementById('videoSubmit');
+                if(addVideo){
+                    addVideo.onclick = function(event) {
+                            if (window.File && window.FileReader && window.FileList && window.Blob){
+                                new video();
+                            }
+                    };
+                }
+
+                //stickyNote class toevoegen
+                var stickyNote = require('./classes/stickyNote.js');
+                var addStickyNote = document.getElementById('addStickyNote');
+                if(addStickyNote){
+                    addStickyNote.onclick = function(event) {
+                            event.preventDefault();
+                            new stickyNote();
+                    };
+                }
+
+                //todo class toevoegen
+                var Todo = require('./classes/todo.js');
+                var addTodo = document.getElementById('addTodo');
+                if(addTodo){
+                    addTodo.onclick = function(event) {
+                            //event.preventDefault();
+                            new Todo();
+                    };
+                }
+            }
        
 	}
 
