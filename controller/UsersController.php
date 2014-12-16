@@ -106,9 +106,6 @@ class UsersController extends Controller {
 		}
 
 
-
-
-		//YAY geen errors meer
 		if(empty($errors)) {
 			$hasher = new \Phpass\Hash;
 			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["image"]["name"]);
