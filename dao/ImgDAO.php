@@ -51,4 +51,17 @@ class ImgDAO extends DAO {
 		}
 		return false;
 	}
+
+	public function updatePosition($data){
+		$sql = "UPDATE `w_images` SET `xPos` =  :xPos, `yPos` =  :yPos WHERE `id` = :id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':xPos', $data['xPos']);
+		$stmt->bindValue(':yPos', $data['yPos']);
+		$stmt->bindValue(':id', $data['id']);
+		if($stmt->execute()) {
+			$insertedId = $this->pdo->lastInsertId();
+			return $this->selectById($insertedId);
+		}
+		return false;
+	}
 }

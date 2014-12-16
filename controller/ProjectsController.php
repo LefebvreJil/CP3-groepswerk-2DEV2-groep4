@@ -92,10 +92,15 @@ class ProjectsController extends Controller {
 						$this->_handleAddVideo();
 					}
 				}
-
 				if(!empty($_POST['className'])){
-					$data = $_POST;
-					$positieWijzigen = $this->videoDAO->updatePosition($data);
+					if($_POST['className']="video-object"){
+						$data = $_POST;
+						$positieWijzigen = $this->videoDAO->updatePosition($data);
+					}
+					if($_POST['className']="img-object"){
+						$data = $_POST;
+						$positieWijzigen = $this->imgDAO->updatePosition($data);
+					}
 				}
 
 			}else{

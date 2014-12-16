@@ -45,13 +45,15 @@ module.exports = (function(){
 	}
 
 	function ElementenSelecteren(){
-		//IMGs
-		var alleImageDivs = document.querySelectorAll('.img-object');
-		dragNdrop(alleImageDivs);
+		
 
 		//VIDs
 		var alleVideoDivs = document.querySelectorAll('.video-object');
 		dragNdrop(alleVideoDivs);
+
+		//IMGs
+		var alleImageDivs = document.querySelectorAll('.img-object');
+		dragNdrop(alleImageDivs);
 
 		
 
@@ -62,19 +64,25 @@ module.exports = (function(){
 		for (var i = 0; i < elementen.length; i++) {
 		  	element = elementen[i];
 		  	id_element = element.getAttribute('id');
-			element.addEventListener('mousedown', mouseDownHandler);
+
+		  	_mouseDownHandler = mouseDownHandler.bind(element);
+			_mouseMoveHandler = mouseMoveHandler.bind(element);
+			_mouseUpHandler = mouseUpHandler.bind(element);
+
+			element.addEventListener('mousedown', _mouseDownHandler);
 		 }
 	}
 
 	mouseDownHandler = function (event) {
+		console.log(element);
 		element.offsetX = event.offsetX;
 		element.offsetY = event.offsetY;
 
-		window.addEventListener('mousemove', mouseMoveHandler);
-		window.addEventListener('mouseup', mouseUpHandler);
+		window.addEventListener('mousemove', _mouseMoveHandler);
+		window.addEventListener('mouseup', _mouseUpHandler);
 
 		numbOfClicks++;
-		//element.style.zIndex = numbOfClicks;
+		element.style.zIndex = numbOfClicks;
 	};
 
 	mouseMoveHandler = function (event) {
@@ -83,7 +91,6 @@ module.exports = (function(){
 	};
 
 	mouseUpHandler = function (event) {
-		if(element.className==="video-object"){
 			var doorsturen = {
 					className: element.className,
 					xPos: event.x - element.offsetX,
@@ -94,10 +101,10 @@ module.exports = (function(){
 			.done(function(data){
 				console.log(data.dataPost);
 			});
-		}
+		
 
-		window.removeEventListener('mousemove', mouseMoveHandler);
-		window.removeEventListener('mouseup', mouseUpHandler);
+		window.removeEventListener('mousemove', _mouseMoveHandler);
+		window.removeEventListener('mouseup', _mouseUpHandler);
 	};
 
 
