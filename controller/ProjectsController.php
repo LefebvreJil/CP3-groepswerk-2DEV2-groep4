@@ -68,7 +68,7 @@ class ProjectsController extends Controller {
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
 
-				var_dump($_FILES);
+				
 				if(!empty($_FILES)){
 					$this->_handleAddImage();
 				}
