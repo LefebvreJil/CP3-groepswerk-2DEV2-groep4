@@ -1,17 +1,29 @@
 <?php
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
-require_once WWW_ROOT . 'dao' . DS . 'FunctiesDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'ImgDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'StickyNoteDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'TodoDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'TodoItemDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'VideoDAO.php';
 require_once WWW_ROOT . 'php-image-resize' . DS . 'ImageResize.php';
 
 class ProjectsController extends Controller {
 
 	private $projectDAO;
-	private $functieDAO;
+	private $imgDAO;
+	private $stickyNoteDAO;
+	private $todoDAO;
+	private $todoItemDAO;
+	private $videoDAO;
 
 	function __construct() {
 		$this->projectDAO = new ProjectDAO();
-		$this->functieDAO = new FunctiesDAO();
+		$this->imgDAO = new ImgDAO();
+		$this->stickyNoteDAO = new StickyNoteDAO();
+		$this->todoDAO = new TodoDAO();
+		$this->todoItemDAO = new TodoItemDAO();
+		$this->videoDAO = new VideoDAO();
 	}
 
 	public function index() {
@@ -40,7 +52,7 @@ class ProjectsController extends Controller {
 	public function UpdateFunctie(){
 		if(!empty($_POST['id_stickynote'])){
 			$data = $_POST;
-			$inhoudToevoegen = $this->functieDAO->insertText_stickyNote($data);
+			$inhoudToevoegen = $this->stickyNoteDAO->insertText($data);
 		}
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
@@ -56,13 +68,13 @@ class ProjectsController extends Controller {
 		if($project_id){
 			if(!empty($existing)){
 
-				$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
+				$stickyNotes = $this->stickyNoteDAO->selectByProjectId($project_id);
 				$this->set('stickyNotes', $stickyNotes);
 
-				$todos = $this->functieDAO->selectByProjectId_todo($project_id);
+				$todos = $this->todoDAO->selectByProjectId($project_id);
 				$this->set('todos', $todos);
 
-				$imges = $this->functieDAO->selectByProjectId_img($project_id);
+				$imges = $this->imgDAO->selectByProjectId($project_id);
 				$this->set('imges', $imges);
 
 
@@ -163,8 +175,6 @@ class ProjectsController extends Controller {
 
 			$insertImage['user_id'] = $_SESSION['user']['id'];
 			$insertImage['project_id'] = $_GET['id'];
-			$insertImage['xPos'] = "0";
-			$insertImage['yPos'] = "0";
 			$insertImage['file'] = $name;
 			$insertImage['extension'] = $extension;
 
@@ -173,7 +183,7 @@ class ProjectsController extends Controller {
 			$imageresize->resizeToHeight(200);
 			$imageresize->save(WWW_ROOT."uploads".DS.$name."_th.".$extension);
 
-			$this->functieDAO->insert_img($insertImage);
+			$this->imgDAO->insert($insertImage);
 
 			if(!empty($insertImage)) {
 				$_SESSION['info'] = 'De upload was succesvol!';
@@ -210,13 +220,11 @@ class ProjectsController extends Controller {
 
 			$insertVideo['user_id'] = $_SESSION['user']['id'];
 			$insertVideo['project_id'] = $_GET['id'];
-			$insertVideo['xPos'] = "0";
-			$insertVideo['yPos'] = "0";
 			$insertVideo['file'] = $name;
 			$insertVideo['extension'] = $extension;
 
 
-			$this->functieDAO->insert_video($insertVideo);
+			$this->videoDAO->insert($insertVideo);
 
 			if(!empty($insertVideo)) {
 				$_SESSION['info'] = 'De upload was succesvol!';
@@ -232,12 +240,10 @@ class ProjectsController extends Controller {
 		if(!empty($_POST['text'])){
 			$data['project_id'] = $_POST['id'];
 			$data['user_id'] = $_SESSION['user']['id'];
-			$data['xPos'] = '0';
-			$data['yPos'] = '0';
 			$data['text'] = $_POST['text'];
 
-			$insertedNote = $this->functieDAO->insert_stickyNote($data);
-			$stickyNote_last = $this->functieDAO->selectLast_stickyNote();
+			$insertedNote = $this->stickyNoteDAO->insert($data);
+			$stickyNote_last = $this->stickyNoteDAO->selectLast();
 
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				header('Content-Type: application/json');
@@ -253,8 +259,8 @@ class ProjectsController extends Controller {
 			$data['project_id'] = $_POST['project_id'];
 			$data['user_id'] = $_SESSION['user']['id'];
 
-			$insertedTodo = $this->functieDAO->insert_todo($data);
-			$todo_last = $this->functieDAO->selectLast_todo();
+			$insertedTodo = $this->todoDAO->insert($data);
+			$todo_last = $this->todoDAO->selectLast();
 
 			if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 				header('Content-Type: application/json');
