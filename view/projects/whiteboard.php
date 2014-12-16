@@ -16,9 +16,9 @@
 			<li>
 				<ul>
 					<li class="underLi">
-						<form id="imageform" method="post" action="index.php?page=addImage" class="formAdd" enctype="multipart/form-data">
-							<label for="imageWboard" id="addImage">Afbeelding</label>
-							<input type="file" name="imageWboard" id="imageWboard" />
+						<form id="imageform" method="post" action="index.php?page=whiteboard&amp;id=<?php echo $_GET['id'] ?>" class="formAdd" enctype="multipart/form-data">
+							<label for="image" id="addImage">Afbeelding</label>
+							<input type="file" name="image" id="imageWboard" />
 							<input type="submit" value="Plaats" class="imageBtn" id="imageSubmit" />
 						</form>
 					</li>

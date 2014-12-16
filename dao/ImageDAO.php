@@ -20,15 +20,13 @@ class ImageDAO extends DAO {
 	public function insert($data) {
 		$errors = $this->getValidationErrors($data);
 		if(empty($errors)) {
-			$sql = "INSERT INTO `w_images` (`user_id`, `xPos`,`yPos`,`width`,`height`, `file`,`extension`) 
-			VALUES (:user_id, :xPos, :yPos, :width, :height, :file, :extension)";
+			$sql = "INSERT INTO `w_images` (`user_id`, `xPos`,`yPos`, `file`,`extension`) 
+			VALUES (:user_id, :xPos, :yPos, :file, :extension)";
 
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':user_id', $data['user_id']);
 			$stmt->bindValue(':xPos', $data['xPos']);
 			$stmt->bindValue(':yPos', $data['yPos']);
-			$stmt->bindValue(':width', $data['width']);
-			$stmt->bindValue(':height', $data['height']);
 			$stmt->bindValue(':file', $data['file']);
 			$stmt->bindValue(':extension', $data['extension']);
 

@@ -2,16 +2,19 @@
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
 require_once WWW_ROOT . 'dao' . DS . 'FunctiesDAO.php';
+require_once WWW_ROOT . 'dao' . DS . 'ImageDAO.php';
 require_once WWW_ROOT . 'php-image-resize' . DS . 'ImageResize.php';
 
 class ProjectsController extends Controller {
 
 	private $projectDAO;
 	private $functieDAO;
+	private $imageDAO;
 
 	function __construct() {
 		$this->projectDAO = new ProjectDAO();
 		$this->functieDAO = new FunctiesDAO();
+		$this->imageDAO = new ImageDAO();
 	}
 
 	public function index() {
@@ -55,13 +58,20 @@ class ProjectsController extends Controller {
 
 		if($project_id){
 			if(!empty($existing)){
-				//doorsturen naar js (this set moet er niet meer bij)
-				$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
-				$todos = $this->functieDAO->selectByProjectId_todo($project_id);
 
-				//doorsturen naar html (this set moet er nog bij)
+				$stickyNotes = $this->functieDAO->selectByProjectId_stickyNote($project_id);
+				$this->set('stickyNotes', $stickyNotes);
+				$todos = $this->functieDAO->selectByProjectId_todo($project_id);
+				$this->set('todos', $todos);
+
+
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
+
+				var_dump($_FILES);
+				if(!empty($_FILES)){
+					$this->_handleAddImage();
+				}
 
 				
 			}else{
@@ -79,14 +89,6 @@ class ProjectsController extends Controller {
 	}
 
 	public function addImage(){
-		if(!empty($_POST)){
-			$this->_handleAddImage();
-		}
-		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
-			header('Content-Type: application/json');
-	     	echo json_encode(array('post' => $_POST));
-	    	die();
-		}
 	}
 
 	public function addNote(){
@@ -161,8 +163,6 @@ class ProjectsController extends Controller {
 			$insertImage['user_id'] = $_SESSION['user']['id'];
 			$insertImage['xPos'] = "0";
 			$insertImage['yPos'] = "0";
-			$insertImage['width'] = "200";
-			$insertImage['height'] = "150";
 			$insertImage['file'] = $name;
 			$insertImage['extension'] = $extension;
 
@@ -171,7 +171,7 @@ class ProjectsController extends Controller {
 			$imageresize->resizeToHeight(200);
 			$imageresize->save(WWW_ROOT."uploads".DS.$name."_th.".$extension);
 
-			$this->ImageDAO->insert($insertImage);
+			$this->imageDAO->insert($insertImage);
 
 			if(!empty($insertImage)) {
 				$_SESSION['info'] = 'De upload was succesvol!';
@@ -184,7 +184,7 @@ class ProjectsController extends Controller {
 
 	private function _handleAddStickyNote(){
 
-		if(!empty($_POST)){
+		if(!empty($_POST['text'])){
 			$data['project_id'] = $_POST['id'];
 			$data['user_id'] = $_SESSION['user']['id'];
 			$data['xPos'] = '0';
@@ -204,7 +204,7 @@ class ProjectsController extends Controller {
 
 	private function _handleAddTodo(){
 
-		if(!empty($_POST)){
+		if(!empty($_POST['project_id'])){
 			$data['project_id'] = $_POST['project_id'];
 			$data['user_id'] = $_SESSION['user']['id'];
 

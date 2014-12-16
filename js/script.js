@@ -39,9 +39,10 @@
              var addImage = document.getElementById('imageSubmit');
              if(addImage){
                  addImage.onclick = function(event) {
-                         event.preventDefault();
-                         new Img();
-                 }
+                         if (window.File && window.FileReader && window.FileList && window.Blob){
+                            new Img();
+                        };
+                 };
              }
 
             //             //Grote fout.
