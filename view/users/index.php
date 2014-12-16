@@ -24,6 +24,7 @@
 				name="email" 
 				placeholder="Email" 
 				tabindex="1" 
+				value="ik@ik.be"
 				class="formItem <?php if(!empty($errors['email'])) echo ' has-error'; ?>" >
 			</div>
 
@@ -36,6 +37,7 @@
 				name="password" 
 				placeholder="Password" 
 				tabindex="2" 
+				value="azer"
 				class="formItem <?php if(!empty($errors['password'])) echo ' has-error'; ?>" >
 			</div>
 
