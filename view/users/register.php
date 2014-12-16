@@ -122,7 +122,7 @@
                 	</span>
 
 	            	<input type="file" 
-	            	name="image" 
+	            	name="image_register" 
 	            	tabindex="9" 
 	            	class="formItem <?php if(!empty($errors['image'])) echo ' has-error'; ?>" />
 				</div>

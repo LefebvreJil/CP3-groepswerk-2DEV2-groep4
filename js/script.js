@@ -28,48 +28,48 @@
             if(dikkePlus){
                 var addProject = require('./classes/Addproject.js');
                 dikkePlus.onclick = function(e){
-                    event.preventDefault();
+                    //event.preventDefault();
                     new addProject();
                 };
             
             }
             
         //img class toevoegen
-            var Img = require('./classes/img.js');
-            var addImage = document.getElementById('addImage');
-            if(addImage){
-                addImage.onclick = function(event) {
-                        event.preventDefault();
-                        chooseImage();
+            // var Img = require('./classes/img.js');
+            // var addImage = document.getElementById('addImage');
+            // if(addImage){
+            //     addImage.onclick = function(event) {
+            //             event.preventDefault();
+            //             chooseImage();
 
-                        //Grote fout.
-                        // if (window.File && window.FileReader && window.FileList && window.Blob){
-                        // //foto toevoegen
-                        // var imageWboard = document.querySelector("input[name=imageWboard]");
-                        //     imageWboard.addEventListener("change", function(e){
-                        //         var imgBoard=imageWboard.parentNode.querySelector("imgBoard");
-                        //         if(imgBoard){ imageWboard.parentNode.removeChild(imgBoard);}
-                        //         if(imageWboard.files.length>0){
-                        //             var file = imageWboard.files['0'];
-                        //             if(file.type.search("image") !==0){
-                        //                     // errorElement.innerText = "the selected file is not an image";
-                        //                     // errorElement.style.display = "block";
-                        //             }else{
-                        //                 var reader = new FileReader();
-                        //                 reader.onload = function(e){
-                        //                     var imgBoard = document.createElement("imgBoard");
-                        //                     imgBoard.onload=function(e){imageWboard.parentNode.appendChild(imgBoard);};
-                        //                     imgBoard.setAttribute("src", reader.result);
-                        //                     imgBoard.setAttribute("width", "300");
-                        //                 };
-                        //                 reader.readAsDataURL(file);
-                        //             }
-                        //         }
-                        //     });
-                        // }
-                        new Img();
-                };
-            }
+            //             //Grote fout.
+            //             // if (window.File && window.FileReader && window.FileList && window.Blob){
+            //             // //foto toevoegen
+            //             // var imageWboard = document.querySelector("input[name=imageWboard]");
+            //             //     imageWboard.addEventListener("change", function(e){
+            //             //         var imgBoard=imageWboard.parentNode.querySelector("imgBoard");
+            //             //         if(imgBoard){ imageWboard.parentNode.removeChild(imgBoard);}
+            //             //         if(imageWboard.files.length>0){
+            //             //             var file = imageWboard.files['0'];
+            //             //             if(file.type.search("image") !==0){
+            //             //                     // errorElement.innerText = "the selected file is not an image";
+            //             //                     // errorElement.style.display = "block";
+            //             //             }else{
+            //             //                 var reader = new FileReader();
+            //             //                 reader.onload = function(e){
+            //             //                     var imgBoard = document.createElement("imgBoard");
+            //             //                     imgBoard.onload=function(e){imageWboard.parentNode.appendChild(imgBoard);};
+            //             //                     imgBoard.setAttribute("src", reader.result);
+            //             //                     imgBoard.setAttribute("width", "300");
+            //             //                 };
+            //             //                 reader.readAsDataURL(file);
+            //             //             }
+            //             //         }
+            //             //     });
+            //             // }
+            //             new Img();
+            //     };
+            // }
 
         //alle functies op whiteboard tonen
         //stickyNotes kunnen wijzigen
@@ -86,7 +86,7 @@
             var addVideo = document.getElementById('addVideo');
             if(addVideo){
                 addVideo.onclick = function(event) {
-                        event.preventDefault();
+                        //event.preventDefault();
                         chooseVideo();
                         new video();
                 };
@@ -97,7 +97,7 @@
             var addStickyNote = document.getElementById('addStickyNote');
             if(addStickyNote){
                 addStickyNote.onclick = function(event) {
-                        event.preventDefault();
+                        //event.preventDefault();
                         new stickyNote();
                 };
             }
@@ -107,20 +107,12 @@
             var addTodo = document.getElementById('addTodo');
             if(addTodo){
                 addTodo.onclick = function(event) {
-                        event.preventDefault();
+                        //event.preventDefault();
                         new Todo();
                 };
             }
 
-        //draw class toevoegen
-            var Draw = require('./classes/draw.js');
-            var addDraw = document.getElementById('draw');
-            if(addDraw){
-                addDraw.onclick = function(event) {
-                        event.preventDefault();
-                        new Draw();
-                };
-            }
+       
 	}
 
     function moveWhiteboardOnClick(){
@@ -134,13 +126,13 @@
         });
     }
 
-    function chooseImage() {
-      $("#imageWboard").click();
-    }
+    // function chooseImage() {
+    //   $("#imageWboard").click();
+    // }
 
-    function chooseVideo() {
-      $("#videoInput").click();
-    }
+    // function chooseVideo() {
+    //   $("#videoInput").click();
+    // }
 
 	init();
     moveWhiteboardOnClick();

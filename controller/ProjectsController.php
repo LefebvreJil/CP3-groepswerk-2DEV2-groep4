@@ -2,6 +2,7 @@
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
 require_once WWW_ROOT . 'dao' . DS . 'FunctiesDAO.php';
+require_once WWW_ROOT . 'php-image-resize' . DS . 'ImageResize.php';
 
 class ProjectsController extends Controller {
 
@@ -49,6 +50,8 @@ class ProjectsController extends Controller {
 	}
 
 	public function whiteboard(){
+		print_r($_POST);
+		print_r('ik kom hier in');
 		$project_id = $_GET['id'];
 		$existing = $this->projectDAO->selectById($_GET['id']);
 
@@ -74,6 +77,13 @@ class ProjectsController extends Controller {
 			header('Content-Type: application/json');
 	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos));
 	    	die();
+		}
+	}
+
+	public function addImage(){
+		$_SESSION['ok'] = "ok";
+		if(!empty($_POST)){
+			$this->_handleAddImage();
 		}
 	}
 
@@ -120,6 +130,54 @@ class ProjectsController extends Controller {
 		        die();
 			}
 	  	}
+	}
+
+	private function _handleAddImage(){
+		$errors = array();
+		$size = array();
+
+		if(!empty($_FILES["image"])){
+			if(!empty($_FILES["image"]["error"])){ $errors["image"] = "De foto kon niet geüpload worden."; }
+
+			if(empty($errors["image"])){
+				$size = getimagesize($_FILES["image"]["tmp_name"]);
+				if(empty($size)){ $errors["image"] = "Upload een foto"; }
+			}
+
+			if(empty($errors["image"])){
+				if($_FILES["image"]["size"] >=2097152){ 
+					$errors["image"] = "De bestandsgrootte is te groot.";
+				}
+			}
+		}
+
+		if(empty($errors)) {
+
+			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["image"]["name"]);
+			$extension = 'jpg';
+
+			$insertImage['user_id'] = $_SESSION['user']['id'];
+			$insertImage['xPos'] = "0";
+			$insertImage['yPos'] = "0";
+			$insertImage['width'] = "200";
+			$insertImage['height'] = "150";
+			$insertImage['file'] = $name;
+			$insertImage['extension'] = $extension;
+
+			$imageresize = new Eventviva\ImageResize($_FILES["image"]["tmp_name"]);
+			$imageresize->save(WWW_ROOT."uploads".DS.$name.".".$extension);
+			$imageresize->resizeToHeight(200);
+			$imageresize->save(WWW_ROOT."uploads".DS.$name."_th.".$extension);
+
+			$this->ImageDAO->insert($insertImage);
+
+			if(!empty($insertImage)) {
+				$_SESSION['info'] = 'De upload was succesvol!';
+				$this->redirect('index.php?page=whiteboard&id=' . $_GET['id']);
+			}
+		}
+		$_SESSION['error'] = 'De upload is mislukt.';
+		$this->set('errors', $errors);
 	}
 
 	private function _handleAddStickyNote(){

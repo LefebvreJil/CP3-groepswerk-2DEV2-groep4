@@ -22,9 +22,6 @@ class UsersController extends Controller {
 	public function register() {
 		if(!empty($_POST)){
 			$this->_handleRegister();
-
-			//iets willen sturen naar JS (nog testen)
-			//echo json_encode($variabele);
 		}
 	}
 
@@ -106,6 +103,7 @@ class UsersController extends Controller {
 		}
 
 
+		//YAY geen errors meer
 		if(empty($errors)) {
 			$hasher = new \Phpass\Hash;
 			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["image"]["name"]);

@@ -30,7 +30,7 @@ module.exports = (function(){
 
         if (window.File && window.FileReader && window.FileList && window.Blob){
 		//foto toevoegen
-		var imageInput = document.querySelector("input[name=image]");
+		var imageInput = document.querySelector("input[name=image_register]");
             var errorElement = imageInput.parentNode.querySelector(".error-message");
             imageInput.addEventListener("change", function(e){
                 errorElement.style.display="none";
