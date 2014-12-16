@@ -31,7 +31,10 @@ module.exports = (function(){
 		  	var html_images = tpl_img(data.imges);
 		  	$('.whiteboard').append(html_images);
 
-
+		  	var videos = data.videos;
+		  	var tpl_video = Handlebars.compile($('#video-template').html());
+		  	var html_videos = tpl_video(data.videos);
+		  	$('.whiteboard').append(html_videos);
 		});
 	}
 

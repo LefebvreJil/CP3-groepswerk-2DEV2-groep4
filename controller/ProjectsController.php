@@ -77,6 +77,9 @@ class ProjectsController extends Controller {
 				$imges = $this->imgDAO->selectByProjectId($project_id);
 				$this->set('imges', $imges);
 
+				$videos = $this->videoDAO->selectByProjectId($project_id);
+				$this->set('videos', $videos);
+
 
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
@@ -99,7 +102,7 @@ class ProjectsController extends Controller {
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos, 'imges' => $imges));
+	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos, 'imges' => $imges, 'videos' => $videos));
 	    	die();
 		}
 	}

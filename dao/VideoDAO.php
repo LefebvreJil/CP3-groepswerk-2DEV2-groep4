@@ -20,6 +20,14 @@ class VideoDAO extends DAO {
 		return $stmt->fetch(PDO::FETCH_ASSOC);
 	}
 
+	public function selectByProjectId($project_id) {
+		$sql = "SELECT * FROM `w_videos` WHERE `project_id` = :project_id";
+		$stmt = $this->pdo->prepare($sql);
+		$stmt->bindValue(':project_id', $project_id);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_ASSOC);
+	}
+
 	public function insert($data) {
 		if(empty($errors)) {
 			$sql = "INSERT INTO `w_videos` (`project_id`, `user_id`, `file`,`extension`) 
