@@ -80,7 +80,6 @@ class ProjectsController extends Controller {
 				$videos = $this->videoDAO->selectByProjectId($project_id);
 				$this->set('videos', $videos);
 
-
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
 

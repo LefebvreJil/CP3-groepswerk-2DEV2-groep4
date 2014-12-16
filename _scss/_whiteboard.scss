@@ -152,12 +152,18 @@
 /*-----------TODO------------*/
 
 .todo{
-	width: 300px;
+	width: 250px;
 	padding: 10px;
 	background-color: #92D1B4;
 	margin: 5px;
 	float: right;
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+	h1{
+		margin-bottom: 5px;
+	}
+	.todo-input{
+		width: 230px;
+	}
 	li{
 		width: 280px;
 		margin: 10px auto;

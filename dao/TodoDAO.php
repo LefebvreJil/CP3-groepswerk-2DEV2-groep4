@@ -29,12 +29,13 @@ class TodoDAO extends DAO {
 	}
 
 	public function insert($data) {
-		$sql = "INSERT INTO `w_todos` (`project_id`,`user_id`) 
-		VALUES (:project_id, :user_id)";
+		$sql = "INSERT INTO `w_todos` (`project_id`,`user_id`, `title`) 
+		VALUES (:project_id, :user_id, :title)";
 
 		$stmt = $this->pdo->prepare($sql);
 		$stmt->bindValue(':project_id', $data['project_id']);
 		$stmt->bindValue(':user_id', $data['user_id']);
+		$stmt->bindValue(':title', $data['title']);
 
 		if($stmt->execute()) {
 			$insertedId = $this->pdo->lastInsertId();
