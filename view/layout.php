@@ -37,6 +37,16 @@
 	<script type="text/template" id="todo-template">
 		{{#each .}}
 			<div class="todo">
+			<ul class="todo-items">
+			</ul>
+				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
+			</div>
+		{{/each}}
+	</script>
+
+	<script type="text/template" id="todo-template">
+		{{#each .}}
+			<div class="todo">
 				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
 			</div>
 		{{/each}}
