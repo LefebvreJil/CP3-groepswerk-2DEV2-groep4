@@ -41,59 +41,29 @@
                  addImage.onclick = function(event) {
                          if (window.File && window.FileReader && window.FileList && window.Blob){
                             new Img();
-                        };
+                        }
                  };
              }
 
-            //             //Grote fout.
-            //             // if (window.File && window.FileReader && window.FileList && window.Blob){
-            //             // //foto toevoegen
-            //             // var imageWboard = document.querySelector("input[name=imageWboard]");
-            //             //     imageWboard.addEventListener("change", function(e){
-            //             //         var imgBoard=imageWboard.parentNode.querySelector("imgBoard");
-            //             //         if(imgBoard){ imageWboard.parentNode.removeChild(imgBoard);}
-            //             //         if(imageWboard.files.length>0){
-            //             //             var file = imageWboard.files['0'];
-            //             //             if(file.type.search("image") !==0){
-            //             //                     // errorElement.innerText = "the selected file is not an image";
-            //             //                     // errorElement.style.display = "block";
-            //             //             }else{
-            //             //                 var reader = new FileReader();
-            //             //                 reader.onload = function(e){
-            //             //                     var imgBoard = document.createElement("imgBoard");
-            //             //                     imgBoard.onload=function(e){imageWboard.parentNode.appendChild(imgBoard);};
-            //             //                     imgBoard.setAttribute("src", reader.result);
-            //             //                     imgBoard.setAttribute("width", "300");
-            //             //                 };
-            //             //                 reader.readAsDataURL(file);
-            //             //             }
-            //             //         }
-            //             //     });
-            //             // }
-            //             new Img();
-            //     };
-            // }
+         //video class toevoegen
+            var video = require('./classes/video.js');
+            var addVideo = document.getElementById('videoSubmit');
+            if(addVideo){
+                addVideo.onclick = function(event) {
+                        if (window.File && window.FileReader && window.FileList && window.Blob){
+                            new video();
+                        }
+                };
+            }
 
-        //alle functies op whiteboard tonen
-        //stickyNotes kunnen wijzigen
+        //alle functies op whiteboard tonen + stickynotes wijzigen + delete functie (?)
             var whiteboard = document.getElementById('whiteboard');
-            var stickyNotes_wijzigen = require('./classes/stickyNotes_wijzigen.js');
             if(whiteboard){
                 var viewFunctions = require('./classes/Viewfunctions.js');
                 new viewFunctions();
-                new stickyNotes_wijzigen();
             }
 
-        //video class toevoegen
-            var video = require('./classes/video.js');
-            var addVideo = document.getElementById('addVideo');
-            if(addVideo){
-                addVideo.onclick = function(event) {
-                        event.preventDefault();
-                        chooseVideo();
-                        new video();
-                };
-            }
+        
 
         //stickyNote class toevoegen
             var stickyNote = require('./classes/stickyNote.js');

@@ -108,14 +108,12 @@ class FunctiesDAO extends DAO {
 
 	public function insert_img($data) {
 		if(empty($errors)) {
-			$sql = "INSERT INTO `w_images` (`project_id`, `user_id`, `xPos`,`yPos`, `file`,`extension`) 
-			VALUES (:project_id, :user_id, :xPos, :yPos, :file, :extension)";
+			$sql = "INSERT INTO `w_images` (`project_id`, `user_id`, `file`,`extension`) 
+			VALUES (:project_id, :user_id, :file, :extension)";
 
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->bindValue(':project_id', $data['project_id']);
 			$stmt->bindValue(':user_id', $data['user_id']);
-			$stmt->bindValue(':xPos', $data['xPos']);
-			$stmt->bindValue(':yPos', $data['yPos']);
 			$stmt->bindValue(':file', $data['file']);
 			$stmt->bindValue(':extension', $data['extension']);
 
@@ -144,17 +142,20 @@ class FunctiesDAO extends DAO {
 	}
 
 	public function insert_video($data) {
-		$sql = "INSERT INTO `w_videos` (`name`,`description`, `date_added`) 
-		VALUES (:name, :description, :date_added)";
+		if(empty($errors)) {
+			$sql = "INSERT INTO `w_videos` (`project_id`, `user_id`, `file`,`extension`) 
+			VALUES (:project_id, :user_id, :file, :extension)";
 
-		$stmt = $this->pdo->prepare($sql);
-		$stmt->bindValue(':name', $data['name']);
-		$stmt->bindValue(':description', $data['description']);
-		$stmt->bindValue(':date_added', date('Y-m-d H:i:s'));
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->bindValue(':project_id', $data['project_id']);
+			$stmt->bindValue(':user_id', $data['user_id']);
+			$stmt->bindValue(':file', $data['file']);
+			$stmt->bindValue(':extension', $data['extension']);
 
-		if($stmt->execute()) {
-			$insertedId = $this->pdo->lastInsertId();
-			return $this->selectById($insertedId);
+			if($stmt->execute()) {
+				$insertedId = $this->pdo->lastInsertId();
+				return $this->selectById_video($insertedId);
+			}
 		}
 		return false;
 	}
