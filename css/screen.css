@@ -1,571 +1,80 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
+/*
+Error: Invalid CSS after "...ition: absolute": expected "{", was ";"
+        on line 160 of /Applications/MAMP/htdocs/CP3_groepswerk/_scss/_whiteboard.scss
+        from line 6 of /Applications/MAMP/htdocs/CP3_groepswerk/_scss/screen.scss
 
-html {
-  line-height: 1;
-}
+155: 	width: 300px;
+156: 	padding: 10px;
+157: 	background-color: #92D1B4;
+158: 	margin: 5px;
+159: <<<<<<< HEAD
+160: 	position: absolute;
+161: =======
+162: 	float: right;
+163: >>>>>>> f96ba6740e99df9ab5674e23cac843b4edd6fa26
+164: 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
+165: 	li{
 
-ol, ul {
-  list-style: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-.home {
-  width: 300px;
-  margin: 50px auto 0;
-}
-.home .titel h1 {
-  font-family: BigNoodleTitling, sans-serif;
-  font-size: 5.8em;
-  text-align: center;
-}
-.home .titel h1 a:link {
-  color: #3B3B3B;
-}
-.home .titel h1 a:hover {
-  color: #FFFFFF;
-}
-.home .titel h1 a:visited {
-  color: #3B3B3B;
-}
-.home .homeWrap {
-  background-color: #545454;
-  width: 300px;
-  padding: 20px;
-  -webkit-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-
-.homeForm h1 {
-  color: #F1F1F1;
-  font-size: 2.2em;
-  font-family: BigNoodleTitling, sans-serif;
-  margin: 0 0 10px 0;
-}
-.homeForm .formItem {
-  width: 250px;
-  height: 20px;
-  padding: 5px;
-  margin: 10px 0 7px 18px;
-  border: none;
-  background-color: #F1F1F1;
-  box-shadow: inset 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.homeForm .formItem::-webkit-input-placeholder {
-  color: #969696;
-}
-.homeForm .formItem:focus {
-  outline-color: #545454;
-  background-color: #FFFFFF;
-}
-.homeForm .formInput {
-  margin: 10px 0 7px 18px;
-}
-.homeForm .loginBtn,
-.homeForm .registerBtn {
-  width: 100px;
-  height: 20px;
-  padding: 5px;
-  margin: 10px 0 5px 18px;
-  border-radius: 0px;
-  display: block;
-}
-.homeForm .formTextarea {
-  resize: none;
-  padding: 5px;
-  margin: 10px 0 5px 18px;
-  border: none;
-  background-color: #F1F1F1;
-  box-shadow: inset 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.homeForm .formTextarea::-webkit-input-placeholder {
-  color: #969696;
-}
-.homeForm label {
-  color: #F1F1F1;
-  margin: 10px 0 5px 18px;
-  font-size: 0.8em;
-}
-.homeForm .error-message {
-  font-size: 0.7em;
-  background: rgba(0, 0, 0, 0.5);
-  color: #FFFFFF;
-  padding: 3px;
-  margin-right: 18px;
-  clear: both;
-  float: right;
-  -webkit-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-.homeForm .hidden {
-  display: none;
-}
-
-.registerHome h1 {
-  color: #F1F1F1;
-  font-size: 2.2em;
-  font-family: BigNoodleTitling, sans-serif;
-  margin: 50px 0 10px 0;
-}
-.registerHome .registerBtn {
-  display: block;
-  text-align: center;
-  width: 260px;
-  height: 40px;
-  padding-top: 10px;
-  margin: 10px 0 5px 18px;
-  background-color: #FFFFFF;
-  border: none;
-  font-size: 1.8em;
-  font-family: BigNoodleTitling, sans-serif;
-  text-decoration: none;
-}
-.registerHome .registerBtn:visited {
-  color: #545454;
-}
-
-.navBar {
-  width: 100%;
-  height: 10px;
-  padding: 10px 0 10px 0;
-}
-.navBar p {
-  display: inline-block;
-}
-.navBar a, .navBar p {
-  text-decoration: none;
-  font-family: BigNoodleTitling, sans-serif;
-  font-size: 1.4em;
-  color: black;
-}
-.navBar .backBtn {
-  margin-left: 40px;
-}
-.navBar .addBtn {
-  margin-left: 30%;
-  text-align: center;
-}
-.navBar .logoutBtn {
-  float: right;
-  margin-right: 40px;
-}
-
-.wrapper {
-  width: 95%;
-  margin: 20px auto;
-}
-
-.projectPannel {
-  width: 310px;
-  height: 660px;
-  padding: 20px;
-  margin-right: 10px;
-  background-color: #545454;
-  float: left;
-  -webkit-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.projectPannel h1 {
-  font-family: BigNoodleTitling, sans-serif;
-  color: #FFFFFF;
-  font-size: 3.3em;
-  margin: 10px 0 30px 0;
-  border-bottom: 1px solid #FFFFFF;
-  padding-bottom: 10px;
-}
-.projectPannel h1 span {
-  font-size: 0.6em;
-}
-.projectPannel .intro {
-  font-family: helveticaNeue, sans-serif;
-  color: #FFFFFF;
-  font-weight: lighter;
-  font-size: 0.8em;
-}
-.projectPannel .intro span {
-  font-weight: bold;
-}
-.projectPannel .introLi {
-  font-family: helveticaNeue, sans-serif;
-  color: #FFFFFF;
-  font-weight: lighter;
-  font-size: 0.8em;
-  list-style-type: square;
-  margin: 5px 0 5px 20px;
-}
-.projectPannel .addProject {
-  display: block;
-  width: 280px;
-  height: 280px;
-  margin: 30px auto;
-  color: #F1F1F1;
-  text-decoration: none;
-  background-image: url("../assets/img/addProjectHover.png");
-  transition: background-image 0.2s ease;
-}
-.projectPannel .addProject:hover {
-  background-image: url("../assets/img/addProject.png");
-}
-
-.projectItem {
-  width: 290px;
-  padding: 15px 15px 20px 15px;
-  float: left;
-  margin: 0 10px 10px 0;
-  background-color: #545454;
-  -webkit-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.projectItem h1 {
-  color: #F1F1F1;
-  font-size: 2.2em;
-  font-family: BigNoodleTitling, sans-serif;
-  margin: 0 0 10px 0;
-}
-.projectItem .tussenTitel {
-  font-family: helveticaNeue, sans-serif;
-  color: #F1F1F1;
-}
-.projectItem .projectSession {
-  width: 250px;
-  height: 200px;
-  border: 1px solid #FFFFFF;
-  margin: 10px auto;
-}
-.projectItem .addSession {
-  width: 20px;
-  height: 20px;
-  display: block;
-  background-image: url("../assets/img/addProject.png");
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-}
-.projectItem .description {
-  color: #F1F1F1;
-  margin: 0 5px 10px 5px;
-}
-.projectItem a {
-  text-decoration: none;
-  color: #F1F1F1;
-  transition: color 0.1s ease;
-}
-.projectItem a:hover {
-  color: black;
-}
-.projectItem a img {
-  margin-right: 5px;
-}
-
-.addObject {
-  width: 1000px;
-  height: 35px;
-  padding: 10px;
-  margin: 20px auto;
-  background-color: #545454;
-  -webkit-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.1);
-  z-index: -1;
-}
-.addObject ul {
-  float: left;
-  margin-right: 20px;
-  transition: opacity 0.3s ease;
-}
-.addObject ul li {
-  float: left;
-}
-.addObject ul li .underLi {
-  float: none;
-}
-.addObject ul li a {
-  text-decoration: none;
-  color: white;
-  transition: color 0.2s ease;
-}
-.addObject ul li a:hover {
-  color: black;
-}
-.addObject .addItem {
-  margin: 10px 150px 0 0;
-}
-.addObject .lastLi {
-  margin-right: 0px;
-}
-.addObject .firstLi {
-  margin-left: 100px;
-}
-.addObject .formAdd {
-  margin-left: 10px;
-}
-.addObject .formAdd label {
-  width: 80px;
-  display: inline-block;
-  color: #FFF;
-}
-
-.whiteboard {
-  width: 1180px;
-  margin: -75px auto 20px;
-  height: 780px;
-  padding: 10px;
-  background-color: white;
-  -webkit-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  transition: margin 0.2s ease;
-}
-
-.moveWBoard {
-  margin: 0 auto 20px;
-}
-
-.hide {
-  height: 0;
-  overflow: hidden;
-  opacity: 0;
-}
-
-.wNav {
-  width: 1200px;
-  height: 10px;
-  padding: 10px 0 10px 30px;
-  margin: 0 auto;
-}
-.wNav p {
-  display: inline-block;
-}
-.wNav a, .wNav h1 {
-  text-decoration: none;
-  font-family: BigNoodleTitling, sans-serif;
-  font-size: 1.4em;
-  color: black;
-}
-.wNav li {
-  float: left;
-  width: 200px;
-  margin-right: 100px;
-  text-align: center;
-}
-.wNav .lastLi {
-  margin-right: 0px;
-}
-.wNav .backBtn {
-  margin-left: 40px;
-}
-.wNav .addBtn {
-  margin-left: 30%;
-  text-align: center;
-}
-.wNav .logoutBtn {
-  float: right;
-  margin-right: 40px;
-}
-
-.end {
-  width: 265px;
-  text-decoration: none;
-  margin: 0 auto;
-  display: block;
-  color: rgba(50, 50, 50, 0.5);
-  transition: color 0.2s ease;
-}
-.end:hover {
-  color: #323232;
-}
-
-.moveEnd {
-  top: 800px;
-}
-
-/*-----------OBJECTEN------------*/
-/*-----------NOTE------------*/
-.note {
-  padding: 10px;
-  background-color: #B3DEFF;
-  width: 270px;
-  margin: 5px;
-  position: absolute;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.note p {
-  width: 250px;
-  margin: 10px auto;
-}
-.note a {
-  text-decoration: none;
-  color: white;
-}
-
-/*-----------TODO------------*/
-.todo {
-  width: 300px;
-  padding: 10px;
-  background-color: #92D1B4;
-  margin: 5px;
-  position: absolute;
-  -webkit-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -ms-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-  box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
-}
-.todo li {
-  width: 280px;
-  margin: 10px auto;
-}
-.todo a {
-  text-decoration: none;
-  color: white;
-}
-
-.video-object, .img-object {
-  position: absolute;
-}
-
-body {
-  background-color: #F1F1F1;
-  font-family: helveticaNeue, sans-serif;
-}
-
-#session_messages {
-  transition: 1s;
-}
-#session_messages div {
-  transition: 1s;
-}
-
-.succes, .error {
-  background: rgba(0, 0, 0, 0.5);
-  color: #FFFFFF;
-  font-size: 0.9em;
-  padding: 4px;
-  width: 300px;
-  margin-left: 18px;
-  transition: 1s ease;
-}
-
-.img_vervangenDoorCirkel {
-  width: 100px;
-  height: 100px;
-  background-color: #F39A00;
-  position: absolute;
-  border-radius: 50%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.video_vervangenDoorCirkel {
-  width: 100px;
-  height: 100px;
-  background-color: #43BCE3;
-  position: absolute;
-  border-radius: 25%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.postIt_vervangenDoorCirkel {
-  width: 200px;
-  height: 150px;
-  background-color: #88B916;
-  position: absolute;
-  border-radius: 2%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.todo_vervangenDoorCirkel {
-  width: 150px;
-  height: 250px;
-  background-color: #FF0080;
-  position: absolute;
-  border-radius: 2%;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
+Backtrace:
+/Applications/MAMP/htdocs/CP3_groepswerk/_scss/_whiteboard.scss:160
+/Applications/MAMP/htdocs/CP3_groepswerk/_scss/screen.scss:6
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:1163:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:1099:in `expected'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:1094:in `tok!'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:641:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:661:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:653:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:642:in `block'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:635:in `ruleset'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:660:in `block_child'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:653:in `block_contents'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:117:in `stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/scss/parser.rb:42:in `parse'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/engine.rb:393:in `_to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/engine.rb:299:in `to_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:313:in `block in visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:88:in `block in with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:88:in `with_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:79:in `block in with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:115:in `with_frame'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/stack.rb:79:in `with_base'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `map'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/tree/root_node.rb:20:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/engine.rb:268:in `render'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:491:in `update_stylesheet'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `each'
+/Library/Ruby/Gems/2.0.0/gems/sass-3.4.7/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/sass_compiler.rb:40:in `compile!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/update_project.rb:49:in `perform'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:44:in `call'
+/Library/Ruby/Gems/2.0.0/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/usr/bin/compass:23:in `load'
+/usr/bin/compass:23:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"...ition: absolute\": expected \"{\", was \";\"\A         on line 160 of /Applications/MAMP/htdocs/CP3_groepswerk/_scss/_whiteboard.scss\A         from line 6 of /Applications/MAMP/htdocs/CP3_groepswerk/_scss/screen.scss\A \A 155: 	width: 300px;\A 156: 	padding: 10px;\A 157: 	background-color: #92D1B4;\A 158: 	margin: 5px;\A 159: <<<<<<< HEAD\A 160: 	position: absolute;\A 161: =======\A 162: 	float: right;\A 163: >>>>>>> f96ba6740e99df9ab5674e23cac843b4edd6fa26\A 164: 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));\A 165: 	li{"; }

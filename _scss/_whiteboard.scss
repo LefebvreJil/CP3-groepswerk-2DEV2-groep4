@@ -156,7 +156,11 @@
 	padding: 10px;
 	background-color: #92D1B4;
 	margin: 5px;
+<<<<<<< HEAD
 	position: absolute;
+=======
+	float: right;
+>>>>>>> f96ba6740e99df9ab5674e23cac843b4edd6fa26
 	@include prefix(box-shadow, 0px 0px 11px 0px rgba(50, 50, 50, 0.25));
 	li{
 		width: 280px;

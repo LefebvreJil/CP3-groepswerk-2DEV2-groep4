@@ -7,7 +7,6 @@ module.exports = (function(){
 
 	TodoInputForm.prototype.submitHandler = function(event) {
 		event.preventDefault();
-		console.log('Hello world---submithandler werkt');
 		bean.fire(this, "create-todo", this.input.value);
 		this.input.value = '';
 	};

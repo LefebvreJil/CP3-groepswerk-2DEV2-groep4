@@ -34,30 +34,14 @@
 		{{/each}}
 	</script>
 
-	<script type="text/template" id="todo-template">
-		{{#each .}}
-			<div class="todo">
-			<form class="todo-input-form">
-			  	<input type="text" class="todo-input" placeholder="Type en druk op enter." />
-			</form>
-			<ul class="todo-list">
-			</ul>
-				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
-			</div>
-		{{/each}}
-	</script>
-
-	<script type="text/template" id="todo-item-template">
-		{{#each .}}
-			<div class="todo-item">
-				<label class="todo-item-label">
-					<input type="checkbox" class="todo-item-checkbox">
-					<span class="todo-item-text">{{.}}</span>
-					<button class="btn-delete">Delete</button>
-				</label>
-				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
-			</div>
-		{{/each}}
+	<script id="todo-template" type="text/template">
+		<li class="todo-item">
+	  		<label class="todo-item-label">
+				<input type="checkbox" class="todo-item-checkbox">
+				<span class="todo-item-text">{{.}}</span>
+				<button class="btn btn-delete">Delete</button>
+	  		</label>
+	  	</li>
 	</script>
 
 	<script type="text/template" id="img-template">
