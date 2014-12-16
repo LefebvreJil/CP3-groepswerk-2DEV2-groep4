@@ -1,7 +1,7 @@
 <?php
 require_once WWW_ROOT . 'dao' . DS . 'DAO.php';
 
-class FunctiesDAO extends DAO {
+class TodoItemDAO extends DAO {
 
 	//TODOS item
 
