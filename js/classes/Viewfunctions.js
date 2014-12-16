@@ -4,6 +4,7 @@ module.exports = (function(){
     var numbOfClicks = 0;
     var images, videos;
     var id_element;
+    var TodoApplication = require('./TodoApplication');
 
 
 	function Viewfunctions() {
@@ -19,10 +20,10 @@ module.exports = (function(){
 	function view(){
 		$.get( "index.php?page=whiteboard&id="+id_link, function(data) {
 
-			var todos = data.todos;
-		  	var tpl_todos = Handlebars.compile($('#todo-template').html());
-		  	var html_todos = tpl_todos(todos);
-		  	$('.whiteboard').append(html_todos);
+			// var todos = data.todos;
+		 //  	var tpl_todos = Handlebars.compile($('#todo-template').html());
+		 //  	var html_todos = tpl_todos(todos);
+		 //  	$('.whiteboard').append(html_todos);
 
 		  	var stickyNotes = data.stickyNotes;
 			var tpl_stickyNotes = Handlebars.compile($('#stickyNote-template').html());
@@ -45,6 +46,11 @@ module.exports = (function(){
 	}
 
 	function ElementenSelecteren(){
+		//TODO
+		var todoApps = document.querySelectorAll('.todo');
+		for(var j = 0; j < todoApps.length; j++){
+			new TodoApplication(todoApps[j]);
+		}
 		//IMGs
 		var alleImageDivs = document.querySelectorAll('.img-object');
 		dragNdrop(alleImageDivs);

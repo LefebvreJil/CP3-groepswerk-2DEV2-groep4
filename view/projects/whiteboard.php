@@ -42,6 +42,13 @@
 	</div>
 	<div id="whiteboard" class="whiteboard">
 		<!--<canvas id="cnvs" width="1200" height="800"></canvas>-->
+		<div class="todo">
+			<ul class="todo-list">
+		 	</ul>
+		  <form class="todo-input-form">
+		  	<input type="text" class="todo-input" placeholder="Type en druk enter." />
+		  </form>
+		</div>
 	</div>
 	<a href="index.php?page=projects" class="end">Keer terug naar het projectoverzicht</a>
 </div>
