@@ -28,7 +28,7 @@
             if(dikkePlus){
                 var addProject = require('./classes/Addproject.js');
                 dikkePlus.onclick = function(e){
-                    //event.preventDefault();
+                    event.preventDefault();
                     new addProject();
                 };
             
@@ -86,7 +86,7 @@
             var addVideo = document.getElementById('addVideo');
             if(addVideo){
                 addVideo.onclick = function(event) {
-                        //event.preventDefault();
+                        event.preventDefault();
                         chooseVideo();
                         new video();
                 };
@@ -97,7 +97,7 @@
             var addStickyNote = document.getElementById('addStickyNote');
             if(addStickyNote){
                 addStickyNote.onclick = function(event) {
-                        //event.preventDefault();
+                        event.preventDefault();
                         new stickyNote();
                 };
             }
@@ -125,14 +125,6 @@
             });
         });
     }
-
-    // function chooseImage() {
-    //   $("#imageWboard").click();
-    // }
-
-    // function chooseVideo() {
-    //   $("#videoInput").click();
-    // }
 
 	init();
     moveWhiteboardOnClick();
