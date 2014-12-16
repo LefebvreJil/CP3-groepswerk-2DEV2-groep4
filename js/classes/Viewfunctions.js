@@ -45,40 +45,23 @@ module.exports = (function(){
 	}
 
 	function ElementenSelecteren(){
+		//IMGs
 		var alleImageDivs = document.querySelectorAll('.img-object');
-		var img_xPossen;
-		var img_yPossen;
+		dragNdrop(alleImageDivs);
 
-		for (var i = 0; i < alleImageDivs.length; i++) {
-		  	img_xPossen = images[i].xPos;
-		  	img_yPossen = images[i].yPos;
-		 }
-
-		dragNdrop(alleImageDivs, img_xPossen, img_yPossen);
-
+		//VIDs
 		var alleVideoDivs = document.querySelectorAll('.video-object');
-		var video_xPossen;
-		var video_yPossen;
-		for (var j = 0; j < alleImageDivs.length; j++) {
-		  	video_xPossen = videos[j].xPos;
-		  	video_yPossen = videos[j].yPos;
-		 }
-		dragNdrop(alleVideoDivs, video_xPossen, video_yPossen);
+		dragNdrop(alleVideoDivs);
 
 		
 
 	}
 
-	function dragNdrop(elementen, xPossen, yPossen){
+	function dragNdrop(elementen){
 
 		for (var i = 0; i < elementen.length; i++) {
 		  	element = elementen[i];
-		  	console.log(element.getAttribute("alt"));
-		  	var xPos = xPossen[i];
-		  	var yPos = yPossen[i];
-		  	element.style.top = xPos+'px';
-			element.style.left = yPos+'px';
-
+		  	id_element = element.getAttribute('id');
 			element.addEventListener('mousedown', mouseDownHandler);
 		 }
 	}
@@ -91,18 +74,21 @@ module.exports = (function(){
 		window.addEventListener('mouseup', mouseUpHandler);
 
 		numbOfClicks++;
-		element.style.zIndex = numbOfClicks;
+		//element.style.zIndex = numbOfClicks;
 	};
 
 	mouseMoveHandler = function (event) {
 		element.style.left = (event.x - element.offsetX) + 'px';
 		element.style.top = (event.y - element.offsetY )+ 'px';
+	};
 
+	mouseUpHandler = function (event) {
 		if(element.className==="video-object"){
 			var doorsturen = {
 					className: element.className,
-					xPos: element.style.left,
-					yPos: element.style.top
+					xPos: event.x - element.offsetX,
+					yPos: event.y - element.offsetY,
+					id: id_element
 				};
 			$.post("index.php?page=whiteboard&id="+id_link, doorsturen)
 			.done(function(data){
@@ -110,10 +96,6 @@ module.exports = (function(){
 			});
 		}
 
-		//var SchrijfWeg = $.post("index.php?page=projects", input);
-	};
-
-	mouseUpHandler = function (event) {
 		window.removeEventListener('mousemove', mouseMoveHandler);
 		window.removeEventListener('mouseup', mouseUpHandler);
 	};

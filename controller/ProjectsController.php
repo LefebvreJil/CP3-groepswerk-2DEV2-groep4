@@ -95,7 +95,7 @@ class ProjectsController extends Controller {
 
 				if(!empty($_POST['className'])){
 					$data = $_POST;
-					//$positieWijzigen = $this->videoDAO->updatePosition($data);
+					$positieWijzigen = $this->videoDAO->updatePosition($data);
 				}
 
 			}else{

@@ -62,18 +62,16 @@
 
 	<script type="text/template" id="img-template">
 		{{#each .}}
-			<div class="img-object">
-				<img src="./uploads/{{file}}_th.{{extension}}" alt="{{id}}"/>
-				<a class="deleteImg" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder afbeelding</a>
+			<div class="img-object" id="{{id}}">
+				<img src="./uploads/{{file}}_th.{{extension}}" alt="{{file}}"/>
 			</div>
 		{{/each}}
 	</script>
 
 	<script type="text/template" id="video-template">
 		{{#each .}}
-			<div class="video-object">
-				<video controls src="./uploads/{{file}}.{{extension}}" alt="{{id}}" width="250"/>
-				<a class="deleteImg" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder video</a>
+			<div class="video-object" id="{{id}}" style="top:{{xPos}}px; left:{{yPos}}px;">
+				<video controls src="./uploads/{{file}}.{{extension}}" alt="{{file}}" width="250"/>
 			</div>
 		{{/each}}
 	</script>
