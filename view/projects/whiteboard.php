@@ -43,9 +43,12 @@
 	<div id="whiteboard" class="whiteboard">
 		<!--<canvas id="cnvs" width="1200" height="800"></canvas>-->
 		<div class="todo">
+			<header>
+				<h1>Nog te doen</h1>
+			</header>
 			<ul class="todo-list">
 		 	</ul>
-		  <form class="todo-input-form">
+		  <form class="todo-input-form" method="post" action="index.php?page=whiteboard&amp;id=<?php echo $_GET['id'] ?>">
 		  	<input type="text" class="todo-input" placeholder="Type en druk enter." />
 		  </form>
 		</div>

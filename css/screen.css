@@ -488,7 +488,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 
 /*-----------TODO------------*/
 .todo {
-  width: 300px;
+  width: 250px;
   padding: 10px;
   background-color: #92D1B4;
   margin: 5px;
@@ -498,6 +498,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -moz-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   -o-box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
   box-shadow: 0px 0px 11px 0px rgba(50, 50, 50, 0.25);
+}
+.todo h1 {
+  margin-bottom: 5px;
+}
+.todo .todo-input {
+  width: 230px;
 }
 .todo li {
   width: 280px;
