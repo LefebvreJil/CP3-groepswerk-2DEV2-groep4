@@ -16,8 +16,8 @@
 			Hier maak je je brainstorms aan door op de grote plus te klikken.
 			</p>
 			<p class="intro">
-				Dubbelklik op de titel van het project en de beschrijving om ze aan te passen.
-				Klik op het vlak om naar het whiteboard zelf te gaan.<br />
+				Klik op de titel van het project en de beschrijving om ze aan te passen.
+				Klik op de grote plus om een nieuw project aan te maken.<br />
 				<span>Elementen die je kunt toevoegen op het whiteboard:</span>
 			</p>
 			<ul>
@@ -25,7 +25,6 @@
 				<li class="introLi">Je eigen foto's</li>
 				<li class="introLi">Zelf toegevoegde filmpjes</li>
 				<li class="introLi">To-do lijstjes all the way</li>
-				<li class="introLi">Tekenen om alles te linken</li>
 				<li class="introLi">En zoveel meer!</li>
 			</ul>
 			<p class="intro">Go nuts and let the brainstorm begin!</p>
