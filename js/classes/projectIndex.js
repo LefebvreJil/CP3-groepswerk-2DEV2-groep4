@@ -10,18 +10,17 @@ module.exports = (function(){
 		$.get( "index.php?page=projects", function(data) {
 			//console.log(data);
 			var projects = data.projects;
-			//var usersOnProject = data.usersOnProject;
-
 		  	var tpl_projects = Handlebars.compile($('#project-template').html());
-		  	//var tpl_users = Handlebars.compile($('#users-template').html());
-
 		  	var html_projects = tpl_projects(projects);
-		  	//var html_users = tpl(usersOnProject);
-
 		  	$('.projectList').append(html_projects);
-		  	//$('.description').append(html_users);
 
-		  var projects_title = document.querySelectorAll('.title');
+		  	linken();
+		  	});
+		  
+	}
+
+	function linken(){
+		var projects_title = document.querySelectorAll('.title');
 		  var projects_link = document.querySelectorAll('.link');
 		  var projects_description = document.querySelectorAll('.description');
 
@@ -52,7 +51,7 @@ module.exports = (function(){
 	        });
 	    
 
-		});
+		
 	}
 
 	function get_random_color() {
@@ -65,7 +64,6 @@ module.exports = (function(){
     }
 
 	function aanpassenTitel (titel, id_link){
-		
 		titel.addEventListener('keydown', function(e){
 			//als er op enter gedrukt wordt dan wordt het weggeschreven naar de DB
 			if(e.keyCode===13){
@@ -78,6 +76,7 @@ module.exports = (function(){
 				};
 
 				var SchrijfWeg = $.post("index.php?page=projects", input);
+				titel.blur();
 			}
 		});
 	}
@@ -95,6 +94,7 @@ module.exports = (function(){
 				};
 
 				var Wegschrijven = $.post("index.php?page=projects", data);
+				beschrijving.blur();
 			}
 		});
 	}
@@ -110,51 +110,14 @@ module.exports = (function(){
 			var deleteWegSchrijvenAJAX = $.post("index.php?page=deleteProject", input);
 
 		   deleteWegSchrijvenAJAX.done(function(data) {
-		   	 	//console.log(data);
-		   	 	// var elementen = document.getElementById("projectList");
-		   	 	// console.log(elementen[0]);
-		   	 	// elementen.removeChild(elementen.childNodes[0]);
+
 		   	 	var projectList = document.querySelector('.projectList');
 				var projectItems = [];
 				var projectItemElement = projectList.querySelectorAll('.projectItem');
-				//[].forEach.call(projectItemElement, function(projectItemEl){
-					// var cartItem = new ShoppingCartItem(projectItemEl);
-					// bean.on(cartItem, "delete", this.deleteItemHandler.bind(this));
-					// bean.on(cartItem, "change", this.cartItemChangeHandler.bind(this));
-					// this.cartItems.push(cartItem);
-				// 	console.log(projectItemEl);
-				// });
-		  //  		for(var i = 0; i < projectItemElement.length; i++){
-				// 	projectItemElement[i].addEventListener('click', function(e){
-				// 		e.preventDefault();
-				// 		console.log('hallo jongeman');
-				// 		getContent(e.currentTarget.getAttribute('href'));
-				// 	});
-				// }
 		   });
 		});
 	}
 
-	// function getContent(url){
-
-	// 	//Past de urls live aan
-	// 	if(window.history.pushState){
-	// 		window.history.pushState('','', url);
-	// 	}
-
-	// 	//.get haalt de html op
-	// 	//.done = "als de functie gelukt is, doe dit (...)"
-	// 	$.get(url).done(replaceContent);
-
-	// }
-
-	// function replaceContent(data){
-
-	// 	var $content = $(data);
-	// 	//get(0) selecteerd nu alleen de section ipv alles
-	// 	//replace  vervangt de content met hetgeen dat tussen de haakjes staat
-	// 	$('#projectList').replaceWith($content.get(0));
-	// }
 
 	return projectIndex;
 })();

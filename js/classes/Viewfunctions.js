@@ -65,10 +65,8 @@ module.exports = (function(){
 					id_stickynote: id_stickynote
 				};
 
-				$.post("index.php?page=UpdateFunctie", input)
-				.done(function(data){
-					console.log(data);
-				});
+				$.post("index.php?page=UpdateFunctie", input);
+				stickynote.blur();
 
 
 			}

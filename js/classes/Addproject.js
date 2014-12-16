@@ -1,4 +1,6 @@
 module.exports = (function(){
+	var projectIndex = require('./projectIndex.js');
+            
 	function Addproject() {
 		//console.log("[Addproject] Hello Jil");
 		$.post( "index.php?page=addProject", { 
@@ -19,6 +21,8 @@ module.exports = (function(){
 			var items = $('.projectItem');
 			$(items[items.length-1]).css( "background-color", get_random_color());
 	   	 }
+	   	 
+
 	   });
 	}
 
