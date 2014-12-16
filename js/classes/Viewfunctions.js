@@ -3,6 +3,7 @@ module.exports = (function(){
 	var id_link;
     var numbOfClicks = 0;
     var images, videos;
+    var id_element;
 
 
 	function Viewfunctions() {
@@ -49,8 +50,8 @@ module.exports = (function(){
 		var img_yPossen;
 
 		for (var i = 0; i < alleImageDivs.length; i++) {
-		  	img_xPossen = images[i]['xPos'];
-		  	img_yPossen = images[i]['yPos'];
+		  	img_xPossen = images[i].xPos;
+		  	img_yPossen = images[i].yPos;
 		 }
 
 		dragNdrop(alleImageDivs, img_xPossen, img_yPossen);
@@ -58,9 +59,9 @@ module.exports = (function(){
 		var alleVideoDivs = document.querySelectorAll('.video-object');
 		var video_xPossen;
 		var video_yPossen;
-		for (var i = 0; i < alleImageDivs.length; i++) {
-		  	video_xPossen = videos[i]['xPos'];
-		  	video_yPossen = videos[i]['yPos'];
+		for (var j = 0; j < alleImageDivs.length; j++) {
+		  	video_xPossen = videos[j].xPos;
+		  	video_yPossen = videos[j].yPos;
 		 }
 		dragNdrop(alleVideoDivs, video_xPossen, video_yPossen);
 
@@ -72,6 +73,7 @@ module.exports = (function(){
 
 		for (var i = 0; i < elementen.length; i++) {
 		  	element = elementen[i];
+		  	console.log(element.getAttribute("alt"));
 		  	var xPos = xPossen[i];
 		  	var yPos = yPossen[i];
 		  	element.style.top = xPos+'px';
@@ -90,25 +92,31 @@ module.exports = (function(){
 
 		numbOfClicks++;
 		element.style.zIndex = numbOfClicks;
-	}
+	};
 
 	mouseMoveHandler = function (event) {
 		element.style.left = (event.x - element.offsetX) + 'px';
 		element.style.top = (event.y - element.offsetY )+ 'px';
 
-		console.log(element.className);
-
-		if(element.className===video-object){
-			$.post("index.php?page=projects", input);
+		if(element.className==="video-object"){
+			var doorsturen = {
+					className: element.className,
+					xPos: element.style.left,
+					yPos: element.style.top
+				};
+			$.post("index.php?page=whiteboard&id="+id_link, doorsturen)
+			.done(function(data){
+				console.log(data.dataPost);
+			});
 		}
 
 		//var SchrijfWeg = $.post("index.php?page=projects", input);
-	}
+	};
 
 	mouseUpHandler = function (event) {
 		window.removeEventListener('mousemove', mouseMoveHandler);
 		window.removeEventListener('mouseup', mouseUpHandler);
-	}
+	};
 
 
 

@@ -93,6 +93,11 @@ class ProjectsController extends Controller {
 					}
 				}
 
+				if(!empty($_POST['className'])){
+					$data = $_POST;
+					//$positieWijzigen = $this->videoDAO->updatePosition($data);
+				}
+
 			}else{
 				$this->redirect('index.php?page=projects');
 			}
@@ -102,7 +107,7 @@ class ProjectsController extends Controller {
 
 		if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
 			header('Content-Type: application/json');
-	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos, 'imges' => $imges, 'videos' => $videos));
+	     	echo json_encode(array('stickyNotes' => $stickyNotes, 'todos' => $todos, 'imges' => $imges, 'videos' => $videos, 'dataPost' => $_POST));
 	    	die();
 		}
 	}
