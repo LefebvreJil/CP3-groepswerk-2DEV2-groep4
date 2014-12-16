@@ -46,21 +46,10 @@
                 var viewFunctions = require('./classes/Viewfunctions.js');
                 new viewFunctions();
 
-                //drag n drop
-                var dragNdrop = require('./classes/dragNdrop.js');
-                new dragNdrop();
-
 
                 //img class toevoegen
                  var Img = require('./classes/img.js');
-                 var addImage = document.getElementById('imageSubmit');
-                 if(addImage){
-                     addImage.onclick = function(event) {
-                             if (window.File && window.FileReader && window.FileList && window.Blob){
-                                new Img();
-                            }
-                     };
-                 }
+                 new Img();
 
                 //video class toevoegen
                 var video = require('./classes/video.js');
