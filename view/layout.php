@@ -37,16 +37,24 @@
 	<script type="text/template" id="todo-template">
 		{{#each .}}
 			<div class="todo">
-			<ul class="todo-items">
+			<form class="todo-input-form">
+			  	<input type="text" class="todo-input" placeholder="Type en druk op enter." />
+			</form>
+			<ul class="todo-list">
 			</ul>
 				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
 			</div>
 		{{/each}}
 	</script>
 
-	<script type="text/template" id="todo-template">
+	<script type="text/template" id="todo-item-template">
 		{{#each .}}
-			<div class="todo">
+			<div class="todo-item">
+				<label class="todo-item-label">
+					<input type="checkbox" class="todo-item-checkbox">
+					<span class="todo-item-text">{{.}}</span>
+					<button class="btn btn-delete">Delete</button>
+				</label>
 				<a class="deleteTodo" href=""><img src="assets/img/arrow.png" alt="arrow">Verwijder todo</a>
 			</div>
 		{{/each}}
@@ -65,7 +73,7 @@
 		{{#each .}}
 			<div class="video-object">
 				<video controls src="./uploads/{{file}}.{{extension}}" alt="{{file}}" width="250"/>
-				<a class="deleteImg" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder afbeelding</a>
+				<a class="deleteImg" href="index.php?page=delete&id={{id}}"><img src="assets/img/arrow.png" alt="arrow">Verwijder video</a>
 			</div>
 		{{/each}}
 	</script>
