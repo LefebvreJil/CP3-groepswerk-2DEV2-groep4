@@ -23,10 +23,10 @@
 						</form>
 					</li>
 					<li class="underLi">
-						<form id="videoform" method="post" enctype="multipart/form-data" action='index.php?page=addImage' class="formAdd">
-							<label for="videoWboard" id="addVideo">Video</label>
-							<input type="file" name="videoWboard" id="videoWboard" />
-							<input type="submit" value="Plaats" class="videoBtn" />
+						<form id="videoform" method="post" action="index.php?page=whiteboard&amp;id=<?php echo $_GET['id'] ?>" class="formAdd" enctype="multipart/form-data">
+							<label for="video" id="addVideo">Video</label>
+							<input type="file" name="video" id="videoWboard" />
+							<input type="submit" value="Plaats" class="videoBtn" id="videoSubmit" />
 						</form>
 					</li>
 				</ul>

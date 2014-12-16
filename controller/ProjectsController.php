@@ -2,19 +2,16 @@
 require_once WWW_ROOT . 'controller' . DS . 'Controller.php';
 require_once WWW_ROOT . 'dao' . DS . 'ProjectDAO.php';
 require_once WWW_ROOT . 'dao' . DS . 'FunctiesDAO.php';
-require_once WWW_ROOT . 'dao' . DS . 'ImageDAO.php';
 require_once WWW_ROOT . 'php-image-resize' . DS . 'ImageResize.php';
 
 class ProjectsController extends Controller {
 
 	private $projectDAO;
 	private $functieDAO;
-	private $imageDAO;
 
 	function __construct() {
 		$this->projectDAO = new ProjectDAO();
 		$this->functieDAO = new FunctiesDAO();
-		$this->imageDAO = new ImageDAO();
 	}
 
 	public function index() {
@@ -72,12 +69,15 @@ class ProjectsController extends Controller {
 				$project = $this->projectDAO->selectById($project_id);
 				$this->set('project', $project);
 
-				
 				if(!empty($_FILES)){
-					$this->_handleAddImage();
+					if(!empty($_FILES['image'])){
+						$this->_handleAddImage();
+					}
+					if(!empty($_FILES['video'])){
+						$this->_handleAddVideo();
+					}
 				}
 
-				
 			}else{
 				$this->redirect('index.php?page=projects');
 			}
@@ -176,6 +176,49 @@ class ProjectsController extends Controller {
 			$this->functieDAO->insert_img($insertImage);
 
 			if(!empty($insertImage)) {
+				$_SESSION['info'] = 'De upload was succesvol!';
+				$this->redirect('index.php?page=whiteboard&id=' . $_GET['id']);
+			}
+		}
+		$_SESSION['error'] = 'De upload is mislukt.';
+		$this->set('errors', $errors);
+	}
+
+	private function _handleAddVideo(){
+		$errors = array();
+		$size = array();
+
+		if(!empty($_FILES["video"])){
+			if(!empty($_FILES["video"]["error"])){ $errors["video"] = "De video kon niet geüpload worden."; }
+
+			if(empty($errors["video"])){
+				$size = getimagesize($_FILES["video"]["tmp_name"]);
+				if(empty($size)){ $errors["video"] = "Upload een video"; }
+			}
+
+			if(empty($errors["video"])){
+				if($_FILES["video"]["size"] >=2097152){ 
+					$errors["video"] = "De bestandsgrootte is te groot.";
+				}
+			}
+		}
+
+		if(empty($errors)) {
+
+			$name = preg_replace("/\\.[^.\\s]{3,4}$/", "", $_FILES["video"]["name"]);
+			$extension = 'mp4';
+
+			$insertVideo['user_id'] = $_SESSION['user']['id'];
+			$insertVideo['project_id'] = $_GET['id'];
+			$insertVideo['xPos'] = "0";
+			$insertVideo['yPos'] = "0";
+			$insertVideo['file'] = $name;
+			$insertVideo['extension'] = $extension;
+
+
+			$this->functieDAO->insert_video($insertVideo);
+
+			if(!empty($insertVideo)) {
 				$_SESSION['info'] = 'De upload was succesvol!';
 				$this->redirect('index.php?page=whiteboard&id=' . $_GET['id']);
 			}
