@@ -46,18 +46,7 @@ module.exports = (function(){
 	}
 
 	function ElementenSelecteren(){
-<<<<<<< HEAD
 		
-=======
-		//TODO
-		var todoApps = document.querySelectorAll('.todo');
-		for(var j = 0; j < todoApps.length; j++){
-			new TodoApplication(todoApps[j]);
-		}
-		//IMGs
-		var alleImageDivs = document.querySelectorAll('.img-object');
-		dragNdrop(alleImageDivs);
->>>>>>> f96ba6740e99df9ab5674e23cac843b4edd6fa26
 
 		//VIDs
 		var alleVideoDivs = document.querySelectorAll('.video-object');
