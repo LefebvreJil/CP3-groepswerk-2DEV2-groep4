@@ -128,7 +128,7 @@ class UsersController extends Controller {
 				$inserteduser["kwaliteiten"] = "";
 			}
 
-			$this->userDAO->insert($inserteduser);
+			$userInserten = $this->userDAO->insert($inserteduser);
 
 			//aan Jil: is dit ok? Jil zei ok
 			$imageresize = new Eventviva\ImageResize($_FILES["image_register"]["tmp_name"]);
@@ -138,10 +138,11 @@ class UsersController extends Controller {
 
 			$_SESSION["info"] = "Je profielfoto is succesvol opgeslagen.";
 
-			if(!empty($inserteduser)) {
+			if(!empty($userInserten)) {
 				$_SESSION['info'] = 'De registratie was succesvol!';
-				$_SESSION['user'] = $inserteduser;
-				$this->redirect('index.php?page=projects');
+				$_SESSION['user'] = $userInserten;
+				var_dump($_SESSION);
+				//$this->redirect('index.php?page=projects');
 			}
 		}
 		$_SESSION['error'] = 'De registratie is mislukt.';
